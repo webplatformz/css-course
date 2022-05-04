@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>CSS Basics</title>
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/webplatformz/zuehlke-reveal-package@de8372e841e7cdcaaff4cce9b47cb4dc517a7e41/release/index.css">
+    <link rel="stylesheet" href="../utils.css">
+    <link rel="stylesheet" href="01-basics.css">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section class="deck-slide">
+            <h1>CSS Basics</h1>
+        </section>
+        <section>
+            <section>
+                <h2>Box Model</h2>
+            </section>
+
+            <section>
+                <h2>Everything's a box in here</h2>
+                <ul>
+                    <li class="fragment">Every HTML element is represented as a rectangular box.</li>
+                    <li class="fragment">CSS determines the size, position, and other properties (e.g. color) of these boxes.</li>
+                    <li class="fragment">Each box is divided into 4 areas.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>What's in the box?</h2>
+                <div class="box-model-container">
+                    <div class="box-model-margin fragment highlight-current-red" data-fragment-index="4">
+                        margin
+                        <div class="box-model-border fragment highlight-current-red" data-fragment-index="3">
+                            border
+                            <div class="box-model-padding fragment highlight-current-red" data-fragment-index="2">
+                                padding
+                                <div class="box-model-content fragment highlight-current-red" data-fragment-index="1">
+                                    content
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="r-stack" style="margin-top: 50px">
+                    <p class="fragment current-visible" data-fragment-index="1">
+                        <b>Content</b>: The actual content of the box, in which text, images and other child elements appear. Child elements are bound by this area.
+                    </p>
+                    <p class="fragment current-visible" data-fragment-index="2">
+                        <b>Padding</b>: Clears an area around the content, separating content and border. The padding is transparent.
+                    </p>
+                    <p class="fragment current-visible" data-fragment-index="3">
+                        <b>Border</b>: A border that goes around the padding and content. Backgrounds extend to the edge of this area/box. The border can be coloured.
+                    </p>
+                    <p class="fragment current-visible" data-fragment-index="4">
+                        <b>Margin</b>: Clears an area outside the border to separate the element from its neighbours. The margin is transparent.
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Box Sizing</h2>
+                <p>There are two ways to determine the size of a box from on the height and width values:</p>
+                <ul>
+                    <li class="fragment">
+                        <b>Content Box</b>: Default behaviour. The element's size (height, width) corresponds with the content box size. Padding and border add to the rendered width.
+                    </li>
+                    <li class="fragment">
+                        <b>Border Box</b>: Includes padding and border into the values for an element's height and width. Increasing padding or border sizes will shrink the content box. Generally easier to use.
+                    </li>
+                </ul>
+                <pre class="fragment"><code class="hljs css" data-trim data-noescape>
+                    box-sizing: content-box | border-box;
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>Box Sizing</h2>
+                <!-- TODO: MAYBE MAKE THIS A CODEPEN SO THEY CAN PLAY AROUND WITH IT? -->
+                <style>
+                    .box-sizing-container {
+                        display: inline-block;
+                        width: 250px;
+                        text-align: left;
+                        text-indent: 10px;
+                        margin-top: 30px;
+                    }
+
+                    .box-sizing-container div {
+                        width: 100%;
+                        border: solid var(--color-border) 10px;
+                        padding: 5px;
+                        margin: 10px 0;
+                    }
+
+                    .box-sizing-content-box {
+                        box-sizing: content-box;
+                    }
+
+                    .box-sizing-border-box {
+                        box-sizing: border-box;
+                    }
+                </style>
+                <div class="cols">
+                    <pre>
+                        <code class="hljs css" data-trim data-noescape>
+                            .parent {
+                                width: 250px;
+                                background: lightskyblue;
+                            }
+
+                            .content-box {
+                                box-sizing: content-box;
+                                width: 100%;
+                                border: solid #666 10px;
+                                padding: 5px;
+                            }
+
+                            .border-box {
+                                box-sizing: border-box;
+                                width: 100%;
+                                border: solid #666 10px;
+                                padding: 5px;
+                            }
+                        </code>
+                    </pre>
+                    <div class="box-sizing-container box-model-content">
+                        parent
+                        <div class="box-sizing-content-box">content-box</div>
+                        <div class="box-sizing-border-box">border-box</div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Margin Collapsing</h2>
+                <p>Vertical margins (top and bottom) of blocks are collapsed in these 3 cases:</p>
+                <ul>
+                    <li class="fragment" data-fragment-index="1"><b>Adjacent siblings</b></li>
+                    <li class="fragment" data-fragment-index="2">
+                        <b>Nothing separating parent & descendants:</b> e.g. no border, padding or content between outer and inner margin
+                    </li>
+                    <li class="fragment" data-fragment-index="3">
+                        <b>Empty blocks:</b> top and bottom margin collapses on blocks with zero height and no border or padding
+                    </li>
+                </ul>
+                <div class="r-stack">
+                    <div class="cols fragment fade-in-then-out" data-fragment-index="1">
+                        <div style="width: 120px;">
+                            <div class="box-model-content" style="height: 50px;"><small>content</small></div>
+                            <div class="box-model-margin" style="height: 25px; margin-bottom: 10px;"><small>25px</small>
+                            </div>
+                            <div class="box-model-margin" style="height: 50px;"><small>50px</small></div>
+                            <div class="box-model-content" style="height: 50px;"><small>content</small></div>
+                        </div>
+                        <span class="arrow-right"></span>
+                        <div style="width: 120px;">
+                            <div class="box-model-content" style="height: 50px;"><small>content</small></div>
+                            <div class="box-model-margin" style="height: 50px;"><small>50px</small></div>
+                            <div class="box-model-content" style="height: 50px;"><small>content</small></div>
+                        </div>
+                    </div>
+                    <div class="cols fragment fade-in-then-out" data-fragment-index="2">
+                        <div style="width: 120px;">
+                            <div class="box-model-margin" style="height: 25px;"><small>25px</small></div>
+                            <div style="padding: 10px; background: lightblue;">
+                                <div class="box-model-margin" style="height: 50px;"><small>50px</small></div>
+                                <div class="box-model-content" style="height: 50px"><small>child content</small></div>
+                            </div>
+                        </div>
+                        <span class="arrow-right"></span>
+                        <div style="width: 120px;">
+                            <div style="position: relative">
+                                <div class="box-model-margin"
+                                     style="height: 25px; width: 100%; position: absolute; bottom: 0"></div>
+                                <div class="box-model-margin" style="height: 50px; margin: 0 10px;"><small>50px</small>
+                                </div>
+                            </div>
+                            <div style="padding: 0 10px 10px 10px; background: lightblue;">
+                                <div class="box-model-content" style="height: 50px"><small>child content</small></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cols fragment fade-in-then-out" data-fragment-index="3">
+                        <div style="width: 120px;">
+                            <div class="box-model-margin" style="height: 25px;"><small>25px</small></div>
+                            <div class="box-model-content" style="height: 1px;"></div>
+                            <div class="box-model-margin" style="height: 50px;"><small>50px</small></div>
+                        </div>
+                        <span class="arrow-right"></span>
+                        <div style="width: 120px;">
+                            <div class="box-model-margin" style="height: 50px;"><small>50px</small></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Margin vs. Padding</h2>
+                <p>When should I use which one?</p>
+                <ul>
+                    <li>
+                        Use <b>margin</b> for spacing between neighbouring elements<br/>
+                        <span class="arrow-right"></span> control whitespace
+                    </li>
+                    <li>
+                        Use <b>padding</b> to position child elements and text content<br/>
+                        <span class="arrow-right"></span> control box
+                    </li>
+                    <li>Note: padding is included in the background colour/image and click region (e.g. for links or buttons)</li>
+                    <li>Margin can be set to <span class="code">auto</span> or negative numbers</li>
+                </ul>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Syntax and Rules</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>How to define the styles?</h2>
+            </section>
+
+            <section>
+                <h2>Inline styles</h2>
+                <p>We can use the <span class="code">style</span> attribute to define the styles for our HTML element:
+                </p>
+                <pre>
+                    <code class="hljs html" data-trim>
+                        <p style="color: red; font-size: 50px;">
+                            Paragraph text in red.
+                        </p>
+                    </code>
+                </pre>
+                <p style="color: red; font-size: 50px;">
+                    Paragraph text in red.
+                </p>
+            </section>
+
+            <section>
+                There's a better way though…
+            </section>
+
+            <section>
+                <h2>The class attribute</h2>
+                <p>We write a meaningful name into the <span class="code">class</span> attribute:</p>
+                <pre>
+                    <code class="hljs html" data-trim>
+                        <p class="highlight-paragraph">
+                            Paragraph text in red.
+                        </p>
+                    </code>
+                </pre>
+                <div class="fragment">
+                    <p>Then we can reference this class in CSS prefixed with a dot:</p>
+                    <pre>
+                    <code class="hljs html" data-trim>
+                        <style>
+                            .highlight-paragraph {
+                                color: red;
+                                font-size: 50px;
+                            }
+                        </style>
+                    </code>
+                </pre>
+                </div>
+            </section>
+
+            <section>
+                <h2>Classes</h2>
+                <p>Elements can have multiple classes assigned:</p>
+                <pre>
+                    <code class="hljs html" data-trim>
+                        <p class="big red">
+                            Paragraph text in red.
+                        </p>
+
+                        <style>
+                            .big {
+                                font-size: 50px;
+                            }
+
+                            .red {
+                                color: red;
+                            }
+                        </style>
+                    </code>
+                </pre>
+            </section>
+
+            <section>
+                What happens if we combine them?
+            </section>
+
+        </section>
+
+        <section>
+            <section>
+                <h2>Selectors</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Browser Defaults</h2>
+            </section>
+        </section>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/webplatformz/zuehlke-reveal-package@de8372e841e7cdcaaff4cce9b47cb4dc517a7e41/release/index.js"></script>
+<script>
+	setupZuehlkeRevealPresentation();
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+.box-model-container div {
+    text-align: left;
+    padding: 0 50px 50px 50px;
+    line-height: 50px;
+    color: white;
+}
+
+.box-model-container .box-model-content {
+    padding-bottom: 0;
+}
+
+.box-model-margin {
+    background: var(--color-margin);
+}
+
+.box-model-border {
+    background: var(--color-border);
+}
+
+.box-model-padding {
+    background: var(--color-padding);
+}
+
+.box-model-content {
+    background: var(--color-content);
+}
+
+.cols pre {
+    margin: 0;
+    width: 50%;
+}
