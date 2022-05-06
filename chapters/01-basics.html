@@ -87,7 +87,6 @@
                         width: 250px;
                         text-align: left;
                         text-indent: 10px;
-                        margin-top: 30px;
                     }
 
                     .box-sizing-container div {
@@ -106,28 +105,26 @@
                     }
                 </style>
                 <div class="cols">
-                    <pre>
-                        <code class="hljs css" data-trim data-noescape>
-                            .parent {
-                                width: 250px;
-                                background: lightskyblue;
-                            }
+                    <pre><code class="hljs css" data-trim data-noescape>
+                        .parent {
+                            width: 250px;
+                            background: lightskyblue;
+                        }
 
-                            .content-box {
-                                box-sizing: content-box;
-                                width: 100%;
-                                border: solid #666 10px;
-                                padding: 5px;
-                            }
+                        .content-box {
+                            box-sizing: content-box;
+                            width: 100%;
+                            border: solid #666 10px;
+                            padding: 5px;
+                        }
 
-                            .border-box {
-                                box-sizing: border-box;
-                                width: 100%;
-                                border: solid #666 10px;
-                                padding: 5px;
-                            }
-                        </code>
-                    </pre>
+                        .border-box {
+                            box-sizing: border-box;
+                            width: 100%;
+                            border: solid #666 10px;
+                            padding: 5px;
+                        }
+                    </code></pre>
                     <div class="box-sizing-container box-model-content">
                         parent
                         <div class="box-sizing-content-box">content-box</div>
@@ -203,23 +200,34 @@
                 <h2>Margin vs. Padding</h2>
                 <p>When should I use which one?</p>
                 <ul>
-                    <li>
+                    <li class="fragment">
                         Use <b>margin</b> for spacing between neighbouring elements<br/>
                         <span class="arrow-right"></span> control whitespace
                     </li>
-                    <li>
+                    <li class="fragment">
                         Use <b>padding</b> to position child elements and text content<br/>
                         <span class="arrow-right"></span> control box
                     </li>
-                    <li>Note: padding is included in the background colour/image and click region (e.g. for links or buttons)</li>
-                    <li>Margin can be set to <span class="code">auto</span> or negative numbers</li>
+                    <li class="fragment">Note: padding is included in the background colour/image and click region (e.g. for links or buttons)</li>
+                    <li class="fragment">Margin can be set to <span class="code">auto</span> or negative numbers</li>
                 </ul>
             </section>
         </section>
 
         <section>
             <section>
-                <h2>Syntax and Rules</h2>
+                <h2>Syntax</h2>
+            </section>
+
+            <section>
+                <h2>Syntax</h2>
+                <p>CSS is a rule-based language: you define the rules by specifying groups of styles that should be applied to particular elements.</p>
+                <p>This is how we define one <b>rule</b>:</p>
+                <pre><code class="hljs css" data-trim>
+                    selector {
+                        property: value; /* <- declaration */
+                    }
+                </code></pre>
             </section>
         </section>
 
@@ -232,13 +240,11 @@
                 <h2>Inline styles</h2>
                 <p>We can use the <span class="code">style</span> attribute to define the styles for our HTML element:
                 </p>
-                <pre>
-                    <code class="hljs html" data-trim>
-                        <p style="color: red; font-size: 50px;">
-                            Paragraph text in red.
-                        </p>
-                    </code>
-                </pre>
+                <pre><code class="hljs html" data-trim>
+                    <p style="color: red; font-size: 50px;">
+                        Paragraph text in red.
+                    </p>
+                </code></pre>
                 <p style="color: red; font-size: 50px;">
                     Paragraph text in red.
                 </p>
@@ -251,52 +257,72 @@
             <section>
                 <h2>The class attribute</h2>
                 <p>We write a meaningful name into the <span class="code">class</span> attribute:</p>
-                <pre>
-                    <code class="hljs html" data-trim>
-                        <p class="highlight-paragraph">
-                            Paragraph text in red.
-                        </p>
-                    </code>
-                </pre>
+                <pre><code class="hljs html" data-trim>
+                    <p class="highlight">
+                        Paragraph text in red.
+                    </p>
+                </code></pre>
                 <div class="fragment">
                     <p>Then we can reference this class in CSS prefixed with a dot:</p>
-                    <pre>
-                    <code class="hljs html" data-trim>
+                    <pre><code class="hljs html" data-trim>
                         <style>
-                            .highlight-paragraph {
+                            .highlight {
                                 color: red;
                                 font-size: 50px;
                             }
                         </style>
-                    </code>
-                </pre>
+                    </code></pre>
                 </div>
             </section>
 
             <section>
                 <h2>Classes</h2>
                 <p>Elements can have multiple classes assigned:</p>
-                <pre>
-                    <code class="hljs html" data-trim>
-                        <p class="big red">
-                            Paragraph text in red.
-                        </p>
+                <pre><code class="hljs html" data-trim>
+                    <p class="big red">
+                        Paragraph text in red.
+                    </p>
 
-                        <style>
-                            .big {
-                                font-size: 50px;
-                            }
+                    <style>
+                        .big {
+                            font-size: 50px;
+                        }
 
-                            .red {
-                                color: red;
-                            }
-                        </style>
-                    </code>
-                </pre>
+                        .red {
+                            color: red;
+                        }
+                    </style>
+                </code></pre>
             </section>
 
             <section>
-                What happens if we combine them?
+                <p>What happens if we combine classes and inline styles?</p>
+                <pre><code class="hljs html" data-trim>
+                    <p class="red" style="color: blue;">
+                        Is it red or blue?
+                    </p>
+
+                    <style>
+                        .red {
+                            color: red;
+                        }
+                    </style>
+                </code></pre>
+                <div class="fragment">
+                    <p style="color: blue;">It's blue!</p>
+                    <p>Inline styles take precedence.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Class vs. Inline</h2>
+                <p>Why are classes better than inline styles?</p>
+                <ul>
+                    <li class="fragment">We can easily reuse styles</li>
+                    <li class="fragment">Separates the concerns of styling and structure</li>
+                    <li class="fragment">Easier to read and maintain</li>
+                    <li class="fragment">Inline styles are hard to override/adjust</li>
+                </ul>
             </section>
 
         </section>
@@ -305,11 +331,106 @@
             <section>
                 <h2>Selectors</h2>
             </section>
+
+            <section>
+                <h2>Selectors</h2>
+                <p>We can use different identifiers from our HTML as selector:</p>
+                <ul>
+                    <li class="fragment">Tags: <span class="code">div</span>, <span class="code">input</span>, <span
+                            class="code">h1</span>…
+                    </li>
+                    <li class="fragment">Classes: <span class="code">.red</span>, <span
+                            class="code">.primary-button</span>, …
+                    </li>
+                    <li class="fragment">IDs: <span class="code">#title</span>, <span class="code">#submit</span></li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Multiple Selectors</h2>
+                <p>We can list multiple selectors separated with comma to apply the same rule to different elements:</p>
+                <pre><code class="hljs css" data-trim>
+                    p, li {
+                        color: red;
+                    }
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>Combinator Selectors</h2>
+                <p>Some elements should look different based on where they are.</p>
+                <pre class="fragment"><code class="hljs css" data-trim data-noescape>
+                    li span { /* spans that are <b>descendants</b> of a li */
+                        color: red;
+                    }
+                </code></pre>
+                <pre class="fragment"><code class="hljs css" data-trim data-noescape>
+                    li > span { /* spans that are <b>direct children</b> of a li */
+                        color: red;
+                    }
+                </code></pre>
+                <pre class="fragment"><code class="hljs css" data-trim data-noescape>
+                    li + p { /* p that is an <b>adjacent sibling</b> of a li */
+                        color: red;
+                    }
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>Combined Selectors</h2>
+                <p>We can combine selectors to target more specific elements:</p>
+                <aside class="notes">Ask attendees to explain the following rules:</aside>
+                <pre class="fragment"><code class="hljs css" data-trim>div.banner li</code></pre>
+                <pre class="fragment"><code class="hljs css" data-trim>form > button#cancel</code></pre>
+                <pre class="fragment"><code class="hljs css" data-trim>h2 + ul li</code></pre>
+                <pre class="fragment"><code class="hljs css" data-trim>body section p + p</code></pre>
+            </section>
+
+        </section>
+
+        <section>
+            <section>
+                <h2>CSS Diner Exercise</h2>
+            </section>
+
+            <section style="height: 100%;">
+                <div style="height: 100%; display: flex; flex-direction: column;">
+                    <p>Solve levels 1 to 14:</p>
+                    <iframe data-src="https://flukeout.github.io" data-preload
+                            style="flex-grow: 1; border:none;"></iframe>
+                </div>
+            </section>
         </section>
 
         <section>
             <section>
                 <h2>Browser Defaults</h2>
+            </section>
+
+            <section>
+                exercise
+            </section>
+
+            <section>
+                <h2>CSS Reset</h2>
+                <p>We usually want to ensure a consistent UI across browsers without having to constantly overwrite default styles. We can …</p>
+                <ul>
+                    <li class="fragment">… manually set the most important rules</li>
+                    <li class="fragment">… use a pre-made «Reset CSS» file to fully strip all styles</li>
+                    <li class="fragment">… use <a href="https://csstools.github.io/normalize.css/">Normalize.css</a> which ensures consistent default styles without resetting everything</li>
+                    <li class="fragment">… use <a href="https://csstools.github.io/sanitize.css/">Sanitize.css</a> which take an opinionated approach to include developer preferences (such as border-box)</li>
+                </ul>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Specificity</h2>
+            </section>
+
+            <section>
+                <h2>Selector Types</h2>
+                …
             </section>
         </section>
     </div>
