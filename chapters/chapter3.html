@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
 
@@ -36,39 +36,51 @@
             </ul>
         </section>
         <section>
-            <section>
-                <h2>Flexbox layout (Flexible Box)</h2>
-                <p>The flexbox layout aims to provide an efficient way to layout space among items in a container, event
-                    when their size is unknown.</p>
-            </section>
-            <section>
-                <ul>
-                    <li>Flexbox is mainly a single-direction layout concept</li>
-                    <li>It has a main axis and a cross axis</li>
-                    <li>We can choose whether the main axis is horizontal (default) or vertical</li>
-                </ul>
-                <img src="../assets/diagrams/chapter3/flexbox_axis.svg"/>
-            </section>
-            <section>
-                <h3>display: flex</h3>
-                <pre><code class="hljs css" data-trim data-noescape>
+            <h2>Flexbox layout (Flexible Box)</h2>
+            <p>The flexbox layout aims to provide an efficient way to layout space among items in a container, event
+                when their size is unknown.</p>
+        </section>
+        <section>
+            <ul>
+                <li>Flexbox is mainly a single-direction layout concept</li>
+                <li>It has a main axis and a cross axis</li>
+                <li>We can choose whether the main axis is horizontal (default) or vertical</li>
+            </ul>
+            <img src="../assets/diagrams/chapter3/flexbox_axis.svg"/>
+        </section>
+        <section>
+            <h3>display: flex</h3>
+            <pre><code class="hljs css" data-trim data-noescape>
                     .parent {
                         display: flex;
                     }
                 </code></pre>
-                <pre><code class="hljs html" data-trim data-noescape>
+            <pre><code class="hljs html" data-trim data-noescape>
                     &lt;div class=&quot;parent&quot;&gt;
                       &lt;div&gt;Item 1&lt;/div&gt;
                       &lt;div&gt;Item 2&lt;/div&gt;
                       &lt;div&gt;Item 3&lt;/div&gt;
                     &lt;/div&gt;
                 </code></pre>
-                <div class="flex-example-parent-horizontal">
-                    <div>Item 1</div>
-                    <div>Item 2</div>
-                    <div>Item 3</div>
-                </div>
-                <p>main axis from left to right</p>
+            <div class="flex-example-parent-horizontal">
+                <div>Item 1</div>
+                <div>Item 2</div>
+                <div>Item 3</div>
+            </div>
+            <p>main axis from left to right</p>
+        </section>
+        <section>
+            <p>Flexbox has some properties for the parent container and some for the individual items</p>
+            <div class="flex-example-parent-horizontal">
+                <div>Item 1</div>
+                <div>Item 2</div>
+                <div>Item 3</div>
+                <p>container</p>
+            </div>
+        </section>
+        <section>
+            <section>
+                <h2>Parent container properties</h2>
             </section>
             <section>
                 <h3>justify-content</h3>
@@ -126,7 +138,7 @@
                 <small>space-around</small>
             </section>
             <section>
-                <h3>justify-content</h3>
+                <h3>align-items</h3>
                 <p>Controls how elements are layouted along the cross axis</p>
                 <pre><code class="hljs css" data-trim data-noescape>
                     .parent {
@@ -141,7 +153,7 @@
                       &lt;div&gt;Item 3&lt;/div&gt;
                     &lt;/div&gt;
                 </code></pre>
-                <div class="flex-example-parent-horizontal flex-example-parent-horizontal-large"
+                <div class="flex-example-parent-horizontal flex-example-parent-horizontal-medium"
                      style="align-items: flex-start">
                     <div>Item 1</div>
                     <div>Item 2</div>
@@ -150,21 +162,21 @@
             </section>
             <section>
                 <h3>align-items: most used values</h3>
-                <div class="flex-example-parent-horizontal flex-example-parent-horizontal-large"
+                <div class="flex-example-parent-horizontal flex-example-parent-horizontal-medium"
                      style="align-items: flex-start">
                     <div>Item 1</div>
                     <div>Item 2</div>
                     <div>Item 3</div>
                 </div>
                 <small>flex-start</small>
-                <div class="flex-example-parent-horizontal flex-example-parent-horizontal-large"
+                <div class="flex-example-parent-horizontal flex-example-parent-horizontal-medium"
                      style="align-items: flex-end">
                     <div>Item 1</div>
-                    <div>Iftem 2</div>
+                    <div>Item 2</div>
                     <div>Item 3</div>
                 </div>
                 <small>flex-end</small>
-                <div class="flex-example-parent-horizontal flex-example-parent-horizontal-large"
+                <div class="flex-example-parent-horizontal flex-example-parent-horizontal-medium"
                      style="align-items: center">
                     <div>Item 1</div>
                     <div>Item 2</div>
@@ -225,7 +237,8 @@
                 <h3>flex-direction</h3>
                 <p>hint: flex-start and flex-end are also reversed</p>
                 <div>
-                    <div class="flex-example-parent-horizontal" style="flex-direction: row-reverse; justify-content: flex-end">
+                    <div class="flex-example-parent-horizontal"
+                         style="flex-direction: row-reverse; justify-content: flex-end">
                         <div>Item 1</div>
                         <div>Item 2</div>
                         <div>Item 3</div>
@@ -239,6 +252,282 @@
                     </code></pre>
                 </div>
             </section>
+        </section>
+        <section>
+            <section>
+                <h2>Child item properties</h2>
+            </section>
+            <section>
+                <p>What if we don't want to layout all items along the cross axis the same way?</p>
+                <div class="flex-example-parent-horizontal flex-example-parent-horizontal-medium"
+                     style="justify-content: center; align-items: flex-start">
+                    <div>Item 1</div>
+                    <div style="align-self: flex-end">Item 2</div>
+                    <div>Item 3</div>
+                </div>
+            </section>
+            <section>
+                <h3>align-self</h3>
+                <p>controls alignment along cross axis for individual element (similar to align-items)</p>
+                <div>
+                    <div class="flex-example-parent-horizontal flex-example-parent-horizontal-medium"
+                         style="justify-content: center; align-items: flex-start">
+                        <div>Item 1</div>
+                        <div style="align-self: flex-end">Item 2</div>
+                        <div>Item 3</div>
+                    </div>
+                    <pre><code class="hljs css" data-trim data-noescape>
+                    .parent {
+                        display: flex;
+                        justify-content: center;
+                        align-items: flex-start;
+                    }
+                    .child-end {
+                        align-self: flex-end;
+                    }
+                    </code></pre>
+                    <pre><code class="hljs html" data-trim data-noescape>
+                    &lt;div class=&quot;parent&quot;&gt;
+                      &lt;div&gt;Item 1&lt;/div&gt;
+                      &lt;div class="child-end"&gt;Item 2&lt;/div&gt;
+                      &lt;div&gt;Item 3&lt;/div&gt;
+                    &lt;/div&gt;
+                </code></pre>
+                </div>
+            </section>
+            <section>
+                <p>What if we want to make sure that the items use up all the available space?</p>
+                <div class="flex-example-parent-horizontal">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>Item 3</div>
+                </div>
+                vs.
+                <div class="flex-example-parent-horizontal">
+                    <div style="flex-grow: 1">Item 1</div>
+                    <div style="flex-grow: 1">Item 2</div>
+                    <div style="flex-grow: 1">Item 3</div>
+                </div>
+            </section>
+            <section>
+                <h3>flex-grow</h3>
+                <ul>
+                    <li>controls if and how an item grows to use the available space</li>
+                    <li>value is a proportion</li>
+                </ul>
+                <div style="display: flex; row-gap: 1rem; flex-direction: column">
+                    <div class="flex-example-parent-horizontal">
+                        <div style="flex-grow: 1">flex-grow: 1</div>
+                        <div style="flex-grow: 1">flex-grow: 1</div>
+                        <div style="flex-grow: 1">flex-grow: 1</div>
+                    </div>
+                    <div class="flex-example-parent-horizontal">
+                        <div style="flex-grow: 1">flex-grow: 1</div>
+                        <div style="flex-grow: 2">flex-grow: 2</div>
+                        <div style="flex-grow: 1">flex-grow: 1</div>
+                    </div>
+                    <div class="flex-example-parent-horizontal">
+                        <div style="flex-grow: 1">flex-grow: 1</div>
+                        <div style="flex-grow: 2">flex-grow: 2</div>
+                        <div style="flex-grow: 3">flex-grow: 3</div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <p>What if we change the order in which individual elements appear?</p>
+                <div class="flex-example-parent-horizontal">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>Item 3</div>
+                </div>
+                vs.
+                <div class="flex-example-parent-horizontal">
+                    <div>Item 1</div>
+                    <div style="order: -1">Item 2</div>
+                    <div>Item 3</div>
+                </div>
+                <aside class="notes">
+                    Here it would be interesting to talk about media queries and the importance of order in that context
+                    but that concept might not have been introduced yet at this point.
+                </aside>
+            </section>
+            <section>
+                <h3>order</h3>
+                <ul>
+                    <li>child elements can have an individual order</li>
+                    <li>default is 0</li>
+                    <li>use with care, can be unintuitive</li>
+                </ul>
+                <div style="display: flex; row-gap: 1rem; flex-direction: column">
+                    <div class="flex-example-parent-horizontal">
+                        <div style="order: 1">order: 1</div>
+                        <div style="order: 5">order: 5</div>
+                        <div style="order: -1">order: -1</div>
+                        <div style="order: 3">order: 3</div>
+                        <div style="order: 2">order: 2</div>
+                    </div>
+                </div>
+                <pre><code class="hljs html" data-trim data-noescape>
+                    &lt;div&gt;
+                        &lt;div style=&quot;order: 1&quot;&gt;order: 1&lt;/div&gt;
+                        &lt;div style=&quot;order: 5&quot;&gt;order: 5&lt;/div&gt;
+                        &lt;div style=&quot;order: -1&quot;&gt;order: -1&lt;/div&gt;
+                        &lt;div style=&quot;order: 3&quot;&gt;order: 3&lt;/div&gt;
+                        &lt;div style=&quot;order: 2&quot;&gt;order: 2&lt;/div&gt;
+                    &lt;/div&gt;
+                </code></pre>
+            </section>
+        </section>
+        <section>
+            <h2>Exercise 1</h2>
+            <p>Try to solve levels 1-17 of flexbox froggy</p>
+            <a href="https://flexboxfroggy.com/">Flexbox froggy</a>
+        </section>
+        <section>
+            <section>
+                <h2>Properties for containers with many elements</h2>
+            </section>
+            <section>
+                <p>What if we have too many child items for one line?</p>
+                <div class="flex-example-parent-horizontal"
+                     style="align-items: flex-start">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>Item 3</div>
+                    <div>Item 4</div>
+                    <div>Item 5</div>
+                    <div>Item 6</div>
+                    <div>Item 7</div>
+                    <div>Item 8</div>
+                    <div>Item 9</div>
+                    <div>Item 10</div>
+                    <div>Item 11</div>
+                    <div>Item 12</div>
+                    <div>Item 13</div>
+                    <div>Item 14</div>
+                    <div>Item 15</div>
+                </div>
+            </section>
+            <section>
+                <h2>flex-wrap</h2>
+                <p>Controls if and how elements are wrapped on new lines</p>
+                <div class="flex-example-parent-horizontal"
+                     style="align-items: flex-start; flex-wrap: nowrap">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>Item 3</div>
+                    <div>Item 4</div>
+                    <div>Item 5</div>
+                    <div>Item 6</div>
+                    <div>Item 7</div>
+                    <div>Item 8</div>
+                    <div>Item 9</div>
+                    <div>Item 10</div>
+                    <div>Item 11</div>
+                    <div>Item 12</div>
+                    <div>Item 13</div>
+                    <div>Item 14</div>
+                    <div>Item 15</div>
+                </div>
+                <small>flex-wrap: no-wrap</small>
+                <div class="flex-example-parent-horizontal"
+                     style="align-items: flex-start; flex-wrap: wrap">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>Item 3</div>
+                    <div>Item 4</div>
+                    <div>Item 5</div>
+                    <div>Item 6</div>
+                    <div>Item 7</div>
+                    <div>Item 8</div>
+                    <div>Item 9</div>
+                    <div>Item 10</div>
+                    <div>Item 11</div>
+                    <div>Item 12</div>
+                    <div>Item 13</div>
+                    <div>Item 14</div>
+                    <div>Item 15</div>
+                </div>
+                <small>flex-wrap: wrap</small>
+                <aside class="notes">
+                    Here it could be important to mention that we show the example for rows but wrap
+                    works exactly the same way for columns.
+                </aside>
+            </section>
+            <section>
+                <h2>gap / row-gap / column-gap</h2>
+                <p>Control the gaps between rows and columns</p>
+                <div class="flex-example-parent-horizontal"
+                     style="align-items: flex-start; flex-wrap: wrap; row-gap: 30px; column-gap: 10px;">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>Item 3</div>
+                    <div>Item 4</div>
+                    <div>Item 5</div>
+                    <div>Item 6</div>
+                    <div>Item 7</div>
+                    <div>Item 8</div>
+                    <div>Item 9</div>
+                    <div>Item 10</div>
+                    <div>Item 11</div>
+                    <div>Item 12</div>
+                    <div>Item 13</div>
+                    <div>Item 14</div>
+                    <div>Item 15</div>
+                </div>
+                <pre><code class="hljs css" data-trim data-noescape>
+                    .parent {
+                        display: flex;
+                        align-items: flex-start;
+                        flex-wrap: wrap;
+                        row-gap: 30px;
+                        column-gap: 10px;
+                    }
+                </code></pre>
+            </section>
+            <section>
+                <h2>align-content</h2>
+                <p>Control how extra space on the cross axis is allocated</p>
+                <div class="flex-example-parent-horizontal"
+                     style="flex-wrap: wrap; height: 180px; align-content: stretch">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>Item 3</div>
+                    <div>Item 4</div>
+                    <div>Item 5</div>
+                    <div>Item 6</div>
+                    <div>Item 7</div>
+                    <div>Item 8</div>
+                    <div>Item 9</div>
+                    <div>Item 10</div>
+                    <div>Item 11</div>
+                    <div>Item 12</div>
+                    <div>Item 13</div>
+                </div>
+                <small>align-content: stretch</small>
+                <div class="flex-example-parent-horizontal"
+                     style="flex-wrap: wrap; height: 180px; align-content: space-between">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>Item 3</div>
+                    <div>Item 4</div>
+                    <div>Item 5</div>
+                    <div>Item 6</div>
+                    <div>Item 7</div>
+                    <div>Item 8</div>
+                    <div>Item 9</div>
+                    <div>Item 10</div>
+                    <div>Item 11</div>
+                    <div>Item 12</div>
+                    <div>Item 13</div>
+                </div>
+                <small>align-content: space-between</small>
+            </section>
+        </section>
+        <section>
+            <h2>Exercise 2</h2>
+            <p>Try to solve levels 17-24 of flexbox froggy</p>
+            <a href="https://flexboxfroggy.com/">Flexbox froggy</a>
         </section>
         <section>
             <h2>Example slide</h2>
