@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Flexbox layout</title>
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/webplatformz/zuehlke-reveal-package@de8372e841e7cdcaaff4cce9b47cb4dc517a7e41/release/index.css">
+    <link rel="stylesheet" href="chapter3.css"/>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section class="deck-slide">
+            <h1>Flexbox layout</h1>
+        </section>
+        <section>
+            <h2>CSS display property</h2>
+            <p>The <em>display</em> property specifies which type of rendering box is used for the element</p>
+        </section>
+        <section>
+            <h2>display: block</h2>
+            <ul>
+                <li>Displays an element as a block element</li>
+                <li>Element starts on a new line and takes up the whole width</li>
+                <li><em>block</em> is vertically oriented</li>
+            </ul>
+        </section>
+        <section>
+            <h2>block challenges</h2>
+            <ul>
+                <li>how to center element within another?</li>
+                <li>how to handle dynamic element sizes?</li>
+                <li>how to layout elements horizontally?</li>
+            </ul>
+        </section>
+        <section>
+            <section>
+                <h2>Flexbox layout (Flexible Box)</h2>
+                <p>The flexbox layout aims to provide an efficient way to layout space among items in a container, event
+                    when their size is unknown.</p>
+            </section>
+            <section>
+                <ul>
+                    <li>Flexbox is mainly a single-direction layout concept</li>
+                    <li>It has a main axis and a cross axis</li>
+                    <li>We can choose whether the main axis is horizontal (default) or vertical</li>
+                </ul>
+                <img src="../assets/diagrams/chapter3/flexbox_axis.svg"/>
+            </section>
+            <section>
+                <h3>display: flex</h3>
+                <pre><code class="hljs css" data-trim data-noescape>
+                    .parent {
+                        display: flex;
+                    }
+                </code></pre>
+                <pre><code class="hljs html" data-trim data-noescape>
+                    &lt;div class=&quot;parent&quot;&gt;
+                      &lt;div&gt;Item 1&lt;/div&gt;
+                      &lt;div&gt;Item 2&lt;/div&gt;
+                      &lt;div&gt;Item 3&lt;/div&gt;
+                    &lt;/div&gt;
+                </code></pre>
+                <div class="flex-example-parent-horizontal">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>Item 3</div>
+                </div>
+                <p>main axis from left to right</p>
+            </section>
+            <section>
+                <h3>justify-content</h3>
+                <p>Controls how elements are layouted along the main axis</p>
+                <pre><code class="hljs css" data-trim data-noescape>
+                    .parent {
+                        display: flex;
+                        justify-content: flex-end;
+                    }
+                </code></pre>
+                <pre><code class="hljs html" data-trim data-noescape>
+                    &lt;div class=&quot;parent&quot;&gt;
+                      &lt;div&gt;Item 1&lt;/div&gt;
+                      &lt;div&gt;Item 2&lt;/div&gt;
+                      &lt;div&gt;Item 3&lt;/div&gt;
+                    &lt;/div&gt;
+                </code></pre>
+                <div class="flex-example-parent-horizontal" style="justify-content: flex-end">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>Item 3</div>
+                </div>
+            </section>
+            <section>
+                <h3>justify-content: most used values</h3>
+                <div class="flex-example-parent-horizontal" style="justify-content: flex-start">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>Item 3</div>
+                </div>
+                <small>flex-start</small>
+                <div class="flex-example-parent-horizontal" style="justify-content: flex-end">
+                    <div>Item 1</div>
+                    <div>Iftem 2</div>
+                    <div>Item 3</div>
+                </div>
+                <small>flex-end</small>
+                <div class="flex-example-parent-horizontal" style="justify-content: center">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>Item 3</div>
+                </div>
+                <small>center</small>
+                <div class="flex-example-parent-horizontal" style="justify-content: space-between">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>Item 3</div>
+                </div>
+                <small>space-between</small>
+                <div class="flex-example-parent-horizontal" style="justify-content: space-around">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>Item 3</div>
+                </div>
+                <small>space-around</small>
+            </section>
+            <section>
+                <h3>justify-content</h3>
+                <p>Controls how elements are layouted along the cross axis</p>
+                <pre><code class="hljs css" data-trim data-noescape>
+                    .parent {
+                        display: flex;
+                        align-items: flex-start;
+                    }
+                </code></pre>
+                <pre><code class="hljs html" data-trim data-noescape>
+                    &lt;div class=&quot;parent&quot;&gt;
+                      &lt;div&gt;Item 1&lt;/div&gt;
+                      &lt;div&gt;Item 2&lt;/div&gt;
+                      &lt;div&gt;Item 3&lt;/div&gt;
+                    &lt;/div&gt;
+                </code></pre>
+                <div class="flex-example-parent-horizontal flex-example-parent-horizontal-large"
+                     style="align-items: flex-start">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>Item 3</div>
+                </div>
+            </section>
+            <section>
+                <h3>align-items: most used values</h3>
+                <div class="flex-example-parent-horizontal flex-example-parent-horizontal-large"
+                     style="align-items: flex-start">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>Item 3</div>
+                </div>
+                <small>flex-start</small>
+                <div class="flex-example-parent-horizontal flex-example-parent-horizontal-large"
+                     style="align-items: flex-end">
+                    <div>Item 1</div>
+                    <div>Iftem 2</div>
+                    <div>Item 3</div>
+                </div>
+                <small>flex-end</small>
+                <div class="flex-example-parent-horizontal flex-example-parent-horizontal-large"
+                     style="align-items: center">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>Item 3</div>
+                </div>
+                <small>center</small>
+            </section>
+            <section>
+                <p>What if we want to layout vertically instead of horizontally?</p>
+                <img src="../assets/diagrams/chapter3/flexbox_axis.svg"/>
+                <p>We can switch the main and cross axis with <em>flex-direction</em>!</p>
+            </section>
+            <section>
+                <h3>flex-direction</h3>
+                <p>Controls which axis is the main axis (horizontal/vertical)</p>
+                <div class="comparison">
+                    <div>
+                        flex-direction: row (default)
+                        <div class="flex-example-parent-horizontal" style="flex-direction: row">
+                            <div>Item 1</div>
+                            <div>Item 2</div>
+                            <div>Item 3</div>
+                        </div>
+                    </div>
+                    <div>
+                        flex-direction: column
+                        <div class="flex-example-parent-horizontal" style="flex-direction: column">
+                            <div>Item 1</div>
+                            <div>Item 2</div>
+                            <div>Item 3</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>flex-direction</h3>
+                <p>It's also possible to reverse the direction</p>
+                <div class="comparison">
+                    <div>
+                        flex-direction: row-reverse (default)
+                        <div class="flex-example-parent-horizontal" style="flex-direction: row-reverse">
+                            <div>Item 1</div>
+                            <div>Item 2</div>
+                            <div>Item 3</div>
+                        </div>
+                    </div>
+                    <div>
+                        flex-direction: column
+                        <div class="flex-example-parent-horizontal" style="flex-direction: column-reverse">
+                            <div>Item 1</div>
+                            <div>Item 2</div>
+                            <div>Item 3</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>flex-direction</h3>
+                <p>hint: flex-start and flex-end are also reversed</p>
+                <div>
+                    <div class="flex-example-parent-horizontal" style="flex-direction: row-reverse; justify-content: flex-end">
+                        <div>Item 1</div>
+                        <div>Item 2</div>
+                        <div>Item 3</div>
+                    </div>
+                    <pre><code class="hljs css" data-trim data-noescape>
+                    .parent {
+                        display: flex;
+                        flex-direction: row-reverse;
+                        justify-content: flex-end;
+                    }
+                    </code></pre>
+                </div>
+            </section>
+        </section>
+        <section>
+            <h2>Example slide</h2>
+            <ul>
+                <li>Bullet 1</li>
+                <li>Bullet 2</li>
+                <li>Bullet 3</li>
+                <li>Bullet 4</li>
+                <li>Bullet 5</li>
+            </ul>
+            <aside class="notes">
+                <ul>
+                    <li>Here you can have class notes for the speaker view (press 's').</li>
+                </ul>
+            </aside>
+        </section>
+        <section>
+            <h2>Code example</h2>
+            <p>Interesting code example</p>
+            <pre><code class="hljs css" data-trim data-noescape>
+                    .container {
+                        display: flex;
+                        flex-direction: column;
+                        background-color: red;
+                    }
+                </code></pre>
+        </section>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/webplatformz/zuehlke-reveal-package@de8372e841e7cdcaaff4cce9b47cb4dc517a7e41/release/index.js"></script>
+<script>
+    setupZuehlkeRevealPresentation();
+</script>
+</body>
+</html>
