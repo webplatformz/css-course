@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>CSS Grid Layout</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/webplatformz/zuehlke-reveal-package@de8372e841e7cdcaaff4cce9b47cb4dc517a7e41/release/index.css"
+    />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section class="deck-slide">
+          <h1>CSS Grid Layout</h1>
+        </section>
+        <section>
+          <h2>What is the CSS Grid?</h2>
+          <p>A two dimensional layout system, controlling layout in rows and columns.</p>
+          <aside class="notes">
+            Explain how we go from 1-D (flexbox) to 2-D (flexbox) and describe usecase where this will make it easier.
+          </aside>
+        </section>
+        <section>
+          <section>
+            <h2>Terminology</h2>
+          </section>
+          <section>
+            <h2>Grid Container</h2>
+            <p>
+              The container that holds the entire CSS grid. It is the element that has the
+              <em>display:grid</em>
+              or
+              <em>display:inline-grid</em>
+              on it.
+            </p>
+            <pre><code class="css" data-trim data-noescape>
+              .grid-container {
+                display: grid;
+              }
+            </code></pre>
+          </section>
+          <section>
+            <h2>Grid Item</h2>
+            <p>Any element that is a direct child of a grid container.</p>
+            <div style="display: flex; justify-content: space-between">
+              <pre><code class="css" data-trim data-noescape>
+                .grid-container {
+                  display: grid;
+                }
+              </code></pre>
+              <pre><code class="html" data-trim>
+                <div class="grid-container">
+                  <div>Grid Item 1</div>
+                  <div>Grid Item 2</div>
+                  <div>Grid Item 3</div>
+                </div>
+              </code></pre>
+            </div>
+          </section>
+          <section>
+            <h2>Grid Line</h2>
+            <p>The vertical and horizontal lines that divide the grid and separate the columns and rows.</p>
+            <img src="../assets/diagrams/chapter4/grid-line.svg" />
+          </section>
+          <section>
+            <h2>Grid Cell</h2>
+            <p>A single unit of a CSS grid.</p>
+            <img src="../assets/diagrams/chapter4/grid-cell.svg" />
+          </section>
+          <section>
+            <h2>Grid Area</h2>
+            <p>
+              Rectangular space surrounded by four grid lines.
+              <br />
+              A grid area can contain any number of grid cells.
+            </p>
+            <img src="../assets/diagrams/chapter4/grid-area.svg" />
+          </section>
+          <section>
+            <h2>Grid Track</h2>
+            <p>
+              The space between two grid lines.
+              <br />
+              This space can be horizontal or vertical.
+            </p>
+            <img src="../assets/diagrams/chapter4/grid-track.svg" />
+          </section>
+          <section>
+            <h2>Grid Row</h2>
+            <p>A horizontal track of a grid.</p>
+            <img src="../assets/diagrams/chapter4/grid-row.svg" />
+          </section>
+          <section>
+            <h2>Grid Column</h2>
+            <p>A vertical track of a grid.</p>
+            <img src="../assets/diagrams/chapter4/grid-column.svg" />
+          </section>
+          <section>
+            <h2>Gutter</h2>
+            <p>The space between rows and columns in a grid.</p>
+            <img src="../assets/diagrams/chapter4/gutter.svg" />
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Example</h2>
+            <div class="fragment" style="display: flex; justify-content: space-between">
+              <pre><code class="css" data-trim data-noescape>
+                .grid-container {
+                  display: grid;
+                  grid-template-columns: 
+                    repeat(3, 1fr);
+                }
+              </code></pre>
+              <pre><code class="html" data-trim>
+                <div class="grid-container">
+                  <div>Grid Item 1</div>
+                  <div>Grid Item 2</div>
+                  <div>Grid Item 3</div>
+                </div>
+              </code></pre>
+            </div>
+            <div class="fragment" style="display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid red">
+              <div style="border: 1px solid black; margin: 4px">Grid Item 1</div>
+              <div style="border: 1px solid black; margin: 4px 0px">Grid Item 2</div>
+              <div style="border: 1px solid black; margin: 4px">Grid Item 3</div>
+            </div>
+            <aside class="notes">
+              <ul>
+                <li>
+                  Quickly explain
+                  <em>display: grid</em>
+                </li>
+                <li>
+                  Quickly explain
+                  <em>grid-template-columns: repeat(3, 1fr);</em>
+                </li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <h2>
+              <em>grid-template-columns</em>
+              <br />
+              <em>grid-template-rows</em>
+            </h2>
+            <p>A way to define the number of rows and columns as well as their size.</p>
+          </section>
+          <section>
+            <h2>
+              CSS length unit:
+              <em>fr</em>
+            </h2>
+            <ul>
+              <li class="fragment">
+                What is
+                <em>fr</em>
+                ?
+              </li>
+              <li class="fragment">
+                What does
+                <em>repeat()</em>
+                do?
+              </li>
+              <li class="fragment">
+                <b>Example:</b>
+                <em>repeat(4, 25%)</em>
+                vs.
+                <em>repeat(4, 1fr)</em>
+                with
+                <br />
+                <em>grid-column-gap: 10px</em>
+                ?
+              </li>
+              <br />
+              <div class="fragment">
+                <h5>repeat(4, 25%)</h5>
+                <div
+                  style="
+                    display: grid;
+                    grid-template-columns: repeat(4, 25%);
+                    grid-column-gap: 10px;
+                    border: 1px solid red;
+                    width: 50rem;
+                  "
+                >
+                  <div style="border: 1px solid black; margin: 4px">Grid Item 1</div>
+                  <div style="border: 1px solid black; margin: 4px 0px">Grid Item 2</div>
+                  <div style="border: 1px solid black; margin: 4px">Grid Item 3</div>
+                  <div style="border: 1px solid black; margin: 4px">Grid Item 4</div>
+                </div>
+                <br />
+                <h5>repeat(4, 1fr)</h5>
+                <div
+                  style="
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    grid-column-gap: 10px;
+                    border: 1px solid red;
+                    width: 50rem;
+                  "
+                >
+                  <div style="border: 1px solid black; margin: 4px">Grid Item 1</div>
+                  <div style="border: 1px solid black; margin: 4px 0px">Grid Item 2</div>
+                  <div style="border: 1px solid black; margin: 4px">Grid Item 3</div>
+                  <div style="border: 1px solid black; margin: 4px">Grid Item 4</div>
+                </div>
+              </div>
+            </ul>
+            <aside class="notes">
+              <ul>
+                <li>Explain how repeat(#columns/#rows, width) works</li>
+                <li>Explain how fr works using the example</li>
+              </ul>
+            </aside>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>An Explicit Grid</h2>
+            <pre><code class="css" data-trim data-noescape>
+              .grid-container {
+                display: grid;
+                grid-template-columns: 1fr 2fr 1fr;
+                grid-template-rows: 4fr 1fr 2fr;
+                grid-row-gap: 1rem;
+                grid-column-gap: 4rem;
+              }
+            </code></pre>
+            <div
+              style="
+                display: grid;
+                margin: auto;
+                grid-template-columns: 1fr 2fr 1fr;
+                grid-template-rows: 4fr 1fr 2fr;
+                grid-row-gap: 1rem;
+                grid-column-gap: 4rem;
+                border: 1px solid red;
+              "
+            >
+              <div style="border: 1px solid black">Grid Item 1</div>
+              <div style="border: 1px solid black">Grid Item 2</div>
+              <div style="border: 1px solid black">Grid Item 3</div>
+              <div style="border: 1px solid black">Grid Item 4</div>
+              <div style="border: 1px solid black">Grid Item 5</div>
+              <div style="border: 1px solid black">Grid Item 6</div>
+              <div style="border: 1px solid black">Grid Item 7</div>
+              <div style="border: 1px solid black">Grid Item 8</div>
+              <div style="border: 1px solid black">Grid Item 9</div>
+            </div>
+          </section>
+          <section>
+            <h2>A Dynamic Grid</h2>
+            <pre><code class="css" data-trim data-noescape>
+              .grid-container {
+                display: grid;
+                grid-template-columns: minmax(auto, 40%) 1fr 12rem;
+                grid-template-rows: minmax(75px, auto) minmax(75px, 150px) auto;
+                grid-row-gap: 4rem;
+                grid-column-gap: 2rem;
+              }
+            </code></pre>
+            <div
+              style="
+                display: grid;
+                margin: auto;
+                grid-template-columns: minmax(auto, 40%) 1fr 12rem;
+                grid-template-rows: minmax(75px, auto) minmax(75px, 150px) auto;
+                grid-row-gap: 4rem;
+                grid-column-gap: 2rem;
+                border: 1px solid red;
+              "
+            >
+              <div style="border: 1px solid black">Grid Item 1</div>
+              <div style="border: 1px solid black">Grid Item 2</div>
+              <div style="border: 1px solid black">Grid Item 3</div>
+              <div style="border: 1px solid black">Grid Item 4</div>
+              <div style="border: 1px solid black">
+                Grid Item 5
+                <br />
+                (very very very very very very long content)
+              </div>
+              <div style="border: 1px solid black">Grid Item 6</div>
+              <div style="border: 1px solid black">Grid Item 7</div>
+              <div style="border: 1px solid black">Grid Item 8</div>
+              <div style="border: 1px solid black">Grid Item 9</div>
+            </div>
+          </section>
+        </section>
+        <section>
+          <h2>Browser Dev Tools</h2>
+          <img src="../assets/diagrams/chapter4/grid-devtools.png" alt="css grid devtools" />
+          <ul>
+            <li>Open the DevTools (F12, Right-Click + Inspect)</li>
+            <li>Click on "grid"</li>
+          </ul>
+          <aside class="notes">
+            <ul>
+              <li>Quickly explain how the devtools work</li>
+              <li>Firefox has some more advanced CSS grid debug features</li>
+            </ul>
+          </aside>
+        </section>
+        <section>
+          <section>
+            <h2>Grid Items</h2>
+          </section>
+        </section>
+        <section>
+          <h2>what to cover</h2>
+          <ul>
+            <li>display: grid (parent)</li>
+            <li>what are grid-items</li>
+            <li>grid-template-columns/grid-template-rows</li>
+            <li>grid-column-start/grid-column-end</li>
+          </ul>
+        </section>
+        <!-- Examples & Helpers -->
+        <section>
+          <h2>Example slide</h2>
+          <ul>
+            <li>Bullet 1</li>
+            <li>Bullet 2</li>
+            <li>Bullet 3</li>
+            <li>Bullet 4</li>
+            <li>Bullet 5</li>
+          </ul>
+          <aside class="notes">
+            <ul>
+              <li>Here you can have class notes for the speaker view (press 's').</li>
+            </ul>
+          </aside>
+        </section>
+        <section>
+          <h2>Code example</h2>
+          <p>Interesting code example</p>
+          <pre><code class="hljs css" data-trim data-noescape>
+            .container {
+                display: flex;
+                flex-direction: column;
+                background-color: red;
+            }
+          </code></pre>
+        </section>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/webplatformz/zuehlke-reveal-package@de8372e841e7cdcaaff4cce9b47cb4dc517a7e41/release/index.js"></script>
+    <script>
+      setupZuehlkeRevealPresentation();
+    </script>
+  </body>
+</html>
