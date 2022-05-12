@@ -233,7 +233,7 @@
             <div
               style="
                 display: grid;
-                margin: auto;
+                margin: 0 1.5rem;
                 grid-template-columns: 1fr 2fr 1fr;
                 grid-template-rows: 4fr 1fr 2fr;
                 grid-row-gap: 1rem;
@@ -253,7 +253,8 @@
             </div>
           </section>
           <section>
-            <h2>A Dynamic Grid</h2>
+            <h2 style="margin-bottom: 0.5em !important">An Explicit Grid</h2>
+            <p>with dynamic row and column size</p>
             <pre><code class="css" data-trim data-noescape>
               .grid-container {
                 display: grid;
@@ -266,7 +267,7 @@
             <div
               style="
                 display: grid;
-                margin: auto;
+                margin: 0 1.5rem;
                 grid-template-columns: minmax(auto, 40%) 1fr 12rem;
                 grid-template-rows: minmax(75px, auto) minmax(75px, 150px) auto;
                 grid-row-gap: 4rem;
@@ -288,6 +289,52 @@
               <div style="border: 1px solid black">Grid Item 8</div>
               <div style="border: 1px solid black">Grid Item 9</div>
             </div>
+            <aside class="notes">
+              <ul>
+                <li>Explain minmax()</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <h2>An Implicit Grid</h2>
+            <pre><code class="css" data-trim data-noescape>
+              .grid-container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-auto-rows: minmax(75px, auto);
+                grid-row-gap: 1rem;
+                grid-column-gap: 4rem;
+              }
+            </code></pre>
+            <div
+              style="
+                display: grid;
+                margin: 0 1.5rem;
+                grid-template-columns: repeat(3, 1fr);
+                grid-auto-rows: minmax(75px, auto);
+                grid-row-gap: 1rem;
+                grid-column-gap: 4rem;
+                border: 1px solid red;
+              "
+            >
+              <div style="border: 1px solid black">Grid Item 1</div>
+              <div style="border: 1px solid black">Grid Item 2</div>
+              <div style="border: 1px solid black">Grid Item 3</div>
+              <div style="border: 1px solid black">Grid Item 4</div>
+              <div style="border: 1px solid black">
+                Grid Item 5
+                <br />
+                (very very very very very very long content)
+              </div>
+              <div style="border: 1px solid black">Grid Item 6</div>
+              <div style="border: 1px solid black">Grid Item 7</div>
+              <div style="border: 1px solid black">Grid Item 8</div>
+            </div>
+          </section>
+          <section>
+            <h2>Exercises</h2>
+            <p>Do the exercises 20-27</p>
+            <a href="https://cssgridgarden.com/" target="_blank">https://cssgridgarden.com/</a>
           </section>
         </section>
         <section>
@@ -307,54 +354,181 @@
         <section>
           <section>
             <h2>Grid Items</h2>
+            <p>Positioning, Size, etc.</p>
           </section>
           <section>
-            <h2>To Do</h2>
+            <h2>Grid Lines</h2>
+            <p>Grid items are positioned using grid lines.</p>
+            <img src="../assets/diagrams/chapter4/gird-lines-with-numbers.svg" width="500" />
+            <aside class="notes">
+              <ul>
+                <li>Mention that lines always start at 1 instead of 0.</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <h2>Positioning</h2>
+            <div class="fragment" style="display: flex; justify-content: space-between">
+              <pre><code class="css" data-trim data-noescape>
+                .item-1 {
+                  grid-row: 2/3; 
+                  grid-column: 2/3;
+                }
+                .item-3 {
+                  grid-row: 3/4; 
+                  grid-column: 3/4;
+                }
+              </code></pre>
+              <pre><code class="html" data-trim>
+                <div style="display: grid;">
+                  <div class="item-1">Item 1</div>
+                  <div>Item 2</div>
+                  <div class="item-3">Item 3</div>
+                </div>
+              </code></pre>
+            </div>
+            <div
+              class="fragment"
+              style="
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-row-gap: 1rem;
+                grid-column-gap: 4rem;
+                border: 1px solid red;
+              "
+            >
+              <div style="border: 1px solid black; grid-row: 2/3; grid-column: 2/3">Grid Item 1</div>
+              <div style="border: 1px solid black">Grid Item 2</div>
+              <div style="border: 1px solid black; grid-row: 3/4; grid-column: 3/4">Grid Item 3</div>
+            </div>
+          </section>
+          <section>
+            <h2>Properties</h2>
             <ul>
-              <li>explain the relevant properties CSS grid items</li>
+              <li>
+                <em>grid-row</em>
+                <ul>
+                  <li><em>grid-row-start</em></li>
+                  <li><em>grid-row-end</em></li>
+                </ul>
+              </li>
+              <li>
+                <em>grid-column</em>
+                <ul>
+                  <li><em>grid-column-start</em></li>
+                  <li><em>grid-column-end</em></li>
+                </ul>
+              </li>
             </ul>
+          </section>
+          <section>
+            <h2>Exercises</h2>
+            <p>Do the exercises 1-15</p>
+            <a href="https://cssgridgarden.com/" target="_blank">https://cssgridgarden.com/</a>
           </section>
         </section>
         <section>
-          <h2>Exercises</h2>
-          <p>Do the exercises 1-14.</p>
+          <section>
+            <h2>Advanced Grid</h2>
+          </section>
+          <section>
+            <h2>Named Lines</h2>
+            <pre><code class="fragment css" data-trim data-noescape style="overflow:scroll; height: 25rem;">
+              .container {
+                display: grid;
+                grid-template-columns:
+                  [main-start sidebar-start] 200px
+                  [sidebar-end content-start] 1fr
+                  [column3-start] 1fr
+                  [content-end main-end];
+                grid-template-rows:
+                  [row1-start] 80px
+                  [row2-start] 1fr
+                  [row3-start] 1fr
+                  [row4-start] 100px
+                  [row4-end];
+              }
+            </code></pre>
+            <pre><code class="fragment css" data-trim data-noescape style="overflow:scroll; height: 10rem">
+              .header {
+                grid-column: main-start / main-end;
+                grid-row: row1-start / row2-start;
+              }
+              
+              .sidebar {
+                grid-column: sidebar-start / sidebar-end;
+                grid-row: row2-start / row4-start;
+              }
+              
+              .content-1 {
+                grid-column: content-start / content-end;
+                grid-row: row2-start / row3-start;
+              }
+              
+              .content-2 {
+                grid-column: content-start / column3-start;
+                grid-row: row3-start / row4-start;
+              }
+              
+              .content-3 {
+                grid-column: column3-start / content-end;
+                grid-row: row3-start / row4-start;
+              }
+              
+              .footer {
+                grid-column: main-start / main-end;
+                grid-row: row4-start / row4-end;
+            </code></pre>
+          </section>
+          <section>
+            <h2>Template Areas</h2>
+            <p>
+              What is
+              <em>grid-area</em>
+              ?
+            </p>
+            <ol class="fragment">
+              <li><em>grid-row-start</em></li>
+              <li><em>grid-column-start</em></li>
+              <li><em>grid-row-end</em></li>
+              <li><em>grid-column-end</em></li>
+            </ol>
+          </section>
+          <section>
+            <h2>Template Areas (v2)</h2>
+            <pre><code class="fragment css" data-trim data-noescape>
+              .container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(4, 1fr);
+                grid-template-areas:
+                    "header header header"
+                    "sidebar content-1 content-1"
+                    "sidebar content-2 content-3"
+                    "footer footer footer";
+              }
+            </code></pre>
+            <pre><code class="fragment html" data-trim>
+              <div class="container">
+                <div class="header">header</div>
+                <div class="sidebar">sidebar</div>
+                <div class="content-1">Content-1</div>
+                <div class="content-2">Content-2</div>
+                <div class="content-3">Content-3</div>
+                <div class="footer">footer</div>
+              </div>
+            </code></pre>
+          </section>
+          <section>
+            <h2>Exercises</h2>
+            <p>Do the exercises 16-17</p>
+            <a href="https://cssgridgarden.com/" target="_blank">https://cssgridgarden.com/</a>
+          </section>
+        </section>
+        <section>
+          <h2>Final Exercise</h2>
+          <p>Do the exercises 28</p>
           <a href="https://cssgridgarden.com/" target="_blank">https://cssgridgarden.com/</a>
-        </section>
-        <section>
-          <h2>what to cover</h2>
-          <ul>
-            <li>display: grid (parent)</li>
-            <li>what are grid-items</li>
-            <li>grid-template-columns/grid-template-rows</li>
-            <li>grid-column-start/grid-column-end</li>
-          </ul>
-        </section>
-        <!-- Examples & Helpers -->
-        <section>
-          <h2>Example slide</h2>
-          <ul>
-            <li>Bullet 1</li>
-            <li>Bullet 2</li>
-            <li>Bullet 3</li>
-            <li>Bullet 4</li>
-            <li>Bullet 5</li>
-          </ul>
-          <aside class="notes">
-            <ul>
-              <li>Here you can have class notes for the speaker view (press 's').</li>
-            </ul>
-          </aside>
-        </section>
-        <section>
-          <h2>Code example</h2>
-          <p>Interesting code example</p>
-          <pre><code class="hljs css" data-trim data-noescape>
-            .container {
-                display: flex;
-                flex-direction: column;
-                background-color: red;
-            }
-          </code></pre>
         </section>
       </div>
     </div>
