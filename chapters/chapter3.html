@@ -37,7 +37,7 @@
         </section>
         <section>
             <h2>Flexbox layout (Flexible Box)</h2>
-            <p>The flexbox layout aims to provide an efficient way to layout space among items in a container, even when
+            <p>The flexbox layout aims to provide an efficient way to layout items in a container, even when
                 their size is unknown.</p>
         </section>
         <section>
@@ -324,6 +324,24 @@
                 </div>
             </section>
             <section>
+                <h3>flex-basis</h3>
+                <p>Sets the initial size of a flex item along the main axis - useful in combination with
+                    <em>flex-grow</em> (next)</p>
+                <div style="display: flex; row-gap: 1rem; flex-direction: column">
+                    <div class="flex-example-parent-horizontal">
+                        <div>no flex-basis set</div>
+                        <div>no flex-basis set</div>
+                    </div>
+                    <small>Both children take exactly the space they need</small>
+                    <div class="flex-example-parent-horizontal">
+                        <div style="flex-basis: 200px">flex-basis: 200px</div>
+                        <div style="flex-basis: 400px">flex-basis: 400px</div>
+                        <div>no flex basis set</div>
+                    </div>
+                    <small>The first and middle child respect their size, the other one takes the necessary space</small>
+                </div>
+            </section>
+            <section>
                 <p>What if we want to make sure that the items use up all the available space?</p>
                 <div class="flex-example-parent-horizontal">
                     <div>Item 1</div>
@@ -335,22 +353,6 @@
                     <div style="flex-grow: 1">Item 1</div>
                     <div style="flex-grow: 1">Item 2</div>
                     <div style="flex-grow: 1">Item 3</div>
-                </div>
-            </section>
-            <section>
-                <h3>flex-basis</h3>
-                <p>Sets the initial size of a flex item along the main axis - useful in combination with
-                    <em>flex-grow</em> (next)</p>
-                <div style="display: flex; row-gap: 1rem; flex-direction: column">
-                    <div class="flex-example-parent-horizontal">
-                        <div>no flex-basis set</div>
-                        <div>no flex-basis set</div>
-                    </div>
-                    <div class="flex-example-parent-horizontal">
-                        <div style="flex-basis: 200px">flex-basis: 200px</div>
-                        <div style="flex-basis: 400px">flex-basis: 400px</div>
-                        <div>no flex basis set</div>
-                    </div>
                 </div>
             </section>
             <section>
@@ -439,6 +441,7 @@
                         &lt;div style=&quot;order: 2&quot;&gt;order: 2&lt;/div&gt;
                     &lt;/div&gt;
                 </code></pre>
+                <div class="fragment tip">Use order with care, it can unintuitive</div>
             </section>
         </section>
         <section>
@@ -592,32 +595,6 @@
             <h2>Exercise 2</h2>
             <p>Try to solve levels 17-24 of flexbox froggy</p>
             <a href="https://flexboxfroggy.com/">Flexbox froggy</a>
-        </section>
-        <section>
-            <h2>Example slide</h2>
-            <ul>
-                <li>Bullet 1</li>
-                <li>Bullet 2</li>
-                <li>Bullet 3</li>
-                <li>Bullet 4</li>
-                <li>Bullet 5</li>
-            </ul>
-            <aside class="notes">
-                <ul>
-                    <li>Here you can have class notes for the speaker view (press 's').</li>
-                </ul>
-            </aside>
-        </section>
-        <section>
-            <h2>Code example</h2>
-            <p>Interesting code example</p>
-            <pre><code class="hljs css" data-trim data-noescape>
-                    .container {
-                        display: flex;
-                        flex-direction: column;
-                        background-color: red;
-                    }
-                </code></pre>
         </section>
     </div>
 </div>
