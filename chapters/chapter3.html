@@ -37,8 +37,8 @@
         </section>
         <section>
             <h2>Flexbox layout (Flexible Box)</h2>
-            <p>The flexbox layout aims to provide an efficient way to layout space among items in a container, event
-                when their size is unknown.</p>
+            <p>The flexbox layout aims to provide an efficient way to layout items in a container, even when
+                their size is unknown.</p>
         </section>
         <section>
             <ul>
@@ -47,6 +47,38 @@
                 <li>We can choose whether the main axis is horizontal (default) or vertical</li>
             </ul>
             <img src="../assets/diagrams/chapter3/flexbox_axis.svg"/>
+        </section>
+        <section>
+            <h2>Flex Container</h2>
+            <p>
+                The container that is styled with
+                <em>display:flex</em>
+                or
+                <em>display:inline-flex</em>.
+            </p>
+            <pre><code class="css" data-trim data-noescape>
+              .grid-container {
+                display: flex;
+              }
+            </code></pre>
+        </section>
+        <section>
+            <h2>Flex Item</h2>
+            <p>Any element that is a direct child of a flex container.</p>
+            <div style="display: flex; justify-content: space-between">
+              <pre><code class="css" data-trim data-noescape>
+                .flex-container {
+                  display: flex;
+                }
+              </code></pre>
+                <pre><code class="html" data-trim>
+                <div class="flex-container">
+                  <div>Flex Item 1</div>
+                  <div>Flex Item 2</div>
+                  <div>Flex Item 3</div>
+                </div>
+              </code></pre>
+            </div>
         </section>
         <section>
             <h3>display: flex</h3>
@@ -75,8 +107,8 @@
                 <div>Item 1</div>
                 <div>Item 2</div>
                 <div>Item 3</div>
-                <p>container</p>
             </div>
+            <small>container</small>
         </section>
         <section>
             <section>
@@ -98,7 +130,8 @@
                       &lt;div&gt;Item 3&lt;/div&gt;
                     &lt;/div&gt;
                 </code></pre>
-                <div class="flex-example-parent-horizontal" style="justify-content: flex-end">
+                <div class="flex-example-parent-horizontal flex-example-parent-horizontal-medium"
+                     style="justify-content: flex-end; align-items: flex-start">
                     <div>Item 1</div>
                     <div>Item 2</div>
                     <div>Item 3</div>
@@ -203,7 +236,7 @@
                     </div>
                     <div>
                         flex-direction: column
-                        <div class="flex-example-parent-horizontal" style="flex-direction: column">
+                        <div class="flex-example-parent-horizontal" style="flex-direction: column; height: 80%;">
                             <div>Item 1</div>
                             <div>Item 2</div>
                             <div>Item 3</div>
@@ -224,8 +257,9 @@
                         </div>
                     </div>
                     <div>
-                        flex-direction: column
-                        <div class="flex-example-parent-horizontal" style="flex-direction: column-reverse">
+                        flex-direction: column-reverse
+                        <div class="flex-example-parent-horizontal"
+                             style="flex-direction: column-reverse; height: 80%;">
                             <div>Item 1</div>
                             <div>Item 2</div>
                             <div>Item 3</div>
@@ -277,14 +311,8 @@
                         <div>Item 3</div>
                     </div>
                     <pre><code class="hljs css" data-trim data-noescape>
-                    .parent {
-                        display: flex;
-                        justify-content: center;
-                        align-items: flex-start;
-                    }
-                    .child-end {
-                        align-self: flex-end;
-                    }
+                    .parent { align-items: flex-start; }
+                    .child-end { align-self: flex-end; }
                     </code></pre>
                     <pre><code class="hljs html" data-trim data-noescape>
                     &lt;div class=&quot;parent&quot;&gt;
@@ -293,6 +321,24 @@
                       &lt;div&gt;Item 3&lt;/div&gt;
                     &lt;/div&gt;
                 </code></pre>
+                </div>
+            </section>
+            <section>
+                <h3>flex-basis</h3>
+                <p>Sets the initial size of a flex item along the main axis - useful in combination with
+                    <em>flex-grow</em> (next)</p>
+                <div style="display: flex; row-gap: 1rem; flex-direction: column">
+                    <div class="flex-example-parent-horizontal">
+                        <div>no flex-basis set</div>
+                        <div>no flex-basis set</div>
+                    </div>
+                    <small>Both children take exactly the space they need</small>
+                    <div class="flex-example-parent-horizontal">
+                        <div style="flex-basis: 200px">flex-basis: 200px</div>
+                        <div style="flex-basis: 400px">flex-basis: 400px</div>
+                        <div>no flex basis set</div>
+                    </div>
+                    <small>The first and middle child respect their size, the other one takes the necessary space</small>
                 </div>
             </section>
             <section>
@@ -312,26 +358,45 @@
             <section>
                 <h3>flex-grow</h3>
                 <ul>
-                    <li>controls if and how an item grows to use the available space</li>
-                    <li>value is a proportion</li>
+                    <li>controls if and how an item grows to use the remaining space (container size minus all item
+                        sizes)
+                    </li>
+                    <li>space is distributed according to proportion defined by <em>flex-grow</em></li>
                 </ul>
                 <div style="display: flex; row-gap: 1rem; flex-direction: column">
                     <div class="flex-example-parent-horizontal">
                         <div style="flex-grow: 1">flex-grow: 1</div>
-                        <div style="flex-grow: 1">flex-grow: 1</div>
-                        <div style="flex-grow: 1">flex-grow: 1</div>
-                    </div>
-                    <div class="flex-example-parent-horizontal">
-                        <div style="flex-grow: 1">flex-grow: 1</div>
                         <div style="flex-grow: 2">flex-grow: 2</div>
                         <div style="flex-grow: 1">flex-grow: 1</div>
                     </div>
+                    <small>No flex-basis set, child 2 gets double the extra space</small>
                     <div class="flex-example-parent-horizontal">
-                        <div style="flex-grow: 1">flex-grow: 1</div>
-                        <div style="flex-grow: 2">flex-grow: 2</div>
-                        <div style="flex-grow: 3">flex-grow: 3</div>
+                        <div style="flex-grow: 1">grow: 1</div>
+                        <div style="flex-grow: 2">grow: 2</div>
+                        <div style="flex-grow: 1; flex-basis: 350px">grow: 1 | basis 350px</div>
+                    </div>
+                    <small>Third child has flex-basis set which takes precendence</small>
+                </div>
+                <div class="fragment tip">flex-grow only influences the remaining space!</div>
+            </section>
+            <section>
+                <h3>flex-shrink</h3>
+                <ul>
+                    <li>controls if and how an item shrinks if all items combined are larger than the container
+                    </li>
+                    <li>children with a higher value for <em>flex-shrink</em> shrink more</li>
+                </ul>
+                <div style="display: flex; justify-content: center">
+                    <div style="display: flex; row-gap: 1rem; flex-direction: column">
+                        <div class="flex-example-parent-horizontal" style="width: 500px; height: 160px">
+                            <div style="flex-shrink: 1">flex-shrink: 1</div>
+                            <div style="flex-shrink: 2">flex-shrink: 2</div>
+                            <div style="flex-shrink: 1">flex-shrink: 1</div>
+                        </div>
+                        <small>Child 2 shrinks more than the others</small>
                     </div>
                 </div>
+                <div class="fragment tip">flex-shrink only applies if the children are larger than the container!</div>
             </section>
             <section>
                 <p>What if we change the order in which individual elements appear?</p>
@@ -376,6 +441,7 @@
                         &lt;div style=&quot;order: 2&quot;&gt;order: 2&lt;/div&gt;
                     &lt;/div&gt;
                 </code></pre>
+                <div class="fragment tip">Use order with care, it can unintuitive</div>
             </section>
         </section>
         <section>
@@ -458,7 +524,7 @@
                 <h2>gap / row-gap / column-gap</h2>
                 <p>Control the gaps between rows and columns</p>
                 <div class="flex-example-parent-horizontal"
-                     style="align-items: flex-start; flex-wrap: wrap; row-gap: 30px; column-gap: 10px;">
+                     style="align-items: flex-start; flex-wrap: wrap; row-gap: 20px; column-gap: 10px;">
                     <div>Item 1</div>
                     <div>Item 2</div>
                     <div>Item 3</div>
@@ -522,38 +588,13 @@
                     <div>Item 13</div>
                 </div>
                 <small>align-content: space-between</small>
+                <div class="fragment tip">only applies if elements wrap</div>
             </section>
         </section>
         <section>
             <h2>Exercise 2</h2>
             <p>Try to solve levels 17-24 of flexbox froggy</p>
             <a href="https://flexboxfroggy.com/">Flexbox froggy</a>
-        </section>
-        <section>
-            <h2>Example slide</h2>
-            <ul>
-                <li>Bullet 1</li>
-                <li>Bullet 2</li>
-                <li>Bullet 3</li>
-                <li>Bullet 4</li>
-                <li>Bullet 5</li>
-            </ul>
-            <aside class="notes">
-                <ul>
-                    <li>Here you can have class notes for the speaker view (press 's').</li>
-                </ul>
-            </aside>
-        </section>
-        <section>
-            <h2>Code example</h2>
-            <p>Interesting code example</p>
-            <pre><code class="hljs css" data-trim data-noescape>
-                    .container {
-                        display: flex;
-                        flex-direction: column;
-                        background-color: red;
-                    }
-                </code></pre>
         </section>
     </div>
 </div>
