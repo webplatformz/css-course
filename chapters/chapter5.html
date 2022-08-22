@@ -147,61 +147,104 @@
             </section>
         </section>
         <section>
-            <h2>Stacking contexts</h2>
-            <p>What if we want to display an element above another?</p>
-        </section>
-        <section>
-            <h2>z-index</h2>
-            <p>The z-index specifies the stack level of the element in the current stacking context</p>
-            <div class="stacking-container">
-                <div style="z-index: 1;">z-index: 1</div>
-                <div style="left: 100px; top: 20px; z-index: 3">z-index: 3</div>
-                <div style="left: 200px; top: 40px; z-index: 2">z-index: 2</div>
-                <div style="left: 300px; top: 60px; z-index: 1">z-index: 1</div>
-            </div>
-            <pre><code class="html" data-trim data-noescape>
+            <section>
+                <h2>Stacking contexts</h2>
+                <p>What if we want to display an element above another?</p>
+            </section>
+            <section>
+                <h2>z-index</h2>
+                <p>The z-index specifies the stack level of the element in the current stacking context</p>
+                <div class="stacking-container">
+                    <div style="z-index: 1;">z-index: 1</div>
+                    <div style="left: 100px; top: 20px; z-index: 3">z-index: 3</div>
+                    <div style="left: 200px; top: 40px; z-index: 2">z-index: 2</div>
+                    <div style="left: 300px; top: 60px; z-index: 1">z-index: 1</div>
+                </div>
+                <pre><code class="html" data-trim data-noescape>
                 &lt;div style=&quot;z-index: 1&quot;&gt;z-index: 1&lt;/div&gt;
                 &lt;div style=&quot;z-index: 3&quot;&gt;z-index: 3&lt;/div&gt;
                 &lt;div style=&quot;z-index: 2&quot;&gt;z-index: 2&lt;/div&gt;
                 &lt;div style=&quot;z-index: 1&quot;&gt;z-index: 1&lt;/div&gt;
             </code></pre>
-            <small>Last element does not appear on top because of z-index 1</small>
-            <aside class="notes">
-                More about stacking contexts in just a minute.
-            </aside>
+                <small>Last element does not appear on top because of z-index 1</small>
+                <aside class="notes">
+                    More about stacking contexts in just a minute.
+                </aside>
+            </section>
+            <section>
+                <h2>Stacking context</h2>
+                <p>z-index is not global, it is <em>in relation to the current stacking context</em>. A stacking context
+                    is formed on the following elements:</p>
+                <ul>
+                    <li>on the root <em>html</em> element</li>
+                    <li>on an element with a <em>position</em> value of absolute, relative and a z-index other than auto
+                    </li>
+                    <li>on an element that is a child of a flex/grid container</li>
+                    <li>many more, see <a
+                            href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context">MDN</a>
+                    </li>
+                </ul>
+                <aside class="notes">
+                    Source:
+                    https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
+                </aside>
+            </section>
+            <section>
+                <img alt="Stacking context example" src="../assets/diagrams/chapter5/z_index.png"/>
+                <p>In this example, every positioned element creates its own stacking context, because of their
+                    positioning and z-index values</p>
+                <aside class="notes">
+                    Source:
+                    https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context#the_example
+                    In this example, every positioned element creates its own stacking context, because of their
+                    positioning and z-index values. The hierarchy of stacking contexts is organized as follows:
+
+                    Root
+                    DIV #1
+                    DIV #2
+                    DIV #3
+                    DIV #4
+                    DIV #5
+                    DIV #6
+
+                    It is important to note that DIV #4, DIV #5 and DIV #6 are children of DIV #3, so stacking of those
+                    elements
+                    is completely resolved within DIV#3. Once stacking and rendering within DIV #3 is completed, the
+                    whole DIV #3 element is
+                    passed for stacking in the root element with respect to its sibling's DIV.
+                </aside>
+            </section>
         </section>
         <section>
-            <h2>Stacking context</h2>
-            <p>z-index is not global, it is <em>in relation to the current stacking context</em>. A stacking context is formed on the following elements:</p>
-            <ul>
-                <li>on the root <em>html</em> element</li>
-                <li>on an element with a <em>position</em> value of absolute, relative and a z-index other than auto</li>
-                <li>on an element that is a child of a flex/grid container</li>
-                <li>many more, see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context">MDN</a></li>
-            </ul>
-            <aside class="notes">
-                Source: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
-            </aside>
-        </section>
-        <section>
-            <img alt="Stacking context example" src="../assets/diagrams/chapter5/z_index.png" />
-            <p>In this example, every positioned element creates its own stacking context, because of their positioning and z-index values</p>
-            <aside class="notes">
-                Source: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context#the_example
-                In this example, every positioned element creates its own stacking context, because of their positioning and z-index values. The hierarchy of stacking contexts is organized as follows:
-
-                Root
-                DIV #1
-                DIV #2
-                DIV #3
-                DIV #4
-                DIV #5
-                DIV #6
-
-                It is important to note that DIV #4, DIV #5 and DIV #6 are children of DIV #3, so stacking of those elements
-                is completely resolved within DIV#3. Once stacking and rendering within DIV #3 is completed, the whole DIV #3 element is
-                passed for stacking in the root element with respect to its sibling's DIV.
-            </aside>
+            <section>
+                <h2>Size units</h2>
+                <p>px vs. rem vs. em</p>
+            </section>
+            <section>
+                <h2>px</h2>
+                <p>Specifies a size in exact pixels</p>
+            </section>
+            <section>
+                <h2>rem</h2>
+                <p>Specifies a size relative to the root font size</p>
+            </section>
+            <section>
+                <h2>rem</h2>
+                <ul>
+                    <li>Some users change the root font size (for example for accessibility reasons)</li>
+                    <li>With px this preference is ignored</li>
+                    <li>With rem everything can scale accordingly</li>
+                </ul>
+                <div class="tip fragment">use rem instead of px if possible</div>
+                <aside class="notes">
+                    Hint: changing the root font size is not the same thing as zooming in
+                </aside>
+            </section>
+            <section>
+                <h2>em</h2>
+                <p>Specifies a size relative to the font size of the element being styled</p>
+                <div class="tip fragment">used less often than rem</div>
+            </section>
         </section>
     </div>
 </div>
