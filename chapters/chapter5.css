@@ -8,9 +8,16 @@
 }
 
 @keyframes move {
-    0% { transform: translateY(-100%); }
-    70% { background-color: var(--zuehlke-orange); transform: translateY(0); }
-    100% { background-color: var(--zuehlke-blue); }
+    0% {
+        transform: translateY(-100%);
+    }
+    70% {
+        background-color: var(--zuehlke-orange);
+        transform: translateY(0);
+    }
+    100% {
+        background-color: var(--zuehlke-blue);
+    }
 }
 
 @keyframes left-to-right {
@@ -37,4 +44,19 @@
     animation-duration: 3s;
     animation-name: left-to-right;
     animation-iteration-count: infinite;
+}
+
+.stacking-container {
+    position: relative;
+    left: 200px;
+    height: 150px;
+}
+
+.stacking-container div {
+    position: absolute;
+    width: 200px;
+    padding: 10px 20px;
+    border: 2px solid white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+    background-color: var(--zuehlke-blue);
 }
