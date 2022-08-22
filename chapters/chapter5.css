@@ -1,0 +1,40 @@
+.colored-border {
+    background-color: var(--zuehlke-orange);
+    transition: background-color 1s;
+}
+
+.colored-border:hover {
+    background-color: var(--zuehlke-blue);
+}
+
+@keyframes move {
+    0% { transform: translateY(-100%); }
+    70% { background-color: var(--zuehlke-orange); transform: translateY(0); }
+    100% { background-color: var(--zuehlke-blue); }
+}
+
+@keyframes left-to-right {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(400%);
+    }
+}
+
+.moving-container {
+    background-color: var(--zuehlke-orange);
+    animation-name: move;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-duration: 2s;
+}
+
+.move-side-to-side {
+    width: 180px;
+    margin-top: 1rem;
+    background-color: var(--zuehlke-orange);
+    animation-duration: 3s;
+    animation-name: left-to-right;
+    animation-iteration-count: infinite;
+}
