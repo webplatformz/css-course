@@ -60,3 +60,14 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
     background-color: var(--zuehlke-blue);
 }
+
+.semantic-elements-container {
+    display: flex;
+    flex-direction: column;
+    height: 220px;
+}
+
+.semantic-elements-container .item {
+    padding: 10px;
+    border-radius: 10px;
+}

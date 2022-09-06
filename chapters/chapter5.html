@@ -217,6 +217,54 @@
         </section>
         <section>
             <section>
+                <h2>Accessibility</h2>
+                <p>Accessibility is a big subject. We cover some tips here</p>
+            </section>
+            <section>
+                <h3>Use semantic elements</h3>
+                <div class="comparison">
+                    <div>
+                        normal elements
+                        <div class="semantic-elements-container">
+                            <div class="item" style="background-color: var(--zuehlke-light-gray)">&lt;div&gt;</div>
+                            <div style="display: flex; flex-grow: 2">
+                                <div class="item" style="flex-basis: 20%; background-color: var(--zuehlke-blue)">&lt;div&gt;</div>
+                                <div class="item" style="flex-grow: 2; background-color: var(--zuehlke-orange)">&lt;div&gt;</div>
+                            </div>
+                            <div class="item" style="background-color: var(--zuehlke-light-gray)">&lt;div&gt;</div>
+                        </div>
+                    </div>
+                    <div>
+                        semantic elements
+                        <div class="semantic-elements-container">
+                            <div class="item" style="background-color: var(--zuehlke-light-gray)">&lt;header&gt;</div>
+                            <div style="display: flex; flex-grow: 2">
+                                <div class="item" style="flex-basis: 20%; background-color: var(--zuehlke-blue)">&lt;aside&gt;</div>
+                                <div class="item" style="flex-grow: 2; background-color: var(--zuehlke-orange)">&lt;main&gt;</div>
+                            </div>
+                            <div class="item" style="background-color: var(--zuehlke-light-gray)">&lt;footer&gt;</div>
+                        </div>
+                    </div>
+                </div>
+                <p>Semantic elements help screen readers (and also SEO)</p>
+                <aside class="notes">
+                    Some HTML elements have semantic meanings, such as main or aside. If possible it is better to use those
+                    instead of just random divs.
+                </aside>
+            </section>
+            <section>
+                <h3>Keep element hierarchy consistent</h3>
+                <p>Example: the order of headings should always be consistent:</p>
+                <p>Wrong: &lt;h1&gt; &rightarrow; &lt;h3&gt; &rightarrow; &lt;h4&gt; &rightarrow; &lt;h5&gt;</p>
+                <p>Correct: &lt;h1&gt; &rightarrow; &lt;h2&gt; &rightarrow; &lt;h3&gt; &rightarrow; &lt;h4&gt;</p>
+                <aside class="notes">
+                    This can mean, that a h2 is does not always have the same styling throughout your application.
+                    For the HTML markup it should only be relevant what the semantic function of the element is.
+                </aside>
+            </section>
+        </section>
+        <section>
+            <section>
                 <h2>Size units</h2>
                 <p>px vs. rem vs. em</p>
             </section>
