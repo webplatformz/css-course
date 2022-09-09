@@ -240,8 +240,27 @@
             </section>
 
             <section>
+                <h2>Precedence of Rules</h2>
+                <p>
+                    We already saw that inline styles overrule other styles.
+                    We've also seen, that we can apply multiple rules to the same element.
+                </p>
+                <p>This begs the question:</p>
+                <p class="fragment"><b>What are the rules to resolve conflicting styles?</b></p>
+            </section>
+
+            <section>
+                <h2>Specificity</h2>
+                <p>Specificity is the means by which browsers decide which CSS property value will be applied. It's a weight determined by the used selector.</p>
+            </section>
+
+            <section>
                 <h2>Selector Types</h2>
-                …
+                <ol>
+                    <li class="fragment">Types (<span class="code">h1</span>) and pseudo-elements (<span class="code">::before</span>)</li>
+                    <li class="fragment">Classes (<span class="code">.red</span>), attributes (<span class="code">[type=radio]</span>), pseudo-classes (<span class="code">:hover</span>)</li>
+                    <li class="fragment">IDs (<span class="code">#title</span>)</li>
+                </ol>
             </section>
         </section>
         <section>
