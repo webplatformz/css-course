@@ -6,19 +6,19 @@
     <title>CSS Basics</title>
 
     <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/webplatformz/zuehlke-reveal-package@de8372e841e7cdcaaff4cce9b47cb4dc517a7e41/release/index.css">
+          href="https://cdn.jsdelivr.net/gh/webplatformz/zuehlke-reveal-package@8623831844409987906831c301a1bf63bb5270cd/release/index.css">
     <link rel="stylesheet" href="../utils.css">
     <link rel="stylesheet" href="01-basics.css">
 </head>
 <body>
 <div class="reveal">
     <div class="slides">
-        <section class="deck-slide">
+        <section class="title-slide">
             <h1>CSS Basics</h1>
         </section>
 
         <section>
-            <section>
+            <section class="subtitle-slide">
                 <h2>How to style HTML elements?</h2>
             </section>
 
@@ -72,7 +72,7 @@
             <section>
                 <h2>Syntax</h2>
                 <p>CSS is a rule-based language: you define the rules by specifying groups of styles that should be applied to particular elements.</p>
-                <p>The syntax for one <b>rule</b> is similar to inline styles:</p>
+                <p>The syntax for one <b class="hl">rule</b> is similar to inline styles:</p>
                 <pre><code class="hljs css" data-trim>
                     selector { /* <- e.g. class name */
                         property: value; /* <- declaration */
@@ -135,7 +135,7 @@
         </section>
 
         <section>
-            <section>
+            <section class="subtitle-slide">
                 <h2>Selectors</h2>
             </section>
 
@@ -196,26 +196,34 @@
         </section>
 
         <section>
-            <section>
+            <section class="subtitle-slide">
                 <h2>CSS Diner Exercise</h2>
             </section>
 
-            <section style="height: 100%;">
-                <div style="height: 100%; display: flex; flex-direction: column;">
-                    <p>Solve levels 1 to 14:</p>
-                    <iframe data-src="https://flukeout.github.io" data-preload
-                            style="flex-grow: 1; border:none;"></iframe>
+            <section class="exercise">
+                <div>
+                    <span class="title">Task</span>
+                    <span class="description">Solve levels <b class="hl">1 to 14</b> of <a href="https://flukeout.github.io">CSS Diner</a> (open link or use next slide)</span>
                 </div>
+            </section>
+
+            <section data-background-iframe="https://flukeout.github.io"
+                     data-preload
+                     data-background-interactive>
+                <div class="fragment fade-out tip">Solve levels 1 to 14 (press down to hide this)</div>
             </section>
         </section>
 
         <section>
-            <section>
+            <section class="subtitle-slide">
                 <h2>Browser Defaults</h2>
             </section>
 
-            <section>
-                exercise
+            <section class="exercise">
+                <div>
+                    <span class="title">Task</span>
+                    <span class="description"><a href="01-browser-defaults-example.html" target="_blank">Open this page</a> and inspect the styles from different browsers.</span>
+                </div>
             </section>
 
             <section>
@@ -235,7 +243,7 @@
         </section>
 
         <section>
-            <section>
+            <section class="subtitle-slide">
                 <h2>Specificity</h2>
             </section>
 
@@ -246,7 +254,7 @@
                     We've also seen, that we can apply multiple rules to the same element.
                 </p>
                 <p>This begs the question:</p>
-                <p class="fragment"><b>What are the rules to resolve conflicting styles?</b></p>
+                <p class="fragment"><b class="hl">What are the rules to resolve conflicting styles?</b></p>
             </section>
 
             <section>
@@ -264,7 +272,7 @@
             </section>
         </section>
         <section>
-            <section>
+            <section class="subtitle-slide">
                 <h2>Box Model</h2>
             </section>
 
@@ -295,31 +303,33 @@
                 </div>
                 <div class="r-stack" style="margin-top: 50px">
                     <p class="fragment current-visible" data-fragment-index="1">
-                        <b>Content</b>: The actual content of the box, in which text, images and other child elements appear. Child elements are bound by this area.
+                        <b class="hl">Content</b>: The actual content of the box, in which text, images and other child elements appear. Child elements are bound by this area.
                     </p>
                     <p class="fragment current-visible" data-fragment-index="2">
-                        <b>Padding</b>: Clears an area around the content, separating content and border. The padding is transparent.
+                        <b class="hl">Padding</b>: Clears an area around the content, separating content and border. The padding is transparent.
                     </p>
                     <p class="fragment current-visible" data-fragment-index="3">
-                        <b>Border</b>: A border that goes around the padding and content. Backgrounds extend to the edge of this area/box. The border can be colored.
+                        <b class="hl">Border</b>: A border that goes around the padding and content. Backgrounds extend to the edge of this area/box. The border can be colored.
                     </p>
                     <p class="fragment current-visible" data-fragment-index="4">
-                        <b>Margin</b>: Clears an area outside the border to separate the element from its neighbors. The margin is transparent.
+                        <b class="hl">Margin</b>: Clears an area outside the border to separate the element from its neighbors. The margin is transparent.
                     </p>
                 </div>
             </section>
 
             <section>
                 <h2>Box Sizing</h2>
-                <p>There are two ways to determine the size of a box from on the height and width values:</p>
-                <ul>
-                    <li class="fragment">
-                        <b>Content Box</b>: Default behaviour. The element's size (height, width) corresponds with the content box size. Padding and border add to the rendered width.
-                    </li>
-                    <li class="fragment">
-                        <b>Border Box</b>: Includes padding and border into the values for an element's height and width. Increasing padding or border sizes will shrink the content box. Generally easier to use.
-                    </li>
-                </ul>
+                <p>There are 2 ways to determine the size of a box from height and width values:</p>
+                <div class="comparison">
+                    <div class="fragment">
+                        <h3>Content Box</h3>
+                        <p>Default behaviour. The element's size (height, width) corresponds with the content box size. Padding and border add to the rendered width.</p>
+                    </div>
+                    <div class="fragment">
+                        <h3>Border Box</h3>
+                        <p>Includes padding and border into the values for an element's height and width. Increasing padding or border sizes will shrink the content box. Generally easier to use.</p>
+                    </div>
+                </div>
                 <pre class="fragment"><code class="hljs css" data-trim data-noescape>
                     box-sizing: content-box | border-box;
                 </code></pre>
@@ -352,7 +362,7 @@
                     }
                 </style>
                 <div class="cols">
-                    <pre><code class="hljs css" data-trim data-noescape>
+                    <pre><code class="hljs css" data-line-numbers="|2|2,7-10|2,14,15" data-trim data-noescape data-fragment-index="1">
                         .parent {
                             width: 250px;
                             background: lightskyblue;
@@ -361,21 +371,21 @@
                         .content-box {
                             box-sizing: content-box;
                             width: 100%;
-                            border: solid #666 10px;
                             padding: 5px;
+                            border: solid #666 10px;
                         }
 
                         .border-box {
                             box-sizing: border-box;
                             width: 100%;
-                            border: solid #666 10px;
                             padding: 5px;
+                            border: solid #666 10px;
                         }
                     </code></pre>
                     <div class="box-sizing-container box-model-content">
-                        parent
-                        <div class="box-sizing-content-box">content-box</div>
-                        <div class="box-sizing-border-box">border-box</div>
+                        <span class="fragment highlight-current-red" data-fragment-index="1">parent</span>
+                        <div class="box-sizing-content-box fragment highlight-current-red" data-fragment-index="2">content-box</div>
+                        <div class="box-sizing-border-box fragment highlight-current-red" data-fragment-index="3">border-box</div>
                     </div>
                 </div>
             </section>
@@ -383,13 +393,17 @@
 
         <section>
 
+            <section class="subtitle-slide">
+                <h2>Margin Collapse</h2>
+            </section>
+
             <section>
                 <h2>Margin Collapsing</h2>
                 <p>Vertical margins (top and bottom) of blocks are collapsed in 3 cases.</p>
             </section>
 
             <section>
-                <h2>Adjacent siblings</h2>
+                <h2>1. Adjacent siblings</h2>
                 <div class="cols">
                     <div style="width: 120px;">
                         <div class="box-model-content" style="height: 50px;"><small>content</small></div>
@@ -408,7 +422,7 @@
             </section>
 
             <section>
-                <h2>Nothing separating parent & descendants</h2>
+                <h2>2. Nothing separating parent & descendants</h2>
                 <p>When there's no border, padding or content between outer and inner margin.</p>
                 <div class="cols">
                     <div style="width: 120px;">
@@ -434,7 +448,7 @@
             </section>
 
             <section>
-                <h2>Empty blocks</h2>
+                <h2>3. Empty blocks</h2>
                 <p>Top and bottom margin collapses on blocks with zero height and no border or padding.</p>
                 <div class="cols">
                     <div style="width: 120px;">
@@ -463,22 +477,27 @@
                 <p>When should I use which one?</p>
                 <ul>
                     <li class="fragment">
-                        Use <b>margin</b> for spacing between neighbouring elements<br/>
+                        Use <b class="hl">margin</b> for spacing between neighbouring elements<br/>
                         <span class="arrow-right"></span> control whitespace
                     </li>
                     <li class="fragment">
-                        Use <b>padding</b> to position child elements and text content<br/>
+                        Use <b class="hl">padding</b> to position child elements and text content<br/>
                         <span class="arrow-right"></span> control box
                     </li>
                     <li class="fragment">Note: padding is included in the background colour/image and click region (e.g. for links or buttons)</li>
                     <li class="fragment">Margin can be set to <span class="code">auto</span> or negative numbers</li>
                 </ul>
             </section>
+
+        </section>
+
+        <section class="break-slide">
+            <h1>Questions?</h1>
         </section>
 
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/gh/webplatformz/zuehlke-reveal-package@de8372e841e7cdcaaff4cce9b47cb4dc517a7e41/release/index.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/webplatformz/zuehlke-reveal-package@8623831844409987906831c301a1bf63bb5270cd/release/index.js"></script>
 <script>
 	setupZuehlkeRevealPresentation();
 </script>
