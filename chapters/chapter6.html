@@ -29,7 +29,55 @@
             <h2>CSS Preprocessors</h2>
           </section>
           <section>
-            <h2>SASS</h2>
+            <h2>Features</h2>
+            <ul>
+              <li>Mixins</li>
+              <li>Function</li>
+              <li>...</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Mixin</h2>
+            <pre>
+              <code class="hljs scss" data-trim data-noescape>
+                @mixin mobile-only {
+                  @media (max-width: $mobile-width) {
+                    @content;
+                  }
+                }
+              </code>
+            </pre>
+            <pre>
+              <code class="hljs scss" data-trim data-noescape>
+                .root {
+                  @include mobile-only {
+                    display: none;
+                  }
+                }
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h2>Function</h2>
+            <pre>
+              <code class="hljs scss" data-trim data-noescape>
+                @function spacing($space) {
+                  @if $space == 4 {
+                    @return "4px";
+                  } @else if $space == 8 {
+                    @return "8px";
+                  }
+                  ...
+                }
+              </code>
+            </pre>
+            <pre>
+              <code class="hljs scss" data-trim data-noescape>
+                .root {
+                  padding: spacing(4);
+                }
+              </code>
+            </pre>
           </section>
         </section>
         <section>
@@ -44,9 +92,10 @@
             </ul>
           </section>
           <section>
-            <h2>Low-Level Libraries</h2>
+            <h2>Utility Libraries</h2>
             <ul>
               <li>Tailwind CSS</li>
+              <li>CSS-in-JS (Styled Components)</li>
             </ul>
           </section>
         </section>
@@ -55,8 +104,7 @@
             <h2>Development Helpers</h2>
           </section>
           <section>
-            <h2>Building UI components and pages in isolation faster.</h2>
-            <h2>Examples</h2>
+            <h2>Isolated Component Development</h2>
             <ul>
               <li>
                 <a href="https://storybook.js.org/" target="_blank" rel="noopener">Storybook</a>
