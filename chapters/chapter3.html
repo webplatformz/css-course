@@ -631,7 +631,76 @@
                         <p>CHF 95</p>
                     </div>
                 </div>
+                <div class="actions-container">
+                    <div>Close</div>
+                    <div>More</div>
+                </div>
             </div>
+        </section>
+        <section>
+            <h2>Build person card</h2>
+            <div style="display: flex; align-items: flex-start">
+                <div class="person-tile">
+                    <div class="personal-header" style="border: 1px solid var(--zuehlke-blue)">
+                        <img src="../assets/images/chapter3/person-tile.jpg"/>
+                        <div>
+                            <h1>Laura Roberts</h1>
+                            <p>Member since 2015</p>
+                            <p>4600 Olten</p>
+                        </div>
+                    </div>
+                    <hr/>
+                    <h2>Offers</h2>
+                    <div class="product" style="border: 1px solid var(--zuehlke-blue)">
+                        <img src="../assets/images/chapter3/product1.jpg"/>
+                        <div>
+                            <p class="product-title">Vintage Jacket</p>
+                            <p>CHF 65</p>
+                        </div>
+                    </div>
+                    <div class="product" style="border: 1px solid var(--zuehlke-blue)">
+                        <img src="../assets/images/chapter3/product2.jpg"/>
+                        <div>
+                            <p class="product-title">Blazer Black</p>
+                            <p>CHF 115</p>
+                        </div>
+                    </div>
+                    <div class="product" style="border: 1px solid var(--zuehlke-blue)">
+                        <img src="../assets/images/chapter3/product3.jpg"/>
+                        <div>
+                            <p class="product-title">Nike Air Force</p>
+                            <p>CHF 95</p>
+                        </div>
+                    </div>
+                    <div class="actions-container" style="border: 1px solid var(--zuehlke-blue)">
+                        <div>Close</div>
+                        <div>More</div>
+                    </div>
+                </div>
+                <div style="flex-grow: 2">
+                     <pre><code class="css" data-trim data-noescape>
+                        .personal-header {
+                            display: flex;
+                            align-items: center;
+                            gap: 16px;
+                        }
+                        .product {
+                            display: flex;
+                            align-items: center;
+                            gap: 16px;
+                        }
+                        .actions-container {
+                            display: flex;
+                            justify-content: space-between;
+                            margin-top: 24px;
+                        }
+                    </code></pre>
+                </div>
+            </div>
+            <aside class="notes">
+                Not that much styling is actually needed to build the card. For the vertical things we don't even need to use flex, as elements
+                slot in vertically among each other by default.
+            </aside>
         </section>
     </div>
 </div>

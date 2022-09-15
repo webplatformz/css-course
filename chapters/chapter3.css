@@ -48,7 +48,7 @@
 }
 
 .person-tile hr {
-    border: 1px solid #9DA2A8;
+    border: 1px solid var(--zuehlke-dark-gray);
     margin: 16px 0;
 }
 
@@ -86,4 +86,20 @@
     height: 56px;
     border-radius: 5px;
     margin: 0 !important;
+}
+
+.actions-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+}
+
+.actions-container div {
+    font-size: 12px;
+    line-height: 20px;
+    color: white;
+    width: 90px;
+    height: 20px;
+    border-radius: 5px;
+    background-color: var(--zuehlke-dark-gray);
 }
