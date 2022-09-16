@@ -67,6 +67,7 @@
                         </style>
                     </code></pre>
                 </div>
+                <aside class="notes">This uses the HTML «style» tag, inside which we can write pure CSS</aside>
             </section>
 
             <section>
@@ -78,6 +79,7 @@
                         property: value; /* <- declaration */
                     }
                 </code></pre>
+                <aside class="notes">With the selector we define what HTML elements should be affected by this rule</aside>
             </section>
 
             <section>
@@ -98,6 +100,7 @@
                         }
                     </style>
                 </code></pre>
+                <aside class="notes">The dot means: «elements with a class named …»</aside>
             </section>
 
             <section>
@@ -118,11 +121,12 @@
                     <p style="color: blue;">It's blue!</p>
                     <p>Inline styles take precedence.</p>
                 </div>
+                <aside class="notes">ask participants</aside>
             </section>
 
             <section>
                 <h2>Class vs. Inline</h2>
-                <p>Why are classes better than inline styles?</p>
+                <p>Why use classes instead of inline styles?</p>
                 <ul>
                     <li class="fragment">We can easily reuse styles</li>
                     <li class="fragment">Separates the concerns of styling and structure</li>
@@ -130,6 +134,7 @@
                     <li class="fragment">Inline styles are hard to override/adjust</li>
                     <li class="fragment">Inline styles are less performant</li>
                 </ul>
+                <div class="tip fragment">Avoid inline styles, classes were made for this</div>
             </section>
 
         </section>
@@ -151,6 +156,7 @@
                     </li>
                     <li class="fragment">IDs: <span class="code">#title</span>, <span class="code">#submit</span></li>
                 </ul>
+                <aside class="notes">Tags and classes are sufficient for most cases</aside>
             </section>
 
             <section>
@@ -191,8 +197,8 @@
                 <pre class="fragment"><code class="hljs css" data-trim>#upload > button</code></pre>
                 <pre class="fragment"><code class="hljs css" data-trim>h2 + ul li</code></pre>
                 <pre class="fragment"><code class="hljs css" data-trim>body section p + p</code></pre>
+                <aside class="notes">ask participants to explain each one</aside>
             </section>
-
         </section>
 
         <section>
@@ -202,7 +208,7 @@
 
             <section class="exercise">
                 <div>
-                    <span class="title">Task</span>
+                    <span class="title">Exercise</span>
                     <span class="description">Solve levels <b class="hl">1 to 14</b> of <a href="https://flukeout.github.io">CSS Diner</a> (open link or use next slide)</span>
                 </div>
             </section>
@@ -212,18 +218,21 @@
                      data-background-interactive>
                 <div class="fragment fade-out tip">Solve levels 1 to 14 (press down to hide this)</div>
             </section>
+            <aside class="notes">Demo the first exercise to explain the format</aside>
         </section>
 
         <section>
             <section class="subtitle-slide">
                 <h2>Browser Defaults</h2>
+                <aside class="notes">We talked about styles that <b>we</b> apply, but what about the browser?</aside>
             </section>
 
             <section class="exercise">
                 <div>
-                    <span class="title">Task</span>
+                    <span class="title">Exercise</span>
                     <span class="description"><a href="01-browser-defaults-example.html" target="_blank">Open this page</a> and inspect the styles from different browsers.</span>
                 </div>
+                <aside class="notes">Give participants some time to look at the page and use browser dev tools, maybe demo. After some time show for example the margins on elements.</aside>
             </section>
 
             <section>
@@ -264,13 +273,44 @@
 
             <section>
                 <h2>Selector Types</h2>
+                <p>Different selector types ordered by increasing weight:</p>
                 <ol>
                     <li class="fragment">Types (<span class="code">h1</span>) and pseudo-elements (<span class="code">::before</span>)</li>
                     <li class="fragment">Classes (<span class="code">.red</span>), attributes (<span class="code">[type=radio]</span>), pseudo-classes (<span class="code">:hover</span>)</li>
                     <li class="fragment">IDs (<span class="code">#title</span>)</li>
                 </ol>
+                <div class="tip fragment">Keep specificity as low a necessary</div>
+            </section>
+
+            <section>
+                <h2>Calculate Weight</h2>
+                <p>The weight can be represented in this format: <span class="code">id-class-tag</span>.</p>
+                <pre class="fragment"><code class="hljs css" data-trim data-noescape>div.banner li                <span class="fragment">/* 0-1-2 */</span></code></pre>
+                <pre class="fragment"><code class="hljs css" data-trim data-noescape>#upload > button             <span class="fragment">/* 1-0-1 */</span></code></pre>
+                <pre class="fragment"><code class="hljs css" data-trim data-noescape>form [type="password"]       <span class="fragment">/* 0-1-1 */</span></code></pre>
+                <pre class="fragment"><code class="hljs css" data-trim data-noescape>:root #myApp input:required  <span class="fragment">/* 1-2-1 */</span></code></pre>
+                <aside class="notes">explain the first one and then ask participants for the others</aside>
+            </section>
+
+            <section>
+                <h2>Comparison</h2>
+                <p>Weights get compared <span class="hl">from left to right</span>. Which means:</p>
+                <pre><code class="hljs css">.banner /* 0-1-0 */</code></pre>
+                <p>beats</p>
+                <pre><code class="hljs css">body section div ul li /* 0-0-5 */</code></pre>
+                <aside class="notes">think of it like a decimal number, the position of a digit matters too</aside>
+            </section>
+
+            <section>
+                <h2>Tools</h2>
+                <p>These websites (among many) help you analyse/calculate the specificity of your selector:</p>
+                <ul>
+                    <li><a href="https://specificity.keegan.st">Calculator by Keegan Street</a></li>
+                    <li><a href="https://polypane.app/css-specificity-calculator">Calculator by Polypane</a></li>
+                </ul>
             </section>
         </section>
+
         <section>
             <section class="subtitle-slide">
                 <h2>Box Model</h2>
@@ -395,6 +435,7 @@
 
             <section class="subtitle-slide">
                 <h2>Margin Collapse</h2>
+                <aside class="notes">One common confusion with CSS are margins not behaving as expected.</aside>
             </section>
 
             <section>
