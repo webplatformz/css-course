@@ -1,0 +1,17 @@
+:root {
+    --color-margin: gold;
+    --color-border: #666;
+    --color-padding: mediumpurple;
+    --color-content: lightskyblue;
+}
+
+.arrow-right::before {
+    content: '\279E';
+}
+
+.cols {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: start;
+}

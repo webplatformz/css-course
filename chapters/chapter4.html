@@ -10,6 +10,7 @@
       href="https://cdn.jsdelivr.net/gh/webplatformz/zuehlke-reveal-package@de8372e841e7cdcaaff4cce9b47cb4dc517a7e41/release/index.css"
     />
   </head>
+
   <body>
     <div class="reveal">
       <div class="slides">
@@ -18,9 +19,13 @@
         </section>
         <section>
           <h2>What is the CSS Grid?</h2>
-          <p>A two dimensional layout system, controlling layout in rows and columns.</p>
+          <p>
+            A two dimensional layout system, controlling layout in rows and
+            columns.
+          </p>
           <aside class="notes">
-            Explain how we go from 1-D (flexbox) to 2-D (flexbox) and describe usecase where this will make it easier.
+            Explain how we go from 1-D (flexbox) to 2-D (flexbox) and describe
+            usecase where this will make it easier.
           </aside>
         </section>
         <section>
@@ -30,7 +35,8 @@
           <section>
             <h2>Grid Container</h2>
             <p>
-              The container that holds the entire CSS grid. It is the element that has the
+              The container that holds the entire CSS grid. It is the element
+              that has the
               <em>display:grid</em>
               or
               <em>display:inline-grid</em>
@@ -62,7 +68,10 @@
           </section>
           <section>
             <h2>Grid Line</h2>
-            <p>The vertical and horizontal lines that divide the grid and separate the columns and rows.</p>
+            <p>
+              The vertical and horizontal lines that divide the grid and
+              separate the columns and rows.
+            </p>
             <img src="../assets/diagrams/chapter4/grid-line.svg" />
           </section>
           <section>
@@ -99,7 +108,7 @@
             <img src="../assets/diagrams/chapter4/grid-column.svg" />
           </section>
           <section>
-            <h2>Gutter</h2>
+            <h2>Gutter / Gap</h2>
             <p>The space between rows and columns in a grid.</p>
             <img src="../assets/diagrams/chapter4/gutter.svg" />
           </section>
@@ -107,7 +116,10 @@
         <section>
           <section>
             <h2>Example</h2>
-            <div class="fragment" style="display: flex; justify-content: space-between">
+            <div
+              class="fragment"
+              style="display: flex; justify-content: space-between"
+            >
               <pre><code class="css" data-trim data-noescape>
                 .grid-container {
                   display: grid;
@@ -123,10 +135,23 @@
                 </div>
               </code></pre>
             </div>
-            <div class="fragment" style="display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid red">
-              <div style="border: 1px solid black; margin: 4px">Grid Item 1</div>
-              <div style="border: 1px solid black; margin: 4px 0px">Grid Item 2</div>
-              <div style="border: 1px solid black; margin: 4px">Grid Item 3</div>
+            <div
+              class="fragment"
+              style="
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                border: 1px solid red;
+              "
+            >
+              <div style="border: 1px solid black; margin: 4px">
+                Grid Item 1
+              </div>
+              <div style="border: 1px solid black; margin: 4px 0px">
+                Grid Item 2
+              </div>
+              <div style="border: 1px solid black; margin: 4px">
+                Grid Item 3
+              </div>
             </div>
             <aside class="notes">
               <ul>
@@ -147,7 +172,10 @@
               <br />
               <em>grid-template-rows</em>
             </h2>
-            <p>A way to define the number of rows and columns as well as their size.</p>
+            <p>
+              A way to define the number of rows and columns as well as their
+              size.
+            </p>
           </section>
           <section>
             <h2>
@@ -187,10 +215,18 @@
                     width: 50rem;
                   "
                 >
-                  <div style="border: 1px solid black; margin: 4px">Grid Item 1</div>
-                  <div style="border: 1px solid black; margin: 4px 0px">Grid Item 2</div>
-                  <div style="border: 1px solid black; margin: 4px">Grid Item 3</div>
-                  <div style="border: 1px solid black; margin: 4px">Grid Item 4</div>
+                  <div style="border: 1px solid black; margin: 4px">
+                    Grid Item 1
+                  </div>
+                  <div style="border: 1px solid black; margin: 4px 0px">
+                    Grid Item 2
+                  </div>
+                  <div style="border: 1px solid black; margin: 4px">
+                    Grid Item 3
+                  </div>
+                  <div style="border: 1px solid black; margin: 4px">
+                    Grid Item 4
+                  </div>
                 </div>
                 <br />
                 <h5>repeat(4, 1fr)</h5>
@@ -203,10 +239,18 @@
                     width: 50rem;
                   "
                 >
-                  <div style="border: 1px solid black; margin: 4px">Grid Item 1</div>
-                  <div style="border: 1px solid black; margin: 4px 0px">Grid Item 2</div>
-                  <div style="border: 1px solid black; margin: 4px">Grid Item 3</div>
-                  <div style="border: 1px solid black; margin: 4px">Grid Item 4</div>
+                  <div style="border: 1px solid black; margin: 4px">
+                    Grid Item 1
+                  </div>
+                  <div style="border: 1px solid black; margin: 4px 0px">
+                    Grid Item 2
+                  </div>
+                  <div style="border: 1px solid black; margin: 4px">
+                    Grid Item 3
+                  </div>
+                  <div style="border: 1px solid black; margin: 4px">
+                    Grid Item 4
+                  </div>
                 </div>
               </div>
             </ul>
@@ -226,8 +270,6 @@
                 display: grid;
                 grid-template-columns: 1fr 2fr 1fr;
                 grid-template-rows: 4fr 1fr 2fr;
-                grid-row-gap: 1rem;
-                grid-column-gap: 4rem;
               }
             </code></pre>
             <div
@@ -260,8 +302,6 @@
                 display: grid;
                 grid-template-columns: minmax(auto, 40%) 1fr 12rem;
                 grid-template-rows: minmax(75px, auto) minmax(75px, 150px) auto;
-                grid-row-gap: 4rem;
-                grid-column-gap: 2rem;
               }
             </code></pre>
             <div
@@ -270,8 +310,8 @@
                 margin: 0 1.5rem;
                 grid-template-columns: minmax(auto, 40%) 1fr 12rem;
                 grid-template-rows: minmax(75px, auto) minmax(75px, 150px) auto;
-                grid-row-gap: 4rem;
-                grid-column-gap: 2rem;
+                grid-row-gap: 10px;
+                grid-column-gap: 5px;
                 border: 1px solid red;
               "
             >
@@ -302,8 +342,6 @@
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 grid-auto-rows: minmax(75px, auto);
-                grid-row-gap: 1rem;
-                grid-column-gap: 4rem;
               }
             </code></pre>
             <div
@@ -312,8 +350,39 @@
                 margin: 0 1.5rem;
                 grid-template-columns: repeat(3, 1fr);
                 grid-auto-rows: minmax(75px, auto);
-                grid-row-gap: 1rem;
-                grid-column-gap: 4rem;
+                grid-row-gap: 5px;
+                grid-column-gap: 10px;
+                border: 1px solid red;
+              "
+            >
+              <div style="border: 1px solid black">Grid Item 1</div>
+              <div style="border: 1px solid black">Grid Item 2</div>
+              <div style="border: 1px solid black">Grid Item 3</div>
+              <div style="border: 1px solid black">Grid Item 4</div>
+              <div style="border: 1px solid black">
+                Grid Item 5
+                <br />
+                (very very very very very very long content)
+              </div>
+            </div>
+          </section>
+          <section>
+            <h2>An Implicit Grid</h2>
+            <pre><code class="css" data-trim data-noescape>
+              .grid-container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-auto-rows: minmax(75px, auto);
+              }
+            </code></pre>
+            <div
+              style="
+                display: grid;
+                margin: 0 1.5rem;
+                grid-template-columns: repeat(3, 1fr);
+                grid-auto-rows: minmax(75px, auto);
+                grid-row-gap: 5px;
+                grid-column-gap: 10px;
                 border: 1px solid red;
               "
             >
@@ -331,15 +400,38 @@
               <div style="border: 1px solid black">Grid Item 8</div>
             </div>
           </section>
+        </section>
+
+        <section>
           <section>
-            <h2>Exercises</h2>
-            <p>Do the exercises 20-27</p>
-            <a href="https://cssgridgarden.com/" target="_blank">https://cssgridgarden.com/</a>
+            <h2>Exercise</h2>
+            <div>
+              <p>
+                Solve the exercises <b class="hl">20-27</b> of
+                <a href="https://cssgridgarden.com/">CSS Grid Garden</a><br />
+                (open link or use next slide)
+              </p>
+            </div>
+          </section>
+
+          <section
+            data-background-iframe="https://cssgridgarden.com/"
+            data-preload
+            data-background-interactive
+          >
+            <div class="fragment fade-out tip">
+              Solve the exercises 20-27<br />
+              (press down to hide this)
+            </div>
           </section>
         </section>
+
         <section>
           <h2>Browser Dev Tools</h2>
-          <img src="../assets/diagrams/chapter4/grid-devtools.png" alt="css grid devtools" />
+          <img
+            src="../assets/diagrams/chapter4/grid-devtools.png"
+            alt="css grid devtools"
+          />
           <ul>
             <li>Open the DevTools (F12, Right-Click + Inspect)</li>
             <li>Click on "grid"</li>
@@ -359,7 +451,10 @@
           <section>
             <h2>Grid Lines</h2>
             <p>Grid items are positioned using grid lines.</p>
-            <img src="../assets/diagrams/chapter4/gird-lines-with-numbers.svg" width="500" />
+            <img
+              src="../assets/diagrams/chapter4/gird-lines-with-numbers.svg"
+              width="500"
+            />
             <aside class="notes">
               <ul>
                 <li>Mention that lines always start at 1 instead of 0.</li>
@@ -368,7 +463,10 @@
           </section>
           <section>
             <h2>Positioning</h2>
-            <div class="fragment" style="display: flex; justify-content: space-between">
+            <div
+              class="fragment"
+              style="display: flex; justify-content: space-between"
+            >
               <pre><code class="css" data-trim data-noescape>
                 .item-1 {
                   grid-row: 2/3; 
@@ -397,9 +495,17 @@
                 border: 1px solid red;
               "
             >
-              <div style="border: 1px solid black; grid-row: 2/3; grid-column: 2/3">Grid Item 1</div>
+              <div
+                style="border: 1px solid black; grid-row: 2/3; grid-column: 2/3"
+              >
+                Grid Item 1
+              </div>
               <div style="border: 1px solid black">Grid Item 2</div>
-              <div style="border: 1px solid black; grid-row: 3/4; grid-column: 3/4">Grid Item 3</div>
+              <div
+                style="border: 1px solid black; grid-row: 3/4; grid-column: 3/4"
+              >
+                Grid Item 3
+              </div>
             </div>
           </section>
           <section>
@@ -421,12 +527,32 @@
               </li>
             </ul>
           </section>
+        </section>
+
+        <section>
           <section>
-            <h2>Exercises</h2>
-            <p>Do the exercises 1-15</p>
-            <a href="https://cssgridgarden.com/" target="_blank">https://cssgridgarden.com/</a>
+            <h2>Exercise</h2>
+            <div>
+              <p>
+                Solve the exercises <b class="hl">1-15</b> of
+                <a href="https://cssgridgarden.com/">CSS Grid Garden</a><br />
+                (open link or use next slide)
+              </p>
+            </div>
+          </section>
+
+          <section
+            data-background-iframe="https://cssgridgarden.com/"
+            data-preload
+            data-background-interactive
+          >
+            <div class="fragment fade-out tip">
+              Solve the exercises 1-15<br />
+              (press down to hide this)
+            </div>
           </section>
         </section>
+
         <section>
           <section>
             <h2>Advanced Grid</h2>
@@ -522,13 +648,32 @@
           <section>
             <h2>Exercises</h2>
             <p>Do the exercises 16-17</p>
-            <a href="https://cssgridgarden.com/" target="_blank">https://cssgridgarden.com/</a>
+            <a href="https://cssgridgarden.com/" target="_blank" rel="noopener"
+              >https://cssgridgarden.com/</a
+            >
           </section>
         </section>
         <section>
-          <h2>Final Exercise</h2>
-          <p>Do the exercises 28</p>
-          <a href="https://cssgridgarden.com/" target="_blank">https://cssgridgarden.com/</a>
+          <section>
+            <h2>Final Exercise</h2>
+            <p>Do the exercises 28</p>
+            <a href="https://cssgridgarden.com/" target="_blank" rel="noopener"
+              >https://cssgridgarden.com/</a
+            >
+          </section>
+          <section>
+            <h2>Further Resources</h2>
+            <ul>
+              <li>
+                <a
+                  href="https://cssgridgarden.com/"
+                  target="_blank"
+                  rel="noopener"
+                  >https://cssgridgarden.com/</a
+                >
+              </li>
+            </ul>
+          </section>
         </section>
       </div>
     </div>
