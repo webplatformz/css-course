@@ -338,7 +338,8 @@
                         <div style="flex-basis: 400px">flex-basis: 400px</div>
                         <div>no flex basis set</div>
                     </div>
-                    <small>The first and middle child respect their size, the other one takes the necessary space</small>
+                    <small>The first and middle child respect their size, the other one takes the necessary
+                        space</small>
                 </div>
             </section>
             <section>
@@ -595,6 +596,122 @@
             <h2>Exercise 2</h2>
             <p>Try to solve levels 17-24 of flexbox froggy</p>
             <a href="https://flexboxfroggy.com/">Flexbox froggy</a>
+        </section>
+        <section>
+            <h2>Build person card</h2>
+            <div class="person-tile">
+                <div class="personal-header">
+                    <img src="../assets/images/chapter3/person-tile.jpg"/>
+                    <div>
+                        <h1>Laura Roberts</h1>
+                        <p>Member since 2015</p>
+                        <p>4600 Olten</p>
+                    </div>
+                </div>
+                <hr/>
+                <h2>Offers</h2>
+                <div class="product">
+                    <img src="../assets/images/chapter3/product1.jpg"/>
+                    <div>
+                        <p class="product-title">Vintage Jacket</p>
+                        <p>CHF 65</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="../assets/images/chapter3/product2.jpg"/>
+                    <div>
+                        <p class="product-title">Blazer Black</p>
+                        <p>CHF 115</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="../assets/images/chapter3/product3.jpg"/>
+                    <div>
+                        <p class="product-title">Nike Air Force</p>
+                        <p>CHF 95</p>
+                    </div>
+                </div>
+                <div class="actions-container">
+                    <div>Close</div>
+                    <div>More</div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>Exercise 3</h2>
+            <p>Build your own person tile</p>
+            <p>Go to the <a href="https://githubbox.com/webplatformz/css-course-exercises/tree/main/offer-gallery/flex" target="_blank">code sandbox</a>
+                and try to build the person tile after the design from <a href="https://www.figma.com/file/AOeJrusUin6jLSggPW1KN1/Z%C3%BChlke_CSS_Kurs?node-id=18%3A291" target="_blank">figma</a></p>
+        </section>
+        <section>
+            <h2>Exercise 3</h2>
+            <p>Build your own person tile</p>
+            <p><a href="https://githubbox.com/webplatformz/css-course-exercises/tree/main/offer-gallery/flex-solution" target="_blank">Link to possible solution</a></p>
+        </section>
+        <section>
+            <h2>Build person card</h2>
+            <div style="display: flex; align-items: flex-start">
+                <div class="person-tile">
+                    <div class="personal-header" style="border: 1px solid var(--zuehlke-blue)">
+                        <img src="../assets/images/chapter3/person-tile.jpg"/>
+                        <div>
+                            <h1>Laura Roberts</h1>
+                            <p>Member since 2015</p>
+                            <p>4600 Olten</p>
+                        </div>
+                    </div>
+                    <hr/>
+                    <h2>Offers</h2>
+                    <div class="product" style="border: 1px solid var(--zuehlke-blue)">
+                        <img src="../assets/images/chapter3/product1.jpg"/>
+                        <div>
+                            <p class="product-title">Vintage Jacket</p>
+                            <p>CHF 65</p>
+                        </div>
+                    </div>
+                    <div class="product" style="border: 1px solid var(--zuehlke-blue)">
+                        <img src="../assets/images/chapter3/product2.jpg"/>
+                        <div>
+                            <p class="product-title">Blazer Black</p>
+                            <p>CHF 115</p>
+                        </div>
+                    </div>
+                    <div class="product" style="border: 1px solid var(--zuehlke-blue)">
+                        <img src="../assets/images/chapter3/product3.jpg"/>
+                        <div>
+                            <p class="product-title">Nike Air Force</p>
+                            <p>CHF 95</p>
+                        </div>
+                    </div>
+                    <div class="actions-container" style="border: 1px solid var(--zuehlke-blue)">
+                        <div>Close</div>
+                        <div>More</div>
+                    </div>
+                </div>
+                <div style="flex-grow: 2">
+                     <pre><code class="css" data-trim data-noescape>
+                        .personal-header {
+                            display: flex;
+                            align-items: center;
+                            gap: 16px;
+                        }
+                        .product {
+                            display: flex;
+                            align-items: center;
+                            gap: 16px;
+                        }
+                        .actions-container {
+                            display: flex;
+                            justify-content: space-between;
+                            margin-top: 24px;
+                        }
+                    </code></pre>
+                </div>
+            </div>
+            <aside class="notes">
+                Not that much styling is actually needed to build the card. For the vertical things we don't even need to use flex, as elements
+                slot in vertically among each other by default.
+            </aside>
         </section>
     </div>
 </div>
