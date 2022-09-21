@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>CSS Basics</title>
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/webplatformz/zuehlke-reveal-package@9a8e52dd204f161e64f9701df0dff4f413e1a97a/release/index.css">
+    <link rel="stylesheet" href="../utils.css">
+    <link rel="stylesheet" href="01-basics.css">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section class="title-slide">
+            <h1>CSS Basics</h1>
+        </section>
+
+        <section>
+            <section class="subtitle-slide">
+                <h2>How to style HTML elements?</h2>
+            </section>
+
+            <section>
+                <h2>Inline styles</h2>
+                <p>We can use the <span
+                        class="code">style</span> attribute to define styles for our HTML elements, using the following syntax:
+                </p>
+                <pre><code class="hljs html" data-trim>
+                    <div style="property: value;"></div>
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>Inline styles example</h2>
+                <pre><code class="hljs html" data-trim>
+                    <p style="color: red; font-size: 50px;">
+                        Paragraph text in red.
+                    </p>
+                </code></pre>
+                <p style="color: red; font-size: 50px;">
+                    Paragraph text in red.
+                </p>
+            </section>
+
+            <section>
+                There's a better way though…
+            </section>
+
+            <section>
+                <h2>The class attribute</h2>
+                <p>We write a meaningful name into the <span class="code">class</span> attribute:</p>
+                <pre><code class="hljs html" data-trim>
+                    <p class="highlight">
+                        Paragraph text in red.
+                    </p>
+                </code></pre>
+                <div class="fragment">
+                    <p>Then we can reference this class in CSS prefixed with a dot:</p>
+                    <pre><code class="hljs html" data-trim>
+                        <style>
+                            .highlight {
+                                color: red;
+                                font-size: 50px;
+                            }
+                        </style>
+                    </code></pre>
+                </div>
+                <aside class="notes">This uses the HTML «style» tag, inside which we can write pure CSS</aside>
+            </section>
+
+            <section>
+                <h2>Syntax</h2>
+                <p>CSS is a rule-based language: you define the rules by specifying groups of styles that should be applied to particular elements.</p>
+                <p>The syntax for one <b class="hl">rule</b> is similar to inline styles:</p>
+                <pre><code class="hljs css" data-trim>
+                    selector { /* <- e.g. class name */
+                        property: value; /* <- declaration */
+                    }
+                </code></pre>
+                <aside class="notes">With the selector we define what HTML elements should be affected by this rule</aside>
+            </section>
+
+            <section>
+                <h2>Classes</h2>
+                <p>Elements can have multiple classes, which applies multiple rules:</p>
+                <pre><code class="hljs html" data-trim>
+                    <p class="big red">
+                        Paragraph text in red.
+                    </p>
+
+                    <style>
+                        .big {
+                            font-size: 50px;
+                        }
+
+                        .red {
+                            color: red;
+                        }
+                    </style>
+                </code></pre>
+                <aside class="notes">The dot means: «elements with a class named …»</aside>
+            </section>
+
+            <section>
+                <h2>Precedence</h2>
+                <p>What happens if we combine classes and inline styles?</p>
+                <pre><code class="hljs html" data-trim>
+                    <p class="red" style="color: blue;">
+                        Is it red or blue?
+                    </p>
+
+                    <style>
+                        .red {
+                            color: red;
+                        }
+                    </style>
+                </code></pre>
+                <div class="fragment">
+                    <p style="color: blue;">It's blue!</p>
+                    <p>Inline styles take precedence.</p>
+                </div>
+                <aside class="notes">ask participants</aside>
+            </section>
+
+            <section>
+                <h2>Class vs. Inline</h2>
+                <p>Why use classes instead of inline styles?</p>
+                <ul>
+                    <li class="fragment">We can easily reuse styles</li>
+                    <li class="fragment">Separates the concerns of styling and structure</li>
+                    <li class="fragment">Easier to read and maintain</li>
+                    <li class="fragment">Inline styles are hard to override/adjust</li>
+                    <li class="fragment">Inline styles are less performant</li>
+                </ul>
+                <div class="tip fragment">Avoid inline styles, classes were made for this</div>
+            </section>
+
+        </section>
+
+        <section>
+            <section class="subtitle-slide">
+                <h2>Selectors</h2>
+            </section>
+
+            <section>
+                <h2>Selectors</h2>
+                <p>Classes aren't our only way to target elements. We can use different identifiers from our HTML as selector:</p>
+                <ul>
+                    <li class="fragment">Tags: <span class="code">div</span>, <span class="code">input</span>, <span
+                            class="code">h1</span>…
+                    </li>
+                    <li class="fragment">Classes: <span class="code">.red</span>, <span
+                            class="code">.primary-button</span>, …
+                    </li>
+                    <li class="fragment">IDs: <span class="code">#title</span>, <span class="code">#submit</span></li>
+                </ul>
+                <aside class="notes">Tags and classes are sufficient for most cases</aside>
+            </section>
+
+            <section>
+                <h2>Multiple Selectors</h2>
+                <p>We can list multiple selectors separated with comma to apply the same rule to different elements:</p>
+                <pre><code class="hljs css" data-trim>
+                    p, li {
+                        color: red;
+                    }
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>Combinator Selectors</h2>
+                <p>Some elements should look different based on where they are.</p>
+                <pre class="fragment"><code class="hljs css" data-trim data-noescape>
+                    li span { /* spans that are <b>descendants</b> of a li */
+                        color: red;
+                    }
+                </code></pre>
+                <pre class="fragment"><code class="hljs css" data-trim data-noescape>
+                    li > span { /* spans that are <b>direct children</b> of a li */
+                        color: red;
+                    }
+                </code></pre>
+                <pre class="fragment"><code class="hljs css" data-trim data-noescape>
+                    li + p { /* p that is an <b>adjacent sibling</b> of a li */
+                        color: red;
+                    }
+                </code></pre>
+                <aside class="notes">explain by refering to the tree structure of HTML (descendents are anywhere in the specified subtree)</aside>
+            </section>
+
+            <section>
+                <h2>Combined Selectors</h2>
+                <p>We can combine selectors to target more specific elements:</p>
+                <aside class="notes">Ask attendees to explain the following rules:</aside>
+                <pre class="fragment"><code class="hljs css" data-trim>div.banner li</code></pre>
+                <pre class="fragment"><code class="hljs css" data-trim>#upload > button</code></pre>
+                <pre class="fragment"><code class="hljs css" data-trim>h2 + ul li</code></pre>
+                <pre class="fragment"><code class="hljs css" data-trim>body section p + p</code></pre>
+                <aside class="notes">ask participants to explain each one</aside>
+            </section>
+        </section>
+
+        <section>
+            <section class="subtitle-slide">
+                <h2>CSS Diner Exercise</h2>
+            </section>
+
+            <section class="exercise">
+                <div>
+                    <span class="title">Exercise</span>
+                    <span class="description">Solve levels <b class="hl">1 to 14</b> of <a href="https://flukeout.github.io">CSS Diner</a> (open link or use next slide)</span>
+                </div>
+            </section>
+
+            <section data-background-iframe="https://flukeout.github.io"
+                     data-preload
+                     data-background-interactive>
+                <div class="fragment fade-out tip">Solve levels 1 to 14 (press down to hide this)</div>
+            </section>
+            <aside class="notes">Demo the first exercise to explain the format</aside>
+        </section>
+
+        <section>
+            <section class="subtitle-slide">
+                <h2>Browser Defaults</h2>
+                <aside class="notes">We talked about styles that <b>we</b> apply, but what about the browser?</aside>
+            </section>
+
+            <section class="exercise">
+                <div>
+                    <span class="title">Exercise</span>
+                    <span class="description"><a href="01-browser-defaults-example.html" target="_blank">Open this page</a> and inspect the styles from different browsers.</span>
+                </div>
+                <aside class="notes">Give participants some time to look at the page and use browser dev tools, maybe demo. After some time show for example the margins on elements.</aside>
+            </section>
+
+            <section>
+                <h2>CSS Reset</h2>
+                <p>We usually want to ensure a consistent UI across browsers without having to constantly overwrite default styles. We can …</p>
+                <ul>
+                    <li class="fragment">… manually set the most important rules</li>
+                    <li class="fragment">… use a pre-made «Reset CSS» file to fully strip all styles</li>
+                    <li class="fragment">… use <a
+                            href="https://csstools.github.io/normalize.css/">Normalize.css</a> which ensures consistent default styles without resetting everything
+                    </li>
+                    <li class="fragment">… use <a
+                            href="https://csstools.github.io/sanitize.css/">Sanitize.css</a> which take an opinionated approach to include developer preferences (such as border-box)
+                    </li>
+                </ul>
+            </section>
+        </section>
+
+        <section>
+            <section class="subtitle-slide">
+                <h2>Specificity</h2>
+            </section>
+
+            <section>
+                <h2>Precedence of Rules</h2>
+                <p>
+                    We already saw that inline styles overrule other styles.
+                    We've also seen, that we can apply multiple rules to the same element.
+                </p>
+                <p>This begs the question:</p>
+                <p class="fragment"><b class="hl">What are the rules to resolve conflicting styles?</b></p>
+            </section>
+
+            <section>
+                <h2>Specificity</h2>
+                <p>Specificity is the means by which browsers decide which CSS property value will be applied. It's a weight determined by the used selector.</p>
+            </section>
+
+            <section>
+                <h2>Selector Types</h2>
+                <p>Different selector types ordered by increasing weight:</p>
+                <ol>
+                    <li class="fragment">Types (<span class="code">h1</span>) and pseudo-elements (<span class="code">::before</span>)</li>
+                    <li class="fragment">Classes (<span class="code">.red</span>), attributes (<span class="code">[type=radio]</span>), pseudo-classes (<span class="code">:hover</span>)</li>
+                    <li class="fragment">IDs (<span class="code">#title</span>)</li>
+                </ol>
+                <div class="tip fragment">Keep specificity as low a necessary</div>
+            </section>
+
+            <section>
+                <h2>Calculate Weight</h2>
+                <p>The weight can be represented in this format: <span class="code">id-class-tag</span>.</p>
+                <pre class="fragment"><code class="hljs css" data-trim data-noescape>div.banner li                <span class="fragment">/* 0-1-2 */</span></code></pre>
+                <pre class="fragment"><code class="hljs css" data-trim data-noescape>#upload > button             <span class="fragment">/* 1-0-1 */</span></code></pre>
+                <pre class="fragment"><code class="hljs css" data-trim data-noescape>form [type="password"]       <span class="fragment">/* 0-1-1 */</span></code></pre>
+                <pre class="fragment"><code class="hljs css" data-trim data-noescape>:root #myApp input:required  <span class="fragment">/* 1-2-1 */</span></code></pre>
+                <aside class="notes">explain the first one and then ask participants for the others</aside>
+            </section>
+
+            <section>
+                <h2>Comparison</h2>
+                <p>Weights get compared <span class="hl">from left to right</span>. Which means:</p>
+                <pre><code class="hljs css">.banner /* 0-1-0 */</code></pre>
+                <p>beats</p>
+                <pre><code class="hljs css">body section div ul li /* 0-0-5 */</code></pre>
+                <aside class="notes">think of it like a decimal number, the position of a digit matters too</aside>
+            </section>
+
+            <section>
+                <h2>Tools</h2>
+                <p>These websites (among many) help you analyse/calculate the specificity of your selector:</p>
+                <ul>
+                    <li><a href="https://specificity.keegan.st">Calculator by Keegan Street</a></li>
+                    <li><a href="https://polypane.app/css-specificity-calculator">Calculator by Polypane</a></li>
+                </ul>
+            </section>
+        </section>
+
+        <section>
+            <section class="subtitle-slide">
+                <h2>Box Model</h2>
+            </section>
+
+            <section>
+                <h2>It's boxes all the way down</h2>
+                <ul>
+                    <li class="fragment">Every HTML element is represented as a rectangular box.</li>
+                    <li class="fragment">CSS determines the size, position, and other properties (e.g. color) of these boxes.</li>
+                    <li class="fragment">Each box is divided into 4 areas.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>What's in the box?</h2>
+                <div class="box-model-container">
+                    <div class="box-model-margin fragment highlight-current-red" data-fragment-index="4">
+                        margin
+                        <div class="box-model-border fragment highlight-current-red" data-fragment-index="3">
+                            border
+                            <div class="box-model-padding fragment highlight-current-red" data-fragment-index="2">
+                                padding
+                                <div class="box-model-content fragment highlight-current-red" data-fragment-index="1">
+                                    content
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="r-stack" style="margin-top: 50px">
+                    <p class="fragment current-visible" data-fragment-index="1">
+                        <b class="hl">Content</b>: The actual content of the box, in which text, images and other child elements appear. Child elements are bound by this area.
+                    </p>
+                    <p class="fragment current-visible" data-fragment-index="2">
+                        <b class="hl">Padding</b>: Clears an area around the content, separating content and border. The padding is transparent.
+                    </p>
+                    <p class="fragment current-visible" data-fragment-index="3">
+                        <b class="hl">Border</b>: A border that goes around the padding and content. Backgrounds extend to the edge of this area/box. The border can be colored.
+                    </p>
+                    <p class="fragment current-visible" data-fragment-index="4">
+                        <b class="hl">Margin</b>: Clears an area outside the border to separate the element from its neighbors. The margin is transparent.
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Box Sizing</h2>
+                <p>There are 2 ways to determine the size of a box from height and width values:</p>
+                <div class="comparison">
+                    <div class="fragment">
+                        <h3>Content Box</h3>
+                        <p>Default behaviour. The element's size (height, width) corresponds with the content box size. Padding and border add to the rendered width.</p>
+                    </div>
+                    <div class="fragment">
+                        <h3>Border Box</h3>
+                        <p>Includes padding and border into the values for an element's height and width. Increasing padding or border sizes will shrink the content box. Generally easier to use.</p>
+                    </div>
+                </div>
+                <pre class="fragment"><code class="hljs css" data-trim data-noescape>
+                    box-sizing: content-box | border-box;
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>Box Sizing</h2>
+                <!-- TODO: USE CODE SANDBOX -->
+                <style>
+                    .box-sizing-container {
+                        display: inline-block;
+                        width: 250px;
+                        text-align: left;
+                        text-indent: 10px;
+                    }
+
+                    .box-sizing-container div {
+                        width: 100%;
+                        border: solid var(--color-border) 10px;
+                        padding: 5px;
+                        margin: 10px 0;
+                    }
+
+                    .box-sizing-content-box {
+                        box-sizing: content-box;
+                    }
+
+                    .box-sizing-border-box {
+                        box-sizing: border-box;
+                    }
+                </style>
+                <div class="cols">
+                    <pre><code class="hljs css" data-line-numbers="|2|2,7-10|2,14,15" data-trim data-noescape data-fragment-index="1">
+                        .parent {
+                            width: 250px;
+                            background: lightskyblue;
+                        }
+
+                        .content-box {
+                            box-sizing: content-box;
+                            width: 100%;
+                            padding: 5px;
+                            border: solid #666 10px;
+                        }
+
+                        .border-box {
+                            box-sizing: border-box;
+                            width: 100%;
+                            padding: 5px;
+                            border: solid #666 10px;
+                        }
+                    </code></pre>
+                    <div class="box-sizing-container box-model-content">
+                        <span class="fragment highlight-current-red" data-fragment-index="1">parent</span>
+                        <div class="box-sizing-content-box fragment highlight-current-red" data-fragment-index="2">content-box</div>
+                        <div class="box-sizing-border-box fragment highlight-current-red" data-fragment-index="3">border-box</div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <section>
+
+            <section class="subtitle-slide">
+                <h2>Margin Collapse</h2>
+                <aside class="notes">One common confusion with CSS are margins not behaving as expected.</aside>
+            </section>
+
+            <section>
+                <h2>Margin Collapsing</h2>
+                <p>Vertical margins (top and bottom) of blocks are collapsed in 3 cases.</p>
+            </section>
+
+            <section>
+                <h2>1. Adjacent siblings</h2>
+                <div class="cols">
+                    <div style="width: 120px;">
+                        <div class="box-model-content" style="height: 50px;"><small>content</small></div>
+                        <div class="box-model-margin" style="height: 25px; margin-bottom: 10px;"><small>25px</small>
+                        </div>
+                        <div class="box-model-margin" style="height: 50px;"><small>50px</small></div>
+                        <div class="box-model-content" style="height: 50px;"><small>content</small></div>
+                    </div>
+                    <span class="arrow-right"></span>
+                    <div style="width: 120px;">
+                        <div class="box-model-content" style="height: 50px;"><small>content</small></div>
+                        <div class="box-model-margin" style="height: 50px;"><small>50px</small></div>
+                        <div class="box-model-content" style="height: 50px;"><small>content</small></div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>2. Nothing separating parent & descendants</h2>
+                <p>When there's no border, padding or content between outer and inner margin.</p>
+                <div class="cols">
+                    <div style="width: 120px;">
+                        <div class="box-model-margin" style="height: 25px;"><small>25px</small></div>
+                        <div style="padding: 10px; background: lightblue;">
+                            <div class="box-model-margin" style="height: 50px;"><small>50px</small></div>
+                            <div class="box-model-content" style="height: 50px"><small>child content</small></div>
+                        </div>
+                    </div>
+                    <span class="arrow-right"></span>
+                    <div style="width: 120px;">
+                        <div style="position: relative">
+                            <div class="box-model-margin"
+                                 style="height: 25px; width: 100%; position: absolute; bottom: 0"></div>
+                            <div class="box-model-margin" style="height: 50px; margin: 0 10px;"><small>50px</small>
+                            </div>
+                        </div>
+                        <div style="padding: 0 10px 10px 10px; background: lightblue;">
+                            <div class="box-model-content" style="height: 50px"><small>child content</small></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>3. Empty blocks</h2>
+                <p>Top and bottom margin collapses on blocks with zero height and no border or padding.</p>
+                <div class="cols">
+                    <div style="width: 120px;">
+                        <div class="box-model-margin" style="height: 25px;"><small>25px</small></div>
+                        <div class="box-model-content" style="height: 1px;"></div>
+                        <div class="box-model-margin" style="height: 50px;"><small>50px</small></div>
+                    </div>
+                    <span class="arrow-right"></span>
+                    <div style="width: 120px;">
+                        <div class="box-model-margin" style="height: 50px;"><small>50px</small></div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Margin Collapsing</h2>
+                <p>How can we avoid collapsing issues?</p>
+                <ul>
+                    <li>Use margins in only one direction, e.g. only bottom and right margins</li>
+                    <li>Generally don't overuse margins, many problems can be solved with padding</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Margin vs. Padding</h2>
+                <p>When should I use which one?</p>
+                <ul>
+                    <li class="fragment">
+                        Use <b class="hl">margin</b> for spacing between neighbouring elements<br/>
+                        <span class="arrow-right"></span> control whitespace
+                    </li>
+                    <li class="fragment">
+                        Use <b class="hl">padding</b> to position child elements and text content<br/>
+                        <span class="arrow-right"></span> control box
+                    </li>
+                    <li class="fragment">Note: padding is included in the background colour/image and click region (e.g. for links or buttons)</li>
+                    <li class="fragment">Margin can be set to <span class="code">auto</span> or negative numbers</li>
+                </ul>
+            </section>
+
+        </section>
+
+        <section class="break-slide">
+            <h1>Questions?</h1>
+        </section>
+
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/webplatformz/zuehlke-reveal-package@8623831844409987906831c301a1bf63bb5270cd/release/index.js"></script>
+<script>
+	setupZuehlkeRevealPresentation();
+</script>
+</body>
+</html>
