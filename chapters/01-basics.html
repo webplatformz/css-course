@@ -19,6 +19,227 @@
 
         <section>
             <section class="subtitle-slide">
+                <h2>Styling the web</h2>
+            </section>
+
+            <section>
+                <p>CSS = Cascading Style Sheets</p>
+            </section>
+
+            <section>
+                <h2>What can CSS do?</h2>
+                <ul>
+                    <li>text appearance: font, color, size, style, alignment, …</li>
+                    <li>general layout: arrange elements, visual organisation, …</li>
+                    <li>interaction design: hover effects, animations, …</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Adding CSS to our HTML</h2>
+                <ul>
+                    <li>inline styles with the <span class="code">style</span> attribute on any HTML element</li>
+                    <li>CSS inside of a <span class="code">style</span> tag</li>
+                    <li>include external CSS file (preferred option)</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Link CSS file</h2>
+                <p>Add a <span class="code">link</span> tag to the HTML head with the <span
+                        class="code">href</span> pointing to the CSS file:</p>
+                <pre><code class="hljs html" data-trim data-editable-content contenteditable>
+                   <link rel="stylesheet" type="text/css" href="myfile.css">
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>Syntax</h2>
+                <p>CSS is a rule-based language: you define the rules by specifying groups of styles that should be applied to particular elements.</p>
+                <p>One <b class="hl">rule</b> consists of selector and declaration block:</p>
+                <pre><code class="hljs css" data-trim>
+                    selector { /* <- e.g. class name */
+                        property: value; /* <- declaration */
+                    }
+                </code></pre>
+                <aside class="notes">With the selector we define what HTML elements should be affected by this rule</aside>
+            </section>
+
+            <section>
+                <h2>Colors</h2>
+                <div class="comparison">
+                    <div>
+                        <p>Properties to set colors:</p>
+                        <ul>
+                            <li>color (text color)</li>
+                            <li>background-color</li>
+                            <li>border-color</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p>They take:</p>
+                        <ul>
+                            <li>named colors (e.g. <span class="code">red</span>)</li>
+                            <li>RGB as hexadecimal (e.g. <span class="code">#ff0000</span>)</li>
+                            <li>… or with <span class="code">rgb(255, 0, 0)</span></li>
+                            <li>other formats (<span class="code">hsl()</span>, <span class="code">hwb()</span>)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Units</h2>
+                <p>Properties that expect sizes can take:</p>
+                <ul>
+                    <li><span class="code">px</span>: pixels</li>
+                    <li><span class="code">em</span>: relative to the element's font size</li>
+                    <li><span class="code">rem</span>: relative to root font size</li>
+                    <li><span class="code">%</span>: percentage based on the parent element</li>
+                    <li><span class="code">vh</span>/<span class="code">vw</span>: percentage of viewport (height and width)</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Calculations</h2>
+                <p>CSS offers a <span class="code">calc()</span> function for basic math operations. It allows different units:</p>
+                <pre><code class="hljs css" data-trim contenteditable>
+                    div {
+                        max-width: calc(80% - 100px);
+                        height: calc(100vh / 3);
+                    }
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>Shorthand Properties</h2>
+                <p>Some specific properties can be grouped with a shorthand version.</p>
+                <pre><code class="hljs css" data-trim contenteditable>
+                    div {
+                        background-image: url('logo.png');
+                        background-position: top left;
+                        background-repeat: no-repeat;
+                    }
+                </code></pre>
+                <div class="fragment">
+                    <p>Can be simplified with the <span class="code">background</span> shorthand:</p>
+                    <pre><code class="hljs css" data-trim contenteditable>
+                        div {
+                            background: url('logo.png') top left no-repeat;
+                        }
+                    </code></pre>
+                </div>
+            </section>
+
+            <section>
+                <h2>Other shorthands</h2>
+                <ul>
+                    <li><span class="code">margin</span> and <span class="code">padding</span>  instead of their specific top, right, bottom, left versions</li>
+                    <li><span class="code">font</span> to set font family, size, weight and style</li>
+                    <li><span class="code">border</span> for size, color and style of the border on all sides</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2><span class="code">display</span> Property</h2>
+                <p>With this we control how an element is rendered:</p>
+                <ul>
+                    <li class="fragment"><span class="code">inline</span>: default for most elements, no size, no margin & padding</li>
+                    <li class="fragment"><span class="code">inline-block</span>: like <span class="code">inline</span> but with margin & padding</li>
+                    <li class="fragment"><span class="code">block</span>: default for some elements, has size and margin & padding, get stacked as they have 100% width by default</li>
+                    <li class="fragment"><span class="code">none</span>: doesn't get rendered at all</li>
+                    <li class="fragment">and more …</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Positioning</h2>
+                <p>The <span class="code">position</span> property determines where the element is rendered:</p>
+                <ul>
+                    <li class="fragment"><span class="code">static</span>: default, rendered in page flow</li>
+                    <li class="fragment"><span class="code">relative</span>: can be offset from its parent, original space will remain occupied</li>
+                    <li class="fragment"><span class="code">absolute</span>: removes element from the page flow, allows positioning in relation to the closest parent not <span class="code">static</span></li>
+                    <li class="fragment"><span class="code">fixed</span>: like <span class="code">absolute</span> but in relation to the window</li>
+                    <li class="fragment"><span class="code">sticky</span>: hybrid of <span class="code">relative</span> and <span class="code">fixed</span></li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Transitions</h2>
+                <p>The property <span class="code">transition</span> (also a shorthand) allows for some simple animation between different states of other properties:</p>
+                <pre><code class="hljs css" data-trim contenteditable>
+                        transition: property duration timing-function delay;
+                </code></pre>
+                <p>For example to slowly change the color when hovering:</p>
+                <div class="comparison">
+                    <pre><code class="hljs css" data-trim contenteditable>
+                        div {
+                            background: #985b9c;
+                            transition: background 1s ease-in;
+                        }
+
+                        div:hover {
+                            background: #000000;
+                        }
+                    </code></pre>
+                    <style>
+                        .hover-box {
+                            background: #985b9c;
+                            transition: background 1s ease-in;
+                            height: 100%;
+                            color: white;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                        .hover-box:hover {
+                            background: #000000;
+                        }
+                    </style>
+                    <div>
+                        <div class="hover-box">hover over me!</div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Vendor Prefixes</h2>
+                <p>Vendor prefixes allow us to use newer features not yet considered stable. This approach is falling out of favor though.</p>
+                <ul>
+                    <li><span class="code">-webkit-</span>: Chrom-based browsers, Safari</li>
+                    <li><span class="code">-moz-</span>: Firefox</li>
+                    <li><span class="code">-ms-</span>: IE, old Edge (no longer relevant)</li>
+                    <li><span class="code">-o-</span>: Opera (no longer relevant)</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Custom Properties</h2>
+                <p>Also known as CSS Variables these allow to easily reuse values:</p>
+                <pre><code class="hljs css" data-trim contenteditable>
+                    :root {
+                        --primary-color: yellow; /* declare it, prefixed with double dash */
+                    }
+
+                    p {
+                        color: var(--primary-color); /* access value with var() */
+                    }
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>Helpful resources</h2>
+                <ul>
+                    <li>All of that and much more with explanations and examples can be found in this excellent <a href="https://www.freecodecamp.org/news/the-css-handbook-a-handy-guide-to-css-for-developers-b56695917d11/">CSS Handbook</a> from 2019</li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS Section</a> on the Mozilla Developer Network</li>
+                    <li><a href="https://caniuse.com">Can I use?</a> to check browser support of any CSS feature</li>
+                </ul>
+                <p></p>
+            </section>
+        </section>
+
+        <section>
+            <section class="subtitle-slide">
                 <h2>How to style HTML elements?</h2>
             </section>
 
@@ -68,18 +289,6 @@
                     </code></pre>
                 </div>
                 <aside class="notes">This uses the HTML «style» tag, inside which we can write pure CSS</aside>
-            </section>
-
-            <section>
-                <h2>Syntax</h2>
-                <p>CSS is a rule-based language: you define the rules by specifying groups of styles that should be applied to particular elements.</p>
-                <p>The syntax for one <b class="hl">rule</b> is similar to inline styles:</p>
-                <pre><code class="hljs css" data-trim>
-                    selector { /* <- e.g. class name */
-                        property: value; /* <- declaration */
-                    }
-                </code></pre>
-                <aside class="notes">With the selector we define what HTML elements should be affected by this rule</aside>
             </section>
 
             <section>
