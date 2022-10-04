@@ -6,15 +6,18 @@
     <title>Flexbox layout</title>
 
     <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/webplatformz/zuehlke-reveal-package@de8372e841e7cdcaaff4cce9b47cb4dc517a7e41/release/index.css">
+          href="https://cdn.jsdelivr.net/gh/Zuehlke/zuehlke-reveal-package@12d464d3ae3c5bbe96af93ece05bd5ebeaabefbe/release/index.css">
     <link rel="stylesheet" href="chapter3.css"/>
 </head>
 <body>
 <div class="reveal">
     <div class="slides">
-        <section class="deck-slide">
-            <h1>Flexbox layout</h1>
+        <section class="title-slide">
+            <h1>CSS for Developers</h1>
+            <h2>Moritz Eck, Mario Kaufmann, Lucas Schnüriger</h2>
+            <h3>Flexbox layout</h3>
         </section>
+
         <section>
             <h2>CSS display property</h2>
             <p>The <em>display</em> property specifies which type of rendering box is used for the element</p>
@@ -65,19 +68,19 @@
         <section>
             <h2>Flex Item</h2>
             <p>Any element that is a direct child of a flex container.</p>
-            <div style="display: flex; justify-content: space-between">
-              <pre><code class="css" data-trim data-noescape>
-                .flex-container {
-                  display: flex;
-                }
-              </code></pre>
+            <div class="comparison">
+                <pre><code class="css" data-trim data-noescape>
+                    .flex-container {
+                      display: flex;
+                    }
+                </code></pre>
                 <pre><code class="html" data-trim>
-                <div class="flex-container">
-                  <div>Flex Item 1</div>
-                  <div>Flex Item 2</div>
-                  <div>Flex Item 3</div>
-                </div>
-              </code></pre>
+                    <div class="flex-container">
+                      <div>Flex Item 1</div>
+                      <div>Flex Item 2</div>
+                      <div>Flex Item 3</div>
+                    </div>
+                </code></pre>
             </div>
         </section>
         <section>
@@ -111,7 +114,7 @@
             <small>container</small>
         </section>
         <section>
-            <section>
+            <section class="subtitle-slide">
                 <h2>Parent container properties</h2>
             </section>
             <section>
@@ -288,7 +291,7 @@
             </section>
         </section>
         <section>
-            <section>
+            <section class="subtitle-slide">
                 <h2>Child item properties</h2>
             </section>
             <section>
@@ -445,13 +448,12 @@
                 <div class="fragment tip">Use order with care, it can unintuitive</div>
             </section>
         </section>
-        <section>
-            <h2>Exercise 1</h2>
-            <p>Try to solve levels 1-17 of flexbox froggy</p>
-            <a href="https://flexboxfroggy.com/">Flexbox froggy</a>
+        <section class="exercise">
+            <span class="title">Exercise 1</span>
+            <span class="description">Try to solve levels 1-17 of <a href="https://flexboxfroggy.com/">Flexbox froggy</a></span>
         </section>
         <section>
-            <section>
+            <section class="subtitle-slide">
                 <h2>Properties for containers with many elements</h2>
             </section>
             <section>
@@ -592,10 +594,9 @@
                 <div class="fragment tip">only applies if elements wrap</div>
             </section>
         </section>
-        <section>
-            <h2>Exercise 2</h2>
-            <p>Try to solve levels 17-24 of flexbox froggy</p>
-            <a href="https://flexboxfroggy.com/">Flexbox froggy</a>
+        <section class="exercise">
+            <span class="title">Exercise 2</span>
+            <span class="description">Try to solve levels 17-24 of <a href="https://flexboxfroggy.com/">Flexbox froggy</a></span>
         </section>
         <section>
             <h2>Build person card</h2>
@@ -637,16 +638,12 @@
                 </div>
             </div>
         </section>
-        <section>
-            <h2>Exercise 3</h2>
-            <p>Build your own person tile</p>
+        <section class="exercise">
+            <span class="title">Exercise 3</span>
+            <span class="description">Build your own person tile</span>
             <p>Go to the <a href="https://githubbox.com/webplatformz/css-course-exercises/tree/main/offer-gallery/flex" target="_blank">code sandbox</a>
                 and try to build the person tile after the design from <a href="https://www.figma.com/file/AOeJrusUin6jLSggPW1KN1/Z%C3%BChlke_CSS_Kurs?node-id=18%3A291" target="_blank">figma</a></p>
-        </section>
-        <section>
-            <h2>Exercise 3</h2>
-            <p>Build your own person tile</p>
-            <p><a href="https://githubbox.com/webplatformz/css-course-exercises/tree/main/offer-gallery/flex-solution" target="_blank">Link to possible solution</a></p>
+            <p class="fragment"><a href="https://githubbox.com/webplatformz/css-course-exercises/tree/main/offer-gallery/flex-solution" target="_blank">Link to possible solution</a></p>
         </section>
         <section>
             <h2>Build person card</h2>
@@ -713,9 +710,13 @@
                 slot in vertically among each other by default.
             </aside>
         </section>
+
+        <section class="break-slide">
+            <h1>Questions?</h1>
+        </section>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/gh/webplatformz/zuehlke-reveal-package@de8372e841e7cdcaaff4cce9b47cb4dc517a7e41/release/index.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Zuehlke/zuehlke-reveal-package@12d464d3ae3c5bbe96af93ece05bd5ebeaabefbe/release/index.js"></script>
 <script>
     setupZuehlkeRevealPresentation();
 </script>
