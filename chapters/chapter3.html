@@ -19,32 +19,27 @@
         </section>
 
         <section>
-            <h2>CSS display property</h2>
-            <p>The <em>display</em> property specifies which type of rendering box is used for the element</p>
-        </section>
-
-        <section>
             <h2><span class="code">display</span> Property</h2>
             <p>With this we control how an element is rendered:</p>
             <ul>
                 <li class="fragment"><span class="code">inline</span>: default for most elements, no size, no margin & padding</li>
                 <li class="fragment"><span class="code">inline-block</span>: like <span class="code">inline</span> but with margin & padding</li>
-                <li class="fragment"><span class="code">block</span>: default for some elements, has size and margin & padding, get stacked as they have 100% width by default</li>
                 <li class="fragment"><span class="code">none</span>: doesn't get rendered at all</li>
-                <li class="fragment">and more …</li>
+                <li class="fragment">and more (important ones)…</li>
             </ul>
         </section>
 
         <section>
-            <h2>display: block</h2>
+            <h2>display: <span class="code">block</span></h2>
             <ul>
                 <li>Displays an element as a block element</li>
-                <li>Element starts on a new line and takes up the whole width</li>
-                <li><em>block</em> is vertically oriented</li>
+                <li>Element starts on a new line and takes up the 100% width</li>
+                <li><em>block</em> is vertically oriented (stacked)</li>
+                <li>This is the default for some elements, has size and margin & padding.</li>
             </ul>
         </section>
         <section>
-            <h2>block challenges</h2>
+            <h2><span class="code">block</span> challenges</h2>
             <ul>
                 <li>how to center element within another?</li>
                 <li>how to handle dynamic element sizes?</li>
@@ -68,9 +63,9 @@
             <h2>Flex Container</h2>
             <p>
                 The container that is styled with
-                <em>display:flex</em>
+                <span class="code">display: flex</span>
                 or
-                <em>display:inline-flex</em>.
+                <span class="code">display: inline-flex</span>.
             </p>
             <pre><code class="css" data-trim data-noescape>
               .grid-container {
@@ -97,7 +92,7 @@
             </div>
         </section>
         <section>
-            <h3>display: flex</h3>
+            <h3>display: <span class="code">flex</span></h3>
             <pre><code class="hljs css" data-trim data-noescape>
                     .parent {
                         display: flex;
@@ -236,7 +231,7 @@
             <section>
                 <p>What if we want to layout vertically instead of horizontally?</p>
                 <img src="../assets/diagrams/chapter3/flexbox_axis.svg"/>
-                <p>We can switch the main and cross axis with <em>flex-direction</em>!</p>
+                <p>We can switch the main and cross axis with <span class="code">flex-direction</span>!</p>
             </section>
             <section>
                 <h3>flex-direction</h3>

@@ -34,9 +34,9 @@
             <h2>Grid Container</h2>
             <p>
               The container that holds the entire CSS grid. It is the element that has the
-              <em>display:grid</em>
+              display: <span class="code">grid</span>
               or
-              <em>display:inline-grid</em>
+              display: <span class="code">inline-grid</span>
               on it.
             </p>
             <pre><code class="css" data-trim data-noescape>
@@ -129,7 +129,7 @@
                 </div>
               </code></pre>
             </div>
-            <div class="fragment" style="display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid red">
+            <div class="fragment" style="display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid red; margin-top: 1rem;">
               <div style="border: 1px solid black; margin: 4px">Grid Item 1</div>
               <div style="border: 1px solid black; margin: 4px 0px">Grid Item 2</div>
               <div style="border: 1px solid black; margin: 4px">Grid Item 3</div>
@@ -149,36 +149,38 @@
           </section>
           <section>
             <h2>
-              <em>grid-template-columns</em>
+              <span class="code">grid-template-columns</span>
               <br />
-              <em>grid-template-rows</em>
+              &
+              <br>
+              <span class="code">grid-template-rows</span>
             </h2>
             <p>A way to define the number of rows and columns as well as their size.</p>
           </section>
           <section>
             <h2>
               CSS length unit:
-              <em>fr</em>
+              <span class="code">fr</span>
             </h2>
             <ul>
               <li class="fragment">
                 What is
-                <em>fr</em>
+                <span class="code">fr</span>
                 ?
               </li>
               <li class="fragment">
                 What does
-                <em>repeat()</em>
+                <span class="code">repeat()</span>
                 do?
               </li>
               <li class="fragment">
                 <b>Example:</b>
-                <em>repeat(4, 25%)</em>
+                <span class="code">repeat(4, 25%)</span>
                 vs.
-                <em>repeat(4, 1fr)</em>
+                <span class="code">repeat(4, 1fr)</span>
                 with
                 <br />
-                <em>grid-column-gap: 10px</em>
+                <span class="code">grid-column-gap: 10px</span>
                 ?
               </li>
               <br />
@@ -235,6 +237,7 @@
               }
             </code></pre>
             <div
+              class="fragment"
               style="
                 display: grid;
                 margin: 0 1.5rem;
@@ -267,6 +270,7 @@
               }
             </code></pre>
             <div
+              class="fragment"
               style="
                 display: grid;
                 margin: 0 1.5rem;
@@ -307,6 +311,7 @@
               }
             </code></pre>
             <div
+              class="fragment"
               style="
                 display: grid;
                 margin: 0 1.5rem;
@@ -338,6 +343,7 @@
               }
             </code></pre>
             <div
+              class="fragment"
               style="
                 display: grid;
                 margin: 0 1.5rem;
@@ -443,6 +449,7 @@
                 grid-row-gap: 1rem;
                 grid-column-gap: 4rem;
                 border: 1px solid red;
+                margin-top: 1rem;
               "
             >
               <div style="border: 1px solid black; grid-row: 2/3; grid-column: 2/3">Grid Item 1</div>
@@ -454,17 +461,17 @@
             <h2>Properties</h2>
             <ul>
               <li>
-                <em>grid-row</em>
+                <span class="code">grid-row</span>
                 <ul>
-                  <li><em>grid-row-start</em></li>
-                  <li><em>grid-row-end</em></li>
+                  <li><span class="code">grid-row-start</span></li>
+                  <li><span class="code">grid-row-end</span></li>
                 </ul>
               </li>
               <li>
-                <em>grid-column</em>
+                <span class="code">grid-column</span>
                 <ul>
-                  <li><em>grid-column-start</em></li>
-                  <li><em>grid-column-end</em></li>
+                  <li><span class="code">grid-column-start</span></li>
+                  <li><span class="code">grid-column-end</span></li>
                 </ul>
               </li>
             </ul>
@@ -499,7 +506,7 @@
           </section>
           <section>
             <h2>Named Lines</h2>
-            <pre><code class="fragment css" data-trim data-noescape style="overflow:scroll; height: 25rem;">
+            <pre><code class="fragment css" data-trim data-noescape style="overflow:scroll; height: 23rem;">
               .container {
                 display: grid;
                 grid-template-columns:
@@ -515,7 +522,7 @@
                   [row4-end];
               }
             </code></pre>
-            <pre><code class="fragment css" data-trim data-noescape style="overflow:scroll; height: 10rem">
+            <pre><code class="fragment css" data-trim data-noescape style="overflow:scroll; height: 13rem">
               .header {
                 grid-column: main-start / main-end;
                 grid-row: row1-start / row2-start;
@@ -545,20 +552,29 @@
                 grid-column: main-start / main-end;
                 grid-row: row4-start / row4-end;
             </code></pre>
+            <aside class="notes">
+              What are named lines?
+            </aside>
           </section>
           <section>
             <h2>Template Areas</h2>
             <p>
               What is
-              <em>grid-area</em>
-              ?
+              <span class="code">grid-area</span>
+              again?
             </p>
             <ol class="fragment">
-              <li><em>grid-row-start</em></li>
-              <li><em>grid-column-start</em></li>
-              <li><em>grid-row-end</em></li>
-              <li><em>grid-column-end</em></li>
+              <li><span class="code">grid-row-start</span></li>
+              <li><span class="code">grid-column-start</span></li>
+              <li><span class="code">grid-row-end</span></li>
+              <li><span class="code">grid-column-end</span></li>
             </ol>
+            <aside class="notes">
+              What is grid-area? If we remember: 
+              <p>
+                Rectangular space surrounded by four grid lines. A grid area can contain any number of grid cells.
+              </p>            
+            </aside>
           </section>
           <section>
             <h2>Template Areas (v2)</h2>
@@ -584,6 +600,9 @@
                 <div class="footer">footer</div>
               </div>
             </code></pre>
+            <aside class="notes">
+              What is a template area?
+            </aside>
           </section>
           <section class="exercise">
             <span class="title">Exercises</span>
