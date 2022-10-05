@@ -59,7 +59,10 @@
                 </code></pre>
             </section>
             <section>
-                <p><strong>transition: property duration easing function delay</strong></p>
+                <p>The property <span class="code">transition</span> (also a shorthand) allows for some simple animation between different states of other properties:</p>
+                <pre><code class="hljs css" data-trim contenteditable>
+                        transition: property duration easing timing-function delay;
+                </code></pre>
                 <ul>
                     <li>property: which property should be transitioned? <em>e.g. background-color</em></li>
                     <li>duration: how long should the transition be? <em>e.g. 2s</em></li>
@@ -281,6 +284,29 @@
                 <p>Check that click / touch targets are at least 9mm high by 9mm wide</p>
                 <a href="https://www.w3.org/TR/mobile-accessibility-mapping/#touch-target-size-and-spacing"><p>WGAC Target Size Spec</p></a>
             </section>
+
+            <section>
+                <h3>Colors</h3>
+                <div class="comparison">
+                    <div>
+                        <p>Properties to set colors:</p>
+                        <ul>
+                            <li>color (text color)</li>
+                            <li>background-color</li>
+                            <li>border-color</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p>They take:</p>
+                        <ul>
+                            <li>named colors (e.g. <span class="code">red</span>)</li>
+                            <li>RGB as hexadecimal (e.g. <span class="code">#ff0000</span>)</li>
+                            <li>… or with <span class="code">rgb(255, 0, 0)</span></li>
+                            <li>other formats (<span class="code">hsl()</span>, <span class="code">hwb()</span>)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
             <section>
                 <h3>Use of color</h3>
                 <ul>
@@ -318,6 +344,25 @@
                 <h2>em</h2>
                 <p>Specifies a size relative to the font size of the element being styled</p>
                 <div class="tip fragment">used less often than rem</div>
+            </section>
+
+            <section>
+                <h2>Other Units</h2>
+                <ul>
+                    <li><span class="code">%</span>: percentage based on the parent element</li>
+                    <li><span class="code">vh</span>/<span class="code">vw</span>: percentage of viewport (height and width)</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Calculations</h2>
+                <p>CSS offers a <span class="code">calc()</span> function for basic math operations. It allows different units:</p>
+                <pre><code class="hljs css" data-trim contenteditable>
+                    div {
+                        max-width: calc(80% - 100px);
+                        height: calc(100vh / 3);
+                    }
+                </code></pre>
             </section>
         </section>
 
