@@ -23,7 +23,8 @@
           <h2>What is the CSS Grid?</h2>
           <p>A two dimensional layout system, controlling layout in rows and columns.</p>
           <aside class="notes">
-            Explain how we go from 1-D (flexbox) to 2-D (flexbox) and describe usecase where this will make it easier.
+            Explain how we go from 1-D (flexbox) to 2-D (flexbox) and describe usecase where this
+            will make it easier.
           </aside>
         </section>
         <section>
@@ -33,10 +34,9 @@
           <section>
             <h2>Grid Container</h2>
             <p>
-              The container that holds the entire CSS grid. It is the element that has the
-              display: <span class="code">grid</span>
-              or
-              display: <span class="code">inline-grid</span>
+              The container that holds the entire CSS grid. It is the element that has the display:
+              <span class="code">grid</span> or display:
+              <span class="code">inline-grid</span>
               on it.
             </p>
             <pre><code class="css" data-trim data-noescape>
@@ -65,7 +65,10 @@
           </section>
           <section>
             <h2>Grid Line</h2>
-            <p>The vertical and horizontal lines that divide the grid and separate the columns and rows.</p>
+            <p>
+              The vertical and horizontal lines that divide the grid and separate the columns and
+              rows.
+            </p>
             <img src="../assets/diagrams/chapter4/grid-line.svg" />
           </section>
           <section>
@@ -129,7 +132,15 @@
                 </div>
               </code></pre>
             </div>
-            <div class="fragment" style="display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid red; margin-top: 1rem;">
+            <div
+              class="fragment"
+              style="
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                border: 1px solid red;
+                margin-top: 1rem;
+              "
+            >
               <div style="border: 1px solid black; margin: 4px">Grid Item 1</div>
               <div style="border: 1px solid black; margin: 4px 0px">Grid Item 2</div>
               <div style="border: 1px solid black; margin: 4px">Grid Item 3</div>
@@ -152,7 +163,7 @@
               <span class="code">grid-template-columns</span>
               <br />
               &
-              <br>
+              <br />
               <span class="code">grid-template-rows</span>
             </h2>
             <p>A way to define the number of rows and columns as well as their size.</p>
@@ -307,7 +318,6 @@
               .grid-container {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
-                grid-auto-rows: minmax(75px, auto);
               }
             </code></pre>
             <div
@@ -316,7 +326,6 @@
                 display: grid;
                 margin: 0 1.5rem;
                 grid-template-columns: repeat(3, 1fr);
-                grid-auto-rows: minmax(75px, auto);
                 grid-row-gap: 5px;
                 grid-column-gap: 10px;
                 border: 1px solid red;
@@ -339,7 +348,6 @@
               .grid-container {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
-                grid-auto-rows: minmax(75px, auto);
               }
             </code></pre>
             <div
@@ -348,7 +356,6 @@
                 display: grid;
                 margin: 0 1.5rem;
                 grid-template-columns: repeat(3, 1fr);
-                grid-auto-rows: minmax(75px, auto);
                 grid-row-gap: 5px;
                 grid-column-gap: 10px;
                 border: 1px solid red;
@@ -377,13 +384,19 @@
               Solve the exercises
               <b class="hl">20-27</b>
               of
-              <a href="https://cssgridgarden.com/" target="_blank" rel="noopener">CSS Grid Garden</a>
+              <a href="https://cssgridgarden.com/" target="_blank" rel="noopener"
+                >CSS Grid Garden</a
+              >
               <br />
               (open link or use next slide)
             </span>
           </section>
 
-          <section data-background-iframe="https://cssgridgarden.com/" data-preload data-background-interactive>
+          <section
+            data-background-iframe="https://cssgridgarden.com/"
+            data-preload
+            data-background-interactive
+          >
             <div class="fragment fade-out tip">
               Solve the exercises 20-27
               <br />
@@ -452,9 +465,13 @@
                 margin-top: 1rem;
               "
             >
-              <div style="border: 1px solid black; grid-row: 2/3; grid-column: 2/3">Grid Item 1</div>
+              <div style="border: 1px solid black; grid-row: 2/3; grid-column: 2/3">
+                Grid Item 1
+              </div>
               <div style="border: 1px solid black">Grid Item 2</div>
-              <div style="border: 1px solid black; grid-row: 3/4; grid-column: 3/4">Grid Item 3</div>
+              <div style="border: 1px solid black; grid-row: 3/4; grid-column: 3/4">
+                Grid Item 3
+              </div>
             </div>
           </section>
           <section>
@@ -483,17 +500,23 @@
             <span class="title">Exercise</span>
             <span class="description">
               Solve the exercises
-              <b class="hl">1-15</b>
+              <b class="hl">1-9</b>
               of
-              <a href="https://cssgridgarden.com/" target="_blank" rel="noopener">CSS Grid Garden</a>
+              <a href="https://cssgridgarden.com/" target="_blank" rel="noopener"
+                >CSS Grid Garden</a
+              >
               <br />
               (open link or use next slide)
             </span>
           </section>
 
-          <section data-background-iframe="https://cssgridgarden.com/" data-preload data-background-interactive>
+          <section
+            data-background-iframe="https://cssgridgarden.com/"
+            data-preload
+            data-background-interactive
+          >
             <div class="fragment fade-out tip">
-              Solve the exercises 1-15
+              Solve the exercises 1-9
               <br />
               (press down to hide this)
             </div>
@@ -503,58 +526,6 @@
         <section>
           <section class="subtitle-slide">
             <h2>Advanced Grid</h2>
-          </section>
-          <section>
-            <h2>Named Lines</h2>
-            <pre><code class="fragment css" data-trim data-noescape style="overflow:scroll; height: 23rem;">
-              .container {
-                display: grid;
-                grid-template-columns:
-                  [main-start sidebar-start] 200px
-                  [sidebar-end content-start] 1fr
-                  [column3-start] 1fr
-                  [content-end main-end];
-                grid-template-rows:
-                  [row1-start] 80px
-                  [row2-start] 1fr
-                  [row3-start] 1fr
-                  [row4-start] 100px
-                  [row4-end];
-              }
-            </code></pre>
-            <pre><code class="fragment css" data-trim data-noescape style="overflow:scroll; height: 13rem">
-              .header {
-                grid-column: main-start / main-end;
-                grid-row: row1-start / row2-start;
-              }
-              
-              .sidebar {
-                grid-column: sidebar-start / sidebar-end;
-                grid-row: row2-start / row4-start;
-              }
-              
-              .content-1 {
-                grid-column: content-start / content-end;
-                grid-row: row2-start / row3-start;
-              }
-              
-              .content-2 {
-                grid-column: content-start / column3-start;
-                grid-row: row3-start / row4-start;
-              }
-              
-              .content-3 {
-                grid-column: column3-start / content-end;
-                grid-row: row3-start / row4-start;
-              }
-              
-              .footer {
-                grid-column: main-start / main-end;
-                grid-row: row4-start / row4-end;
-            </code></pre>
-            <aside class="notes">
-              What are named lines?
-            </aside>
           </section>
           <section>
             <h2>Template Areas</h2>
@@ -570,10 +541,11 @@
               <li><span class="code">grid-column-end</span></li>
             </ol>
             <aside class="notes">
-              What is grid-area? If we remember: 
+              What is grid-area? If we remember:
               <p>
-                Rectangular space surrounded by four grid lines. A grid area can contain any number of grid cells.
-              </p>            
+                Rectangular space surrounded by four grid lines. A grid area can contain any number
+                of grid cells.
+              </p>
             </aside>
           </section>
           <section>
@@ -600,18 +572,7 @@
                 <div class="footer">footer</div>
               </div>
             </code></pre>
-            <aside class="notes">
-              What is a template area?
-            </aside>
-          </section>
-          <section class="exercise">
-            <span class="title">Exercises</span>
-            <span class="description">
-              Solve the exercises
-              <b class="hl">16-17</b>
-              of
-              <a href="https://cssgridgarden.com/" target="_blank" rel="noopener">CSS Grid Garden</a>
-            </span>
+            <aside class="notes">What is a template area?</aside>
           </section>
         </section>
 
@@ -627,9 +588,8 @@
             >
               code sandbox
             </a>
-            and fill up the available space with the person tiles. 
-            Think of mobile, tablet and desktop widths. 
-            Align the previously built person tiles using a CSS grid layout.
+            and fill up the available space with the person tiles. Think of mobile, tablet and
+            desktop widths. Align the previously built person tiles using a CSS grid layout.
           </p>
           <p class="fragment">
             <b>Hint:</b>
@@ -649,7 +609,9 @@
           <h2>Further Resources</h2>
           <ul>
             <li>
-              <a href="https://cssgridgarden.com/" target="_blank" rel="noopener">https://cssgridgarden.com/</a>
+              <a href="https://cssgridgarden.com/" target="_blank" rel="noopener"
+                >https://cssgridgarden.com/</a
+              >
             </li>
           </ul>
         </section>
