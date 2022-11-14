@@ -136,14 +136,16 @@
               class="fragment"
               style="
                 display: grid;
+                padding: 1rem;
+                grid-gap: 1rem;
                 grid-template-columns: repeat(3, 1fr);
-                border: 1px solid red;
+                border: 2px solid red;
                 margin-top: 1rem;
               "
             >
-              <div style="border: 1px solid black; margin: 4px">Grid Item 1</div>
-              <div style="border: 1px solid black; margin: 4px 0px">Grid Item 2</div>
-              <div style="border: 1px solid black; margin: 4px">Grid Item 3</div>
+              <div style="border: 2px solid black">Grid Item 1</div>
+              <div style="border: 2px solid black">Grid Item 2</div>
+              <div style="border: 2px solid black">Grid Item 3</div>
             </div>
             <aside class="notes">
               <ul>
@@ -202,14 +204,14 @@
                     display: grid;
                     grid-template-columns: repeat(4, 25%);
                     grid-column-gap: 10px;
-                    border: 1px solid red;
+                    border: 2px solid red;
                     width: 50rem;
                   "
                 >
-                  <div style="border: 1px solid black; margin: 4px">Grid Item 1</div>
-                  <div style="border: 1px solid black; margin: 4px 0px">Grid Item 2</div>
-                  <div style="border: 1px solid black; margin: 4px">Grid Item 3</div>
-                  <div style="border: 1px solid black; margin: 4px">Grid Item 4</div>
+                  <div style="border: 2px solid black; margin: 4px">Grid Item 1</div>
+                  <div style="border: 2px solid black; margin: 4px 0px">Grid Item 2</div>
+                  <div style="border: 2px solid black; margin: 4px">Grid Item 3</div>
+                  <div style="border: 2px solid black; margin: 4px">Grid Item 4</div>
                 </div>
                 <br />
                 <h5>repeat(4, 1fr)</h5>
@@ -218,14 +220,14 @@
                     display: grid;
                     grid-template-columns: repeat(4, 1fr);
                     grid-column-gap: 10px;
-                    border: 1px solid red;
+                    border: 2px solid red;
                     width: 50rem;
                   "
                 >
-                  <div style="border: 1px solid black; margin: 4px">Grid Item 1</div>
-                  <div style="border: 1px solid black; margin: 4px 0px">Grid Item 2</div>
-                  <div style="border: 1px solid black; margin: 4px">Grid Item 3</div>
-                  <div style="border: 1px solid black; margin: 4px">Grid Item 4</div>
+                  <div style="border: 2px solid black; margin: 4px">Grid Item 1</div>
+                  <div style="border: 2px solid black; margin: 4px 0px">Grid Item 2</div>
+                  <div style="border: 2px solid black; margin: 4px">Grid Item 3</div>
+                  <div style="border: 2px solid black; margin: 4px">Grid Item 4</div>
                 </div>
               </div>
             </ul>
@@ -252,23 +254,29 @@
               style="
                 display: grid;
                 margin: 0 1.5rem;
+                padding: 1rem;
                 grid-template-columns: 1fr 2fr 1fr;
                 grid-template-rows: 4fr 1fr 2fr;
                 grid-row-gap: 1rem;
                 grid-column-gap: 4rem;
-                border: 1px solid red;
+                border: 2px solid red;
               "
             >
-              <div style="border: 1px solid black">Grid Item 1</div>
-              <div style="border: 1px solid black">Grid Item 2</div>
-              <div style="border: 1px solid black">Grid Item 3</div>
-              <div style="border: 1px solid black">Grid Item 4</div>
-              <div style="border: 1px solid black">Grid Item 5</div>
-              <div style="border: 1px solid black">Grid Item 6</div>
-              <div style="border: 1px solid black">Grid Item 7</div>
-              <div style="border: 1px solid black">Grid Item 8</div>
-              <div style="border: 1px solid black">Grid Item 9</div>
+              <div style="border: 2px solid black">Grid Item 1</div>
+              <div style="border: 2px solid black">Grid Item 2</div>
+              <div style="border: 2px solid black">Grid Item 3</div>
+              <div style="border: 2px solid black">Grid Item 4</div>
+              <div style="border: 2px solid black">Grid Item 5</div>
+              <div style="border: 2px solid black">Grid Item 6</div>
+              <div style="border: 2px solid black">Grid Item 7</div>
+              <div style="border: 2px solid black">Grid Item 8</div>
+              <div style="border: 2px solid black">Grid Item 9</div>
             </div>
+            <aside class="notes">
+              <ol>
+                <li>Explain how the fractions split up the size of the columns and rows</li>
+              </ol>
+            </aside>
           </section>
           <section>
             <h2 style="margin-bottom: 0.5em !important">An Explicit Grid</h2>
@@ -285,31 +293,40 @@
               style="
                 display: grid;
                 margin: 0 1.5rem;
+                padding: 1rem;
                 grid-template-columns: minmax(auto, 40%) 1fr 12rem;
                 grid-template-rows: minmax(75px, auto) minmax(75px, 150px) auto;
-                grid-row-gap: 10px;
+                grid-row-gap: 2rem;
                 grid-column-gap: 5px;
-                border: 1px solid red;
+                border: 2px solid red;
               "
             >
-              <div style="border: 1px solid black">Grid Item 1</div>
-              <div style="border: 1px solid black">Grid Item 2</div>
-              <div style="border: 1px solid black">Grid Item 3</div>
-              <div style="border: 1px solid black">Grid Item 4</div>
-              <div style="border: 1px solid black">
+              <div style="border: 2px solid black">Grid Item 1</div>
+              <div style="border: 2px solid black">Grid Item 2</div>
+              <div style="border: 2px solid black">Grid Item 3</div>
+              <div style="border: 2px solid black">Grid Item 4</div>
+              <div style="border: 2px solid black">
                 Grid Item 5
                 <br />
                 (very very very very very very long content)
               </div>
-              <div style="border: 1px solid black">Grid Item 6</div>
-              <div style="border: 1px solid black">Grid Item 7</div>
-              <div style="border: 1px solid black">Grid Item 8</div>
-              <div style="border: 1px solid black">Grid Item 9</div>
+              <div style="border: 2px solid black">Grid Item 6</div>
+              <div style="border: 2px solid black">Grid Item 7</div>
+              <div style="border: 2px solid black">Grid Item 8</div>
+              <div style="border: 2px solid black">Grid Item 9</div>
             </div>
             <aside class="notes">
-              <ul>
+              <ol>
                 <li>Explain minmax()</li>
-              </ul>
+                <li>
+                  Explain why the 1. row is larger than the content -> because it is at least 75px
+                  high due to minmax(75px, auto)
+                </li>
+                <li>
+                  Explain why the 2. row is smaller than the content -> because it is at most 150px
+                  high due to minmax(75px, 150px)
+                </li>
+              </ol>
             </aside>
           </section>
           <section>
@@ -325,25 +342,36 @@
               style="
                 display: grid;
                 margin: 0 1.5rem;
+                padding: 1rem;
                 grid-template-columns: repeat(3, 1fr);
                 grid-row-gap: 5px;
                 grid-column-gap: 10px;
-                border: 1px solid red;
+                border: 2px solid red;
               "
             >
-              <div style="border: 1px solid black">Grid Item 1</div>
-              <div style="border: 1px solid black">Grid Item 2</div>
-              <div style="border: 1px solid black">Grid Item 3</div>
-              <div style="border: 1px solid black">Grid Item 4</div>
-              <div style="border: 1px solid black">
+              <div style="border: 2px solid black">Grid Item 1</div>
+              <div style="border: 2px solid black">Grid Item 2</div>
+              <div style="border: 2px solid black">Grid Item 3</div>
+              <div style="border: 2px solid black">Grid Item 4</div>
+              <div style="border: 2px solid black">
                 Grid Item 5
                 <br />
                 (very very very very very very long content)
               </div>
             </div>
+            <aside class="notes">
+              <ol>
+                <li>
+                  Explain what happens if grid-template-rows are not specified -> the content just
+                  fills as many rows as necessary -> in this case (number of elements / 3 = number
+                  of rows)
+                </li>
+                <li>The next slide shows the case with 3 more items...</li>
+              </ol>
+            </aside>
           </section>
           <section>
-            <h2>An Implicit Grid</h2>
+            <h2>An Implicit Grid (Continued)</h2>
             <pre><code class="css" data-trim data-noescape>
               .grid-container {
                 display: grid;
@@ -355,25 +383,31 @@
               style="
                 display: grid;
                 margin: 0 1.5rem;
+                padding: 1rem;
                 grid-template-columns: repeat(3, 1fr);
                 grid-row-gap: 5px;
                 grid-column-gap: 10px;
-                border: 1px solid red;
+                border: 2px solid red;
               "
             >
-              <div style="border: 1px solid black">Grid Item 1</div>
-              <div style="border: 1px solid black">Grid Item 2</div>
-              <div style="border: 1px solid black">Grid Item 3</div>
-              <div style="border: 1px solid black">Grid Item 4</div>
-              <div style="border: 1px solid black">
+              <div style="border: 2px solid black">Grid Item 1</div>
+              <div style="border: 2px solid black">Grid Item 2</div>
+              <div style="border: 2px solid black">Grid Item 3</div>
+              <div style="border: 2px solid black">Grid Item 4</div>
+              <div style="border: 2px solid black">
                 Grid Item 5
                 <br />
                 (very very very very very very long content)
               </div>
-              <div style="border: 1px solid black">Grid Item 6</div>
-              <div style="border: 1px solid black">Grid Item 7</div>
-              <div style="border: 1px solid black">Grid Item 8</div>
+              <div style="border: 2px solid black">Grid Item 6</div>
+              <div style="border: 2px solid black">Grid Item 7</div>
+              <div style="border: 2px solid black">Grid Item 8</div>
             </div>
+            <aside class="notes">
+              <ol>
+                <li>Just shows what happens with an additional 3 items</li>
+              </ol>
+            </aside>
           </section>
         </section>
 
@@ -461,15 +495,16 @@
                 grid-template-columns: repeat(3, 1fr);
                 grid-row-gap: 1rem;
                 grid-column-gap: 4rem;
-                border: 1px solid red;
+                border: 2px solid red;
+                padding: 1rem;
                 margin-top: 1rem;
               "
             >
-              <div style="border: 1px solid black; grid-row: 2/3; grid-column: 2/3">
+              <div style="border: 2px solid black; grid-row: 2/3; grid-column: 2/3">
                 Grid Item 1
               </div>
-              <div style="border: 1px solid black">Grid Item 2</div>
-              <div style="border: 1px solid black; grid-row: 3/4; grid-column: 3/4">
+              <div style="border: 2px solid black">Grid Item 2</div>
+              <div style="border: 2px solid black; grid-row: 3/4; grid-column: 3/4">
                 Grid Item 3
               </div>
             </div>
