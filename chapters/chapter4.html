@@ -23,8 +23,7 @@
           <h2>What is the CSS Grid?</h2>
           <p>A two dimensional layout system, controlling layout in rows and columns.</p>
           <aside class="notes">
-            Explain how we go from 1-D (flexbox) to 2-D (flexbox) and describe usecase where this
-            will make it easier.
+            Explain how we go from 1-D (flexbox) to 2-D (flexbox) and describe usecase where this will make it easier.
           </aside>
         </section>
         <section>
@@ -35,7 +34,8 @@
             <h2>Grid Container</h2>
             <p>
               The container that holds the entire CSS grid. It is the element that has the display:
-              <span class="code">grid</span> or display:
+              <span class="code">grid</span>
+              or display:
               <span class="code">inline-grid</span>
               on it.
             </p>
@@ -65,10 +65,7 @@
           </section>
           <section>
             <h2>Grid Line</h2>
-            <p>
-              The vertical and horizontal lines that divide the grid and separate the columns and
-              rows.
-            </p>
+            <p>The vertical and horizontal lines that divide the grid and separate the columns and rows.</p>
             <img src="../assets/diagrams/chapter4/grid-line.svg" />
           </section>
           <section>
@@ -319,12 +316,12 @@
               <ol>
                 <li>Explain minmax()</li>
                 <li>
-                  Explain why the 1. row is larger than the content -> because it is at least 75px
-                  high due to minmax(75px, auto)
+                  Explain why the 1. row is larger than the content -> because it is at least 75px high due to
+                  minmax(75px, auto)
                 </li>
                 <li>
-                  Explain why the 2. row is smaller than the content -> because it is at most 150px
-                  high due to minmax(75px, 150px)
+                  Explain why the 2. row is smaller than the content -> because it is at most 150px high due to
+                  minmax(75px, 150px)
                 </li>
               </ol>
             </aside>
@@ -362,9 +359,8 @@
             <aside class="notes">
               <ol>
                 <li>
-                  Explain what happens if grid-template-rows are not specified -> the content just
-                  fills as many rows as necessary -> in this case (number of elements / 3 = number
-                  of rows)
+                  Explain what happens if grid-template-rows are not specified -> the content just fills as many rows as
+                  necessary -> in this case (number of elements / 3 = number of rows)
                 </li>
                 <li>The next slide shows the case with 3 more items...</li>
               </ol>
@@ -418,19 +414,13 @@
               Solve the exercises
               <b class="hl">20-27</b>
               of
-              <a href="https://cssgridgarden.com/" target="_blank" rel="noopener"
-                >CSS Grid Garden</a
-              >
+              <a href="https://cssgridgarden.com/" target="_blank" rel="noopener">CSS Grid Garden</a>
               <br />
               (open link or use next slide)
             </span>
           </section>
 
-          <section
-            data-background-iframe="https://cssgridgarden.com/"
-            data-preload
-            data-background-interactive
-          >
+          <section data-background-iframe="https://cssgridgarden.com/" data-preload data-background-interactive>
             <div class="fragment fade-out tip">
               Solve the exercises 20-27
               <br />
@@ -500,13 +490,9 @@
                 margin-top: 1rem;
               "
             >
-              <div style="border: 2px solid black; grid-row: 2/3; grid-column: 2/3">
-                Grid Item 1
-              </div>
+              <div style="border: 2px solid black; grid-row: 2/3; grid-column: 2/3">Grid Item 1</div>
               <div style="border: 2px solid black">Grid Item 2</div>
-              <div style="border: 2px solid black; grid-row: 3/4; grid-column: 3/4">
-                Grid Item 3
-              </div>
+              <div style="border: 2px solid black; grid-row: 3/4; grid-column: 3/4">Grid Item 3</div>
             </div>
           </section>
           <section>
@@ -537,19 +523,13 @@
               Solve the exercises
               <b class="hl">1-9</b>
               of
-              <a href="https://cssgridgarden.com/" target="_blank" rel="noopener"
-                >CSS Grid Garden</a
-              >
+              <a href="https://cssgridgarden.com/" target="_blank" rel="noopener">CSS Grid Garden</a>
               <br />
               (open link or use next slide)
             </span>
           </section>
 
-          <section
-            data-background-iframe="https://cssgridgarden.com/"
-            data-preload
-            data-background-interactive
-          >
+          <section data-background-iframe="https://cssgridgarden.com/" data-preload data-background-interactive>
             <div class="fragment fade-out tip">
               Solve the exercises 1-9
               <br />
@@ -577,10 +557,7 @@
             </ol>
             <aside class="notes">
               What is grid-area? If we remember:
-              <p>
-                Rectangular space surrounded by four grid lines. A grid area can contain any number
-                of grid cells.
-              </p>
+              <p>Rectangular space surrounded by four grid lines. A grid area can contain any number of grid cells.</p>
             </aside>
           </section>
           <section>
@@ -623,8 +600,8 @@
             >
               code sandbox
             </a>
-            and fill up the available space with the person tiles. Think of mobile, tablet and
-            desktop widths. Align the previously built person tiles using a CSS grid layout.
+            and fill up the available space with the person tiles. Think of mobile, tablet and desktop widths. Align the
+            previously built person tiles using a CSS grid layout.
           </p>
           <p class="fragment">
             <b>Hint:</b>
@@ -644,9 +621,25 @@
           <h2>Further Resources</h2>
           <ul>
             <li>
-              <a href="https://cssgridgarden.com/" target="_blank" rel="noopener"
-                >https://cssgridgarden.com/</a
-              >
+              <a href="https://web.dev/learn/css/grid" target="_blank" rel="noopener">https://web.dev/learn/css/grid</a>
+            </li>
+            <li>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout" target="_blank" rel="noopener">
+                https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout
+              </a>
+            </li>
+            <li>
+              <a href="https://cssgridgarden.com/" target="_blank" rel="noopener">https://cssgridgarden.com</a>
+            </li>
+            <li>
+              <a href="https://mozilladevelopers.github.io/playground/css-grid/" target="_blank" rel="noopener">
+                https://mozilladevelopers.github.io/playground/css-grid/
+              </a>
+            </li>
+            <li>
+              <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="noopener">
+                https://css-tricks.com/snippets/css/complete-guide-grid/
+              </a>
             </li>
           </ul>
         </section>
