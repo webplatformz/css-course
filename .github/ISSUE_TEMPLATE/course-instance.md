@@ -6,7 +6,7 @@ labels: ""
 assignees: ""
 ---
 
-> For general changes on the Course instance issues, please update also the [issue template](https://github.com/webplatformz/react-training-slides-v2/blob/master/.github/ISSUE_TEMPLATE/course-instance.md).
+> For general changes on the Course instance issues, please update also the [issue template](https://github.com/webplatformz/css-course/blob/main/.github/ISSUE_TEMPLATE/course-instance.md).
 
 ## Checklist
 
