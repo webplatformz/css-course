@@ -1,5 +1,5 @@
 .colored-border {
-    background-color: var(--zuehlke-orange);
+    background-color: var(--zuehlke-bright-green);
     transition: background-color 1s;
 }
 
@@ -12,7 +12,7 @@
         transform: translateY(-100%);
     }
     70% {
-        background-color: var(--zuehlke-orange);
+        background-color: var(--zuehlke-bright-green);
         transform: translateY(0);
     }
     100% {
@@ -30,7 +30,7 @@
 }
 
 .moving-container {
-    background-color: var(--zuehlke-orange);
+    background-color: var(--zuehlke-bright-green);
     animation-name: move;
     animation-iteration-count: infinite;
     animation-direction: alternate;
@@ -40,7 +40,7 @@
 .move-side-to-side {
     width: 180px;
     margin-top: 1rem;
-    background-color: var(--zuehlke-orange);
+    background-color: var(--zuehlke-bright-green);
     animation-duration: 3s;
     animation-name: left-to-right;
     animation-iteration-count: infinite;
