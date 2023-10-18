@@ -276,21 +276,73 @@
             <section>
                 <h2>Combinator Selectors</h2>
                 <p>Some elements should look different based on where they are.</p>
-                <pre class="fragment"><code class="hljs css" data-trim data-noescape>
-                    li span { /* spans that are <b>descendants</b> of a li */
-                        color: red;
-                    }
-                </code></pre>
-                <pre class="fragment"><code class="hljs css" data-trim data-noescape>
-                    li > span { /* spans that are <b>direct children</b> of a li */
-                        color: red;
-                    }
-                </code></pre>
-                <pre class="fragment"><code class="hljs css" data-trim data-noescape>
-                    li + p { /* p that is an <b>adjacent sibling</b> of a li */
-                        color: red;
-                    }
-                </code></pre>
+                <div class="comparison">
+                    <pre class="fragment"><code class="hljs css" data-trim data-noescape>
+                        li span { /* spans that are <b>descendants</b> of a li */
+                            color: red;
+                        }
+                    </code></pre>
+                    <pre class="fragment"><code class="hljs html" data-trim>
+                        <li>
+                            <a>
+                                <span>red text</span>
+                            </a>
+                            <span>red text</span>
+                        </li>
+                    </code></pre>
+                </div>
+                <aside class="notes">
+                    <ul>
+                        <li>
+                          explain by refering to the tree structure of HTML (descendents are anywhere in the specified subtree)
+                        </li>
+                    </ul>
+                </aside>
+            </section>
+
+            <section>
+                <h2>Combinator Selectors</h2>
+                <div class="comparison">
+                    <pre class="fragment"><code class="hljs css" data-trim data-noescape>
+                        li > span { /* spans that are <b>direct children</b> of a li */
+                            color: red;
+                        }
+                    </code></pre>
+                    <pre class="fragment"><code class="hljs html" data-trim>
+                        <li>
+                            <a>
+                                <span>other text</span>
+                            </a>
+                            <span>red text</span>
+                        </li>
+                    </code></pre>
+                </div>
+                <aside class="notes">
+                    <ul>
+                        <li>
+                          explain by refering to the tree structure of HTML (descendents are anywhere in the specified subtree)
+                        </li>
+                    </ul>
+                </aside>
+            </section>
+
+            <section>
+                <h2>Combinator Selectors</h2>
+                <div class="comparison">
+                    <pre class="fragment"><code class="hljs css" data-trim data-noescape>
+                        li + p { /* p that is an <b>adjacent sibling</b> of a li */
+                            color: red;
+                        }
+                    </code></pre>
+                    <pre class="fragment"><code class="hljs html" data-trim>
+                        <p>some paragraph content</p>
+                        <li>
+                            ...
+                        </li>
+                        <p>red text</p>
+                        <p>some more paragraph content</p>
+                    </code></pre>
+                </div>
                 <aside class="notes">
                     <ul>
                         <li>
@@ -299,7 +351,7 @@
                         <li>
                             explain what div.classname other-element means
                         </li>
-                      </ul>
+                    </ul>
                 </aside>
             </section>
 
@@ -394,6 +446,7 @@
                     <li class="fragment">IDs (<span class="code">#title</span>)</li>
                 </ol>
                 <div class="tip fragment">Keep specificity as low a necessary</div>
+                <aside class="notes">short: explain what pseudo-elements and pseudo-classes are</aside>
             </section>
 
             <section>
@@ -417,7 +470,8 @@
 
             <section>
                 <h2>Tools</h2>
-                <p>These websites (among many) help you analyse/calculate the specificity of your selector:</p>
+                <p>IntelliJ shows specificity in CSS if you hover over the selector.</p>
+                <p>Otherwise, these websites (among many) could help you analyse/calculate the specificity of your selector:</p>
                 <ul>
                     <li><a href="https://specificity.keegan.st">Calculator by Keegan Street</a></li>
                     <li><a href="https://polypane.app/css-specificity-calculator">Calculator by Polypane</a></li>
