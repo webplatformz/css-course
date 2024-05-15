@@ -25,23 +25,28 @@
             </section>
 
             <section>
-                <p>CSS = Cascading Style Sheets</p>
+                <h2>Why do we need CSS?</h2>
+                <p>HTML was never intended to include formatting. It is used to describe the <b>structure</b> and content of a web page.</p>
+                <p>CSS was introduced to allow style formatting.</p>
+                <div class="fragment tip">CSS = Cascading Style Sheets</div>
             </section>
 
             <section>
                 <h2>What can CSS do?</h2>
+                <p>Three main categories:</p>
                 <ul>
-                    <li>text appearance: font, color, size, style, alignment, …</li>
-                    <li>general layout: arrange elements, visual organisation, …</li>
-                    <li>interaction design: hover effects, animations, …</li>
+                    <li><b>text appearance:</b> font, color, size, style, alignment, …</li>
+                    <li><b>layout:</b> arrange elements, visual organisation, …</li>
+                    <li><b>interaction design:</b> hover effects, animations, …</li>
                 </ul>
             </section>
 
             <section>
                 <h2>Adding CSS to our HTML</h2>
+                <p>We have different options on how to add styling.</p>
                 <ul>
                     <li>inline styles with the <span class="code">style</span> attribute on any HTML element</li>
-                    <li>CSS inside of a <span class="code">style</span> tag</li>
+                    <li>CSS inside a <span class="code">&lt;style&gt;</span> tag</li>
                     <li>include external CSS file (preferred option)</li>
                 </ul>
             </section>
@@ -90,7 +95,7 @@
             <section>
                 <h2>Other shorthands</h2>
                 <ul>
-                    <li><span class="code">margin</span> and <span class="code">padding</span>  instead of their specific top, right, bottom, left versions</li>
+                    <li><span class="code">margin</span> and <span class="code">padding</span> instead of their specific top, right, bottom, left versions</li>
                     <li><span class="code">font</span> to set font family, size, weight and style</li>
                     <li><span class="code">border</span> for size, color and style of the border on all sides</li>
                 </ul>
@@ -110,7 +115,7 @@
 
             <section>
                 <h2>Custom Properties</h2>
-                <p>Also known as CSS Variables these allow to easily reuse values:</p>
+                <p>Also known as "CSS Variables", these allow to easily reuse values:</p>
                 <pre><code class="hljs css" data-trim contenteditable>
                     :root {
                         --primary-color: yellow; /* declare it, prefixed with double dash */
@@ -120,6 +125,7 @@
                         color: var(--primary-color); /* access value with var() */
                     }
                 </code></pre>
+                <div class="tip fragment">They behave like other declarations and can be overwritten!</div>
             </section>
 
             <section>
@@ -294,7 +300,7 @@
                 <aside class="notes">
                     <ul>
                         <li>
-                          explain by refering to the tree structure of HTML (descendents are anywhere in the specified subtree)
+                            explain by refering to the tree structure of HTML (descendents are anywhere in the specified subtree)
                         </li>
                     </ul>
                 </aside>
@@ -320,7 +326,7 @@
                 <aside class="notes">
                     <ul>
                         <li>
-                          explain by refering to the tree structure of HTML (descendents are anywhere in the specified subtree)
+                            explain by refering to the tree structure of HTML (descendents are anywhere in the specified subtree)
                         </li>
                     </ul>
                 </aside>
@@ -346,7 +352,7 @@
                 <aside class="notes">
                     <ul>
                         <li>
-                          explain by refering to the tree structure of HTML (descendents are anywhere in the specified subtree)
+                            explain by refering to the tree structure of HTML (descendents are anywhere in the specified subtree)
                         </li>
                         <li>
                             explain what div.classname other-element means
@@ -713,7 +719,7 @@
 </div>
 <script src="https://cdn.jsdelivr.net/gh/Zuehlke/zuehlke-reveal-package@12d464d3ae3c5bbe96af93ece05bd5ebeaabefbe/release/index.js"></script>
 <script>
-	setupZuehlkeRevealPresentation();
+    setupZuehlkeRevealPresentation();
 </script>
 </body>
 </html>
