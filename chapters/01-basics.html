@@ -362,6 +362,94 @@
 
         <section>
             <section class="subtitle-slide">
+                <h2>Nesting</h2>
+            </section>
+
+            <section>
+                <h2>Official Standard</h2>
+                <p>Since December 2023 all major browsers support <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting">CSS nesting</a>.</p>
+                <p>Nesting (along with variables) used to be a major argument for preprocessors and has now finally found it way into the CSS standard.</p>
+            </section>
+
+            <section>
+                <h2>Nesting Syntax</h2>
+                <pre><code class="hljs css" data-trim>
+                    ul {
+                        font-size: 1.2rem;
+                        li {
+                            color: red;
+                        }
+                    }
+                </code></pre>
+                <p>is parsed as:</p>
+                <pre><code class="hljs css" data-trim>
+                    ul {
+                        font-size: 1.2rem;
+                    }
+
+                    ul li {
+                        color: red;
+                    }
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>Compound Selectors</h2>
+                <p>The new <span class="code">&</span> nesting selector is used to explicitly specify the relationship between parent and child.</p>
+                <pre><code class="hljs css" data-trim>
+                    a {
+                        &:hover {
+                            color: red;
+                        }
+                    }
+                </code></pre>
+                <p>turns into:</p>
+                <pre><code class="hljs css" data-trim>
+                    a:hover { /* without "&" it would be: a *:hover { … } */
+                        color: red;
+                    }
+                </code></pre>
+                <div class="tip fragment">you can't concatenate selector strings with "&"</div>
+            </section>
+
+            <section>
+                <h2>Advanced Use</h2>
+                <p>The nesting selector doesn't have to be at the start:</p>
+                <pre><code class="hljs css" data-trim>
+                    h2 {
+                        color: blue;
+                        .highlight & {
+                            color: red;
+                        }
+                    }
+                </code></pre>
+                <p>turns into:</p>
+                <pre><code class="hljs css" data-trim>
+                    h2 {
+                        color: blue;
+                    }
+
+                    .highlight h2 {
+                        color: red;
+                    }
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>Use Cases</h2>
+                <p>Nesting helps with readability and maintainability of CSS. It can also be used with "at-rules" such as media or container queries.</p>
+                <p>It's especially helpful to override special cases like hover states or responsive behaviour.</p>
+                <p><b>But:</b> don't nest just because you can. Don't bloat the selector unnecessarily.</p>
+            </section>
+
+            <section>
+                <h2>Further Reading</h2>
+                <p>There are plenty more examples and in-depth explanations in the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting">CSS nesting section on MDN</a>.</p>
+            </section>
+        </section>
+
+        <section>
+            <section class="subtitle-slide">
                 <h2>CSS Diner Exercise</h2>
             </section>
 
