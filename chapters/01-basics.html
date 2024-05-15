@@ -246,13 +246,12 @@
                 <h2>Selectors</h2>
                 <p>Classes aren't our only way to target elements. We can use different identifiers from our HTML as selector:</p>
                 <ul>
-                    <li class="fragment">Tags: <span class="code">div</span>, <span class="code">input</span>, <span
-                            class="code">h1</span>…
-                    </li>
-                    <li class="fragment">Classes: <span class="code">.red</span>, <span
-                            class="code">.primary-button</span>, …
-                    </li>
-                    <li class="fragment">IDs: <span class="code">#title</span>, <span class="code">#submit</span></li>
+                    <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Type_selectors">Type</a>: <span class="code">div</span>, <span class="code">input</span>, <span class="code">h1</span>…</li>
+                    <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Class_selectors">Classes</a>:<span class="code">.red</span>, <span class="code">.primary-button</span>, …</li>
+                    <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/ID_selectors">IDs</a>:<span class="code">#title</span>, <span class="code">#submit</span>, …</li>
+                    <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors">Attributes</a>:<span class="code">[type=radio]</span>, <span class="code">[href^="#"]</span>, …</li>
+                    <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">Pseudo-Classes</a>:<span class="code">:hover</span>, <span class="code">:disabled</span>, <span class="code">:last-child</span>, …</li>
+                    <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">Pseudo-Elements</a>:<span class="code">::before</span>, <span class="code">::placeholder</span>, …</li>
                 </ul>
                 <aside class="notes">Tags and classes are sufficient for most cases</aside>
             </section>
@@ -354,9 +353,9 @@
                 <p>We can combine selectors to target more specific elements:</p>
                 <aside class="notes">Ask attendees to explain the following rules:</aside>
                 <pre class="fragment"><code class="hljs css" data-trim>div.banner li</code></pre>
-                <pre class="fragment"><code class="hljs css" data-trim>#upload > button</code></pre>
-                <pre class="fragment"><code class="hljs css" data-trim>h2 + ul li</code></pre>
-                <pre class="fragment"><code class="hljs css" data-trim>body section p + p</code></pre>
+                <pre class="fragment"><code class="hljs css" data-trim>form#upload button:enabled</code></pre>
+                <pre class="fragment"><code class="hljs css" data-trim>ul > li</code></pre>
+                <pre class="fragment"><code class="hljs css" data-trim>section p + p</code></pre>
                 <aside class="notes">ask participants to explain each one</aside>
             </section>
         </section>
