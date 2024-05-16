@@ -21,7 +21,7 @@
 
         <section>
             <section class="subtitle-slide">
-                <h2>Styling the web</h2>
+                <h2>CSS?</h2>
             </section>
 
             <section>
@@ -247,11 +247,11 @@
                 <p>Classes aren't our only way to target elements. We can use different identifiers from our HTML as selector:</p>
                 <ul>
                     <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Type_selectors">Type</a>: <span class="code">div</span>, <span class="code">input</span>, <span class="code">h1</span>…</li>
-                    <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Class_selectors">Classes</a>:<span class="code">.red</span>, <span class="code">.primary-button</span>, …</li>
-                    <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/ID_selectors">IDs</a>:<span class="code">#title</span>, <span class="code">#submit</span>, …</li>
-                    <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors">Attributes</a>:<span class="code">[type=radio]</span>, <span class="code">[href^="#"]</span>, …</li>
-                    <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">Pseudo-Classes</a>:<span class="code">:hover</span>, <span class="code">:disabled</span>, <span class="code">:last-child</span>, …</li>
-                    <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">Pseudo-Elements</a>:<span class="code">::before</span>, <span class="code">::placeholder</span>, …</li>
+                    <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Class_selectors">Classes</a>: <span class="code">.red</span>, <span class="code">.primary-button</span>, …</li>
+                    <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/ID_selectors">IDs</a>: <span class="code">#title</span>, <span class="code">#submit</span>, …</li>
+                    <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors">Attributes</a>: <span class="code">[type=radio]</span>, <span class="code">[href^="#"]</span>, …</li>
+                    <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">Pseudo-Classes</a>: <span class="code">:hover</span>, <span class="code">:disabled</span>, <span class="code">:last-child</span>, …</li>
+                    <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">Pseudo-Elements</a>: <span class="code">::before</span>, <span class="code">::placeholder</span>, …</li>
                 </ul>
                 <aside class="notes">Tags and classes are sufficient for most cases</aside>
             </section>
@@ -271,7 +271,8 @@
                 <p>Some elements should look different based on where they are.</p>
                 <div class="comparison">
                     <pre class="fragment"><code class="hljs css" data-trim data-noescape>
-                        li span { /* spans that are <b>descendants</b> of a li */
+                        /* span that are <b>descendants</b> of a li */
+                        li span {
                             color: red;
                         }
                     </code></pre>
@@ -295,9 +296,11 @@
 
             <section>
                 <h2>Combinator Selectors</h2>
+                <p>Use <span class="code">&gt;</span> to style only <span class="hl">direct</span> child elements.</p>
                 <div class="comparison">
                     <pre class="fragment"><code class="hljs css" data-trim data-noescape>
-                        li > span { /* spans that are <b>direct children</b> of a li */
+                        /* span that are <b>direct children</b> of a li */
+                        li > span {
                             color: red;
                         }
                     </code></pre>
@@ -313,7 +316,7 @@
                 <aside class="notes">
                     <ul>
                         <li>
-                            explain by refering to the tree structure of HTML (descendents are anywhere in the specified subtree)
+                            explain by referring to the tree structure of HTML (descendents are anywhere in the specified subtree)
                         </li>
                     </ul>
                 </aside>
@@ -321,42 +324,33 @@
 
             <section>
                 <h2>Combinator Selectors</h2>
+                <p>Select <span class="hl">adjacent siblings</span> with <span class="code">+</span>.</p>
                 <div class="comparison">
                     <pre class="fragment"><code class="hljs css" data-trim data-noescape>
-                        li + p { /* p that is an <b>adjacent sibling</b> of a li */
+                        /* p that are <b>adjacent siblings</b> of a ul */
+                        ul + p {
                             color: red;
                         }
                     </code></pre>
                     <pre class="fragment"><code class="hljs html" data-trim>
                         <p>some paragraph content</p>
-                        <li>
+                        <ul>
                             ...
-                        </li>
+                        </ul>
                         <p>red text</p>
                         <p>some more paragraph content</p>
                     </code></pre>
                 </div>
-                <aside class="notes">
-                    <ul>
-                        <li>
-                            explain by refering to the tree structure of HTML (descendents are anywhere in the specified subtree)
-                        </li>
-                        <li>
-                            explain what div.classname other-element means
-                        </li>
-                    </ul>
-                </aside>
             </section>
 
             <section>
                 <h2>Combined Selectors</h2>
                 <p>We can combine selectors to target more specific elements:</p>
                 <aside class="notes">Ask attendees to explain the following rules:</aside>
-                <pre class="fragment"><code class="hljs css" data-trim>div.banner li</code></pre>
+                <pre class="fragment"><code class="hljs css" data-trim>div.banner a</code></pre>
                 <pre class="fragment"><code class="hljs css" data-trim>form#upload button:enabled</code></pre>
                 <pre class="fragment"><code class="hljs css" data-trim>ul > li</code></pre>
                 <pre class="fragment"><code class="hljs css" data-trim>section p + p</code></pre>
-                <aside class="notes">ask participants to explain each one</aside>
             </section>
         </section>
 
@@ -401,16 +395,18 @@
                         }
                     }
                 </code></pre>
+                <div class="fragment">
                 <p>is parsed as:</p>
-                <pre><code class="hljs css" data-trim>
-                    ul {
-                        font-size: 1.2rem;
-                    }
+                    <pre><code class="hljs css" data-trim>
+                        ul {
+                            font-size: 1.2rem;
+                        }
 
-                    ul li {
-                        color: red;
-                    }
-                </code></pre>
+                        ul li {
+                            color: red;
+                        }
+                    </code></pre>
+                </div>
             </section>
 
             <section>
@@ -423,12 +419,14 @@
                         }
                     }
                 </code></pre>
-                <p>turns into:</p>
-                <pre><code class="hljs css" data-trim>
-                    a:hover { /* without "&" it would be: a *:hover { … } */
-                        color: red;
-                    }
-                </code></pre>
+                <div class="fragment">
+                    <p>turns into:</p>
+                    <pre><code class="hljs css" data-trim>
+                        a:hover { /* without "&" it would be: a *:hover { … } */
+                            color: red;
+                        }
+                    </code></pre>
+                </div>
                 <div class="tip fragment">you can't concatenate selector strings with "&"</div>
             </section>
 
@@ -443,22 +441,24 @@
                         }
                     }
                 </code></pre>
-                <p>turns into:</p>
-                <pre><code class="hljs css" data-trim>
-                    h2 {
-                        color: blue;
-                    }
+                <div class="fragment">
+                    <p>turns into:</p>
+                    <pre><code class="hljs css" data-trim>
+                        h2 {
+                            color: blue;
+                        }
 
-                    .highlight h2 {
-                        color: red;
-                    }
-                </code></pre>
+                        .highlight h2 {
+                            color: red;
+                        }
+                    </code></pre>
+                </div>
             </section>
 
             <section>
                 <h2>Use Cases</h2>
                 <p>Nesting helps with readability and maintainability of CSS. It can also be used with "at-rules" such as media or container queries.</p>
-                <p>It's especially helpful to override special cases like hover states or responsive behaviour.</p>
+                <p>It's especially helpful to <span class="hl">override special cases</span> like hover states or responsive behaviour.</p>
                 <p><b>But:</b> don't nest just because you can. Don't bloat the selector unnecessarily.</p>
             </section>
 
