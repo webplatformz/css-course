@@ -467,6 +467,52 @@
             </section>
         </section>
 
+        <section>
+            <section class="subtitle-slide">
+                <h2>Units</h2>
+            </section>
+            <section>
+                <h2>px</h2>
+                <p>Specifies a size in exact pixels</p>
+            </section>
+            <section>
+                <h2>Sizing relative to font size</h2>
+                <p><span class="code">rem</span>: specifies a size relative to the <b>root</b> font size</p>
+                <p><span class="code">em</span>: specifies a size relative to the font size of the element being styled</p>
+            </section>
+            <section>
+                <h2>Why <span class="code">rem</span>?</h2>
+                <ul>
+                    <li>Some users change the root font size (for example for accessibility reasons)</li>
+                    <li>With <span class="code">px</span> this preference is ignored</li>
+                    <li>With <span class="code">rem</span> everything can scale accordingly</li>
+                </ul>
+                <div class="tip fragment">use rem instead of px if possible</div>
+                <aside class="notes">
+                    Hint: changing the root font size is not the same thing as zooming in
+                </aside>
+            </section>
+
+            <section>
+                <h2>Other Units</h2>
+                <ul>
+                    <li><span class="code">%</span>: percentage based on the parent element</li>
+                    <li><span class="code">vh</span>/<span class="code">vw</span>: percentage of viewport (height and width)</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Calculations</h2>
+                <p>CSS offers a <span class="code">calc()</span> function for basic math operations. It allows different units:</p>
+                <pre><code class="hljs css" data-trim contenteditable>
+                    div {
+                        max-width: calc(80% - 100px);
+                        height: calc(100vh / 3);
+                    }
+                </code></pre>
+            </section>
+        </section>
+
         <section class="break-slide">
             <h1>Questions?</h1>
         </section>
