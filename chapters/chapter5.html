@@ -17,6 +17,85 @@
             <h2>Lucas Schnüriger & Mithusan Sivakumar</h2>
             <h3>Various topics</h3>
         </section>
+
+        <section>
+            <section class="subtitle-slide">
+                <h2>Media Queries</h2>
+            </section>
+            <section>
+                <p>Media Queries are used to style elements depending on certain features, like ...</p>
+            </section>
+            <section>
+                <p>... width of screen</p>
+                <pre class="fragment"><code class="hljs css" data-trim data-noescape data-line-numbers="1-4,8|5-7">
+                    .card-container {
+                        display: flex;
+                        flex-direction: row;
+
+                        @media (max-width: 600px) {
+                            flex-direction: column;
+                        }
+                    }
+                </code></pre>
+            </section>
+            <section>
+                <p>... how accurate the pointer is</p>
+                <pre class="fragment"><code class="hljs css" data-trim data-noescape data-line-numbers="1,2,7|4-6">
+                    div {
+                        margin: 0 1.4rem;
+
+                        @media (pointer: coarse) { /* touch device */
+                            margin: 0;
+                        }
+                    }
+                </code></pre>
+            </section>
+            <section>
+                <p>... print view</p>
+                <pre class="fragment"><code class="hljs css" data-trim data-noescape>
+                    @media print {
+                        .advertisement {
+                            display: none;
+                        }
+                    }
+                </code></pre>
+            </section>
+        </section>
+
+        <section>
+            <section class="subtitle-slide">
+                <h2>Container Queries</h2>
+            </section>
+            <section>
+                <p>Container Queries are similar to Media Queries, but depend on a defined container</p>
+                <img class="fragment" src="../assets/chapter5/media-query-vs-container-query.png" alt="Comparison Media & Container Query">
+            </section>
+            <section>
+                <div class="comparison">
+                    <pre><code class="hljs html" data-trim>
+                        <section class="card">
+                            <div class="details">
+                                <div class="title">...</div>
+                                <div class="description">...</div>
+                            </div>
+                        </section>
+                    </code></pre>
+                    <pre><code class="hljs css" data-trim data-noescape data-line-numbers="5|1-4|6-10">
+                        .card {
+                            container-type: inline-size;
+                            container-name: card;
+                        }
+
+                        @container card (inline-size < 235px) {
+                            .details {
+                                font-size: 1rem;
+                            }
+                        }
+                    </code></pre>
+                </div>
+            </section>
+        </section>
+
         <section>
             <section class="subtitle-slide">
                 <h2>CSS Animations</h2>
