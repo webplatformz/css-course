@@ -20,6 +20,44 @@
 
         <section>
             <section class="subtitle-slide">
+                <h2>Design Principles</h2>
+            </section>
+            <section>
+                <img src="../assets/chapter2/design_1.jpg">
+            </section>
+            <section>
+                <img src="../assets/chapter2/design_2.jpg">
+            </section>
+            <section>
+                <img width="50%" src="../assets/chapter2/design_meme.png">
+            </section>
+            <section>
+                <img src="../assets/chapter2/design_3.jpg">
+            </section>
+            <section>
+                <img src="../assets/chapter2/design_4.jpg">
+            </section>
+            <section>
+                <img src="../assets/chapter2/design_5.jpg">
+            </section>
+            <section>
+                <img src="../assets/chapter2/design_exercise.jpg">
+                <aside class="notes">
+                    <ul>
+                        <li>Come up with a good structure (~10mins)</li>
+                        <li>Everybody showcases their version (~15mins)</li>
+                        <li>Show potential solution</li>
+                    </ul>
+                </aside>
+            </section>
+            <section>
+                <img src="../assets/chapter2/design_result.jpg">
+            </section>
+        </section>
+
+
+        <section>
+            <section class="subtitle-slide">
                 <h2>Media Queries</h2>
             </section>
             <section>
@@ -393,55 +431,6 @@
                     <li>Make sure to use strong contrasts between important colors.
                         <a href="https://usecontrast.com">Color contrast checker</a></li>
                 </ul>
-            </section>
-        </section>
-        <section>
-            <section class="subtitle-slide">
-                <h2>Size units</h2>
-            </section>
-            <section>
-                <h2>px</h2>
-                <p>Specifies a size in exact pixels</p>
-            </section>
-            <section>
-                <h2>rem</h2>
-                <p>Specifies a size relative to the root font size</p>
-            </section>
-            <section>
-                <h2>rem</h2>
-                <ul>
-                    <li>Some users change the root font size (for example for accessibility reasons)</li>
-                    <li>With px this preference is ignored</li>
-                    <li>With rem everything can scale accordingly</li>
-                </ul>
-                <div class="tip fragment">use rem instead of px if possible</div>
-                <aside class="notes">
-                    Hint: changing the root font size is not the same thing as zooming in
-                </aside>
-            </section>
-            <section>
-                <h2>em</h2>
-                <p>Specifies a size relative to the font size of the element being styled</p>
-                <div class="tip fragment">used less often than rem</div>
-            </section>
-
-            <section>
-                <h2>Other Units</h2>
-                <ul>
-                    <li><span class="code">%</span>: percentage based on the parent element</li>
-                    <li><span class="code">vh</span>/<span class="code">vw</span>: percentage of viewport (height and width)</li>
-                </ul>
-            </section>
-
-            <section>
-                <h2>Calculations</h2>
-                <p>CSS offers a <span class="code">calc()</span> function for basic math operations. It allows different units:</p>
-                <pre><code class="hljs css" data-trim contenteditable>
-                    div {
-                        max-width: calc(80% - 100px);
-                        height: calc(100vh / 3);
-                    }
-                </code></pre>
             </section>
         </section>
 
