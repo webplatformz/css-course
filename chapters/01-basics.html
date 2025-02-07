@@ -19,6 +19,83 @@
 
         <section>
             <section class="subtitle-slide">
+                <h2>Foundation of the web</h2>
+            </section>
+
+            <section>
+                <h3>The 3 pillars</h3>
+                <p>Websites are built by these three languages:</p>
+                <ul>
+                    <li><b class="hl">HTML</b>: structured content</li>
+                    <li><b class="hl">CSS</b>: visual representation, style and layout</li>
+                    <li><b class="hl">JS</b>: interactivity and functionality</li>
+                </ul>
+                <div class="fragment tip">if you are familiar with this concept and HTML, we can skip to the next
+                    section to the right
+                </div>
+            </section>
+
+            <section>
+                <h3>HTML Elements</h3>
+                <p>«Elements» are the building blocks of web pages, for example:</p>
+                <ul>
+                    <li><code class="code">&lt;h1&gt;</code> – Headings</li>
+                    <li><code class="code">&lt;p&gt;</code> – Paragraphs</li>
+                    <li><code class="code">&lt;a&gt;</code> – Links (a = anchor)</li>
+                    <li><code class="code">&lt;img&gt;</code> – Images</li>
+                    <li><code class="code">&lt;table&gt;</code> – Tables</li>
+                    <li><code class="code">&lt;input&gt;</code> – Input fields (text, number, date, etc.)</li>
+                </ul>
+                <div class="fragment tip">HTML = Hypertext Markup Language</div>
+            </section>
+
+            <section>
+                <h3>Core Aspects of HTML</h3>
+                <ul>
+                    <li><b>Tags:</b> define elements (e.g., <code class="code">&lt;header&gt;</code>)</li>
+                    <li><b>Attributes</b> add extra info to elements (e.g., <code class="code">href="…"</code>)</li>
+                    <li><b>Content:</b> text or other elements inside tags</li>
+                    <li><b>Nesting:</b> elements can contain others (hierarchy matters)</li>
+                    <li><b>Void elements:</b> no closing tag needed (e.g., <code class="code">&lt;br&gt;</code>)</li>
+                </ul>
+                <p>Example: <code class="code">&lt;div class="container"&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;/div&gt;</code>
+                </p>
+            </section>
+
+            <section>
+                <h3>HTML Document Structure</h3>
+                <p>The hierarchy (a tree structure) matters for CSS:</p>
+                <pre>
+                  <code class="hljs html" data-trim data-noescape>
+                      &lt;!DOCTYPE html&gt;
+                      &lt;html&gt;
+                        &lt;!-- non visible meta information in "head" --&gt;
+                        &lt;head&gt;
+                          &lt;meta charset="UTF-8"&gt;
+                          &lt;title&gt;Page Title&lt;/title&gt;
+                        &lt;/head&gt;
+                        &lt;!-- visible content belongs inside "body" --&gt;
+                        &lt;body&gt;
+                          &lt;main&gt;
+                            &lt;p&gt;Content goes here&lt;/p&gt;
+                          &lt;/main&gt;
+                        &lt;/body&gt;
+                      &lt;/html&gt;
+                  </code>
+                </pre>
+                <div class="fragment tip">HTML is very similar to XML in syntax but they're not interchangeable</div>
+            </section>
+
+            <section>
+                <h3>Why is this important?</h3>
+                <p>Most HTML elements have semantic meaning (keyword: «semantic HTML»). This provides context to the
+                    content and also allows parsing websites automatically (e.g. by screen readers).</p>
+                <p>CSS uses the hierarchy to define styling rules and relationships between elements.</p>
+            </section>
+        </section>
+
+        <section>
+            <section class="subtitle-slide">
                 <h2>CSS?</h2>
             </section>
 
