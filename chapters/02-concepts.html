@@ -15,8 +15,7 @@
   <div class="slides">
     <section class="title-slide">
       <h1>CSS for Developers</h1>
-      <h2>Lucas Schnüriger</h2>
-      <h3>CSS Concepts</h3>
+      <h2>Concepts</h2>
     </section>
 
     <section>
@@ -34,7 +33,7 @@
       </section>
 
       <section>
-        <h2>CSS Reset</h2>
+        <h3>CSS Reset</h3>
         <p>We usually want to ensure a consistent UI across browsers without having to constantly overwrite default styles. We can …</p>
         <ul>
           <li class="fragment">… manually set the most important rules</li>
@@ -55,7 +54,7 @@
       </section>
 
       <section>
-        <h2>Precedence of Rules</h2>
+        <h3>Precedence of Rules</h3>
         <p>
           We already saw that inline styles overrule other styles.
           We've also seen, that we can apply multiple rules to the same element.
@@ -65,12 +64,12 @@
       </section>
 
       <section>
-        <h2>Specificity</h2>
+        <h3>Specificity</h3>
         <p>Specificity is the means by which browsers decide which CSS property value will be applied. It's a weight determined by the used selector.</p>
       </section>
 
       <section>
-        <h2>Selector Types</h2>
+        <h3>Selector Types</h3>
         <p>Different selector types ordered by increasing weight:</p>
         <ol>
           <li class="fragment">Types (<span class="code">h1</span>) and pseudo-elements (<span class="code">::before</span>)</li>
@@ -82,7 +81,7 @@
       </section>
 
       <section>
-        <h2>Calculate Weight</h2>
+        <h3>Calculate Weight</h3>
         <p>The weight can be represented in this format: <span class="code">id-class-tag</span>.</p>
         <pre class="fragment"><code class="hljs css" data-trim data-noescape>div.banner li                <span class="fragment">/* 0-1-2 */</span></code></pre>
         <pre class="fragment"><code class="hljs css" data-trim data-noescape>#upload > button             <span class="fragment">/* 1-0-1 */</span></code></pre>
@@ -92,7 +91,7 @@
       </section>
 
       <section>
-        <h2>Comparison</h2>
+        <h3>Comparison</h3>
         <p>Weights get compared <span class="hl">from left to right</span>. Which means:</p>
         <pre><code class="hljs css">.banner /* 0-1-0 */</code></pre>
         <p>beats</p>
@@ -101,7 +100,7 @@
       </section>
 
       <section>
-        <h2>Tools</h2>
+        <h3>Tools</h3>
         <p>IntelliJ shows specificity in CSS if you hover over the selector.</p>
         <p>Otherwise, these websites (among many) could help you analyse/calculate the specificity of your selector:</p>
         <ul>
@@ -117,7 +116,7 @@
       </section>
 
       <section>
-        <h2>Inheritance</h2>
+        <h3>Inheritance</h3>
         <p>Inheritance controls what value is applied if none is explicitly specified for the property of an element.</p>
         <p>There's two type of properties:</p>
         <ul>
@@ -127,7 +126,7 @@
       </section>
 
       <section>
-        <h2>Inherited Properties</h2>
+        <h3>Inherited Properties</h3>
         <p>When specified, these properties' values are applied as default for all child elements.</p>
         <p>Typical examples are <span class="hl">text related</span> properties like:</p>
         <ul>
@@ -139,7 +138,7 @@
       </section>
 
       <section>
-        <h2>Non-inherited Properties</h2>
+        <h3>Non-inherited Properties</h3>
         <p>Specifying values for these properties will only apply them to the targeted elements.</p>
         <p>Typical examples are <span class="hl">layout related</span> properties like:</p>
         <ul>
@@ -158,7 +157,7 @@
       </section>
 
       <section>
-        <h2>It's boxes all the way down</h2>
+        <h3>It's boxes all the way down</h3>
         <ul>
           <li class="fragment">Every HTML element is represented as a rectangular box.</li>
           <li class="fragment">CSS determines the size, position, and other properties (e.g. color) of these boxes.</li>
@@ -167,7 +166,7 @@
       </section>
 
       <section>
-        <h2>What's in the box?</h2>
+        <h3>What's in the box?</h3>
         <div class="box-model-container">
           <div class="box-model-margin fragment highlight-current-red" data-fragment-index="4">
             margin
@@ -199,7 +198,7 @@
       </section>
 
       <section>
-        <h2>Box Sizing</h2>
+        <h3>Box Sizing</h3>
         <p>There are 2 ways to determine the size of a box from height and width values:</p>
         <div class="comparison">
           <div class="fragment">
@@ -217,7 +216,7 @@
       </section>
 
       <section>
-        <h2>Box Sizing</h2>
+        <h3>Box Sizing</h3>
         <!-- TODO: USE CODE SANDBOX -->
         <style>
           .box-sizing-container {
@@ -279,7 +278,7 @@
       </section>
 
       <section>
-        <h2>Positioning</h2>
+        <h3>Positioning</h3>
         <p>The <span class="code">position</span> property determines where the element is rendered:</p>
         <ul>
           <li class="fragment"><span class="code">static</span>: default, rendered in page flow</li>
@@ -305,12 +304,12 @@
       </section>
 
       <section>
-        <h2>Margin Collapsing</h2>
+        <h3>Margin Collapsing</h3>
         <p>Vertical margins (top and bottom) of blocks are collapsed in 3 cases.</p>
       </section>
 
       <section>
-        <h2>1. Adjacent siblings</h2>
+        <h3>1. Adjacent siblings</h3>
         <div class="cols">
           <div style="width: 120px;">
             <div class="box-model-content" style="height: 50px;"><small>content</small></div>
@@ -329,7 +328,7 @@
       </section>
 
       <section>
-        <h2>2. Nothing separating parent & descendants</h2>
+        <h3>2. Nothing separating parent & descendants</h3>
         <p>When there's no border, padding or content between outer and inner margin.</p>
         <div class="cols">
           <div style="width: 120px;">
@@ -355,7 +354,7 @@
       </section>
 
       <section>
-        <h2>3. Empty blocks</h2>
+        <h3>3. Empty blocks</h3>
         <p>Top and bottom margin collapses on blocks with zero height and no border or padding.</p>
         <div class="cols">
           <div style="width: 120px;">
@@ -371,7 +370,7 @@
       </section>
 
       <section>
-        <h2>Margin Collapsing</h2>
+        <h3>Margin Collapsing</h3>
         <p>How can we avoid collapsing issues?</p>
         <ul>
           <li>Use margins in only one direction, e.g. only bottom and right margins</li>
@@ -380,7 +379,7 @@
       </section>
 
       <section>
-        <h2>Margin vs. Padding</h2>
+        <h3>Margin vs. Padding</h3>
         <p>When should I use which one?</p>
         <ul>
           <li class="fragment">
@@ -397,7 +396,7 @@
       </section>
 
       <section>
-        <h2>A little mnemonic</h2>
+        <h3>A little mnemonic</h3>
         <img src="../assets/images/chapter1/paddington-marginton.png" alt="London Underground Logos of stations «Paddington» and «Marginton», where the horizontal bar of Marginton has whitespace around it to showcase the difference between padding and margin.">
       </section>
 

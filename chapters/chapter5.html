@@ -14,8 +14,7 @@
     <div class="slides">
         <section class="title-slide">
             <h1>CSS for Developers</h1>
-            <h2>Lucas Schnüriger</h2>
-            <h3>Various topics</h3>
+            <h2>Various topics</h2>
         </section>
 
         <section>
@@ -146,12 +145,12 @@
                 </ul>
             </section>
             <section>
-                <h2>Transitions</h2>
+                <h3>Transitions</h3>
                 <p>Normally, style changes are instant. With transitions it is possible to transition smoothly between
                     the two styles</p>
             </section>
             <section>
-                <h2>Transition triggers</h2>
+                <h3>Transition triggers</h3>
                 <p>A transition needs a state (style) change and an event that triggers it. Examples of possible
                     triggers:</p>
                 <ul>
@@ -192,7 +191,7 @@
                 </aside>
             </section>
             <section>
-                <h2>Animations</h2>
+                <h3>Animations</h3>
                 <ul>
                     <li>With animations more complex animations can be created</li>
                     <li>Animations are specified in keyframes and then applied to elements</li>
@@ -225,19 +224,19 @@
                 </p>
             </section>
             <section>
-                <h2>Easing</h2>
+                <h3>Easing</h3>
                 <p>Animations can be eased. The interpolation is by default slightly eased but can be configured with
                     <em>animation-timing-function</em>.</p>
             </section>
             <section>
-                <h2>Easing</h2>
+                <h3>Easing</h3>
                 <div class="move-side-to-side">ease</div>
                 <div class="move-side-to-side" style="animation-timing-function: linear">linear</div>
                 <div class="move-side-to-side" style="animation-timing-function: ease-in">ease-in</div>
                 <div class="move-side-to-side" style="animation-timing-function: ease-in-out">ease-in-out</div>
             </section>
             <section>
-                <h2>What can be animated?</h2>
+                <h3>What can be animated?</h3>
                 <p>Generally all properties that have a 'middle state' can be interpolated. Example:</p>
                 <ul>
                     <li>font-size (12px -> 16px), middle state is 13px-15px: <em>animation is possible</em></li>
@@ -248,7 +247,7 @@
                     properties</a></p>
             </section>
             <section>
-                <h2>Animation performance</h2>
+                <h3>Animation performance</h3>
                 <p>If possible: animate properties which do not trigger layout or paint</p>
                 <pre><code class="css" data-trim data-noescape>
                         @keyframes animate-fast {
@@ -276,7 +275,7 @@
                 <p>What if we want to display an element above another?</p>
             </section>
             <section>
-                <h2>z-index</h2>
+                <h3>z-index</h3>
                 <p>The z-index specifies the stack level of the element in the current stacking context</p>
                 <div class="stacking-container">
                     <div style="z-index: 1;">z-index: 1</div>
@@ -296,7 +295,7 @@
                 </aside>
             </section>
             <section>
-                <h2>Stacking context</h2>
+                <h3>Stacking context</h3>
                 <p>z-index is not global, it is <em>in relation to the current stacking context</em>. A stacking context
                     is formed on the following elements:</p>
                 <ul>
@@ -341,7 +340,7 @@
         </section>
         <section>
             <section>
-                <h2>Accessibility</h2>
+                <h3>Accessibility</h3>
                 <p>Accessibility is a big subject. We cover some tips here</p>
                 <div class="tip fragment">Advocating for this can be an uphill battle</div>
             </section>
@@ -381,9 +380,9 @@
                 <h3>Keep element hierarchy consistent</h3>
                 <p>Example: the order of headings should always be consistent:</p>
                 <p>Wrong: &lt;h1&gt; &rightarrow; &lt;h3&gt; &rightarrow; &lt;h4&gt; &rightarrow; &lt;h5&gt;</p>
-                <p>Correct: &lt;h1&gt; &rightarrow; &lt;h2&gt; &rightarrow; &lt;h3&gt; &rightarrow; &lt;h4&gt;</p>
+                <p>Correct: &lt;h1&gt; &rightarrow; &lt;h3&gt; &rightarrow; &lt;h3&gt; &rightarrow; &lt;h4&gt;</p>
                 <aside class="notes">
-                    This can mean, that a h2 is does not always have the same styling throughout your application.
+                    This can mean, that a h3 is does not always have the same styling throughout your application.
                     For the HTML markup it should only be relevant what the semantic function of the element is.
                 </aside>
             </section>

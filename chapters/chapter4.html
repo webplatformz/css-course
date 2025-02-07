@@ -16,11 +16,10 @@
       <div class="slides">
         <section class="title-slide">
           <h1>CSS for Developers</h1>
-          <h2>Lucas Schnüriger</h2>
-          <h3>CSS Grid Layout</h3>
+          <h2>Grid Layout</h2>
         </section>
         <section>
-          <h2>What is the CSS Grid?</h2>
+          <h3>What is the CSS Grid?</h3>
           <p>A two dimensional layout system, controlling layout in rows and columns.</p>
           <aside class="notes">
             Explain how we go from 1-D (flexbox) to 2-D (flexbox) and describe usecase where this will make it easier.
@@ -31,7 +30,7 @@
             <h2>Terminology</h2>
           </section>
           <section>
-            <h2>Grid Container</h2>
+            <h3>Grid Container</h3>
             <p>
               The container that holds the entire CSS grid. It is the element that has the display:
               <span class="code">grid</span>
@@ -46,7 +45,7 @@
             </code></pre>
           </section>
           <section>
-            <h2>Grid Item</h2>
+            <h3>Grid Item</h3>
             <p>Any element that is a direct child of a grid container.</p>
             <div class="comparison">
               <pre><code class="css" data-trim data-noescape>
@@ -64,17 +63,17 @@
             </div>
           </section>
           <section>
-            <h2>Grid Line</h2>
+            <h3>Grid Line</h3>
             <p>The vertical and horizontal lines that divide the grid and separate the columns and rows.</p>
             <img src="../assets/diagrams/chapter4/grid-line.svg" />
           </section>
           <section>
-            <h2>Grid Cell</h2>
+            <h3>Grid Cell</h3>
             <p>A single unit of a CSS grid.</p>
             <img src="../assets/diagrams/chapter4/grid-cell.svg" />
           </section>
           <section>
-            <h2>Grid Area</h2>
+            <h3>Grid Area</h3>
             <p>
               Rectangular space surrounded by four grid lines.
               <br />
@@ -83,7 +82,7 @@
             <img src="../assets/diagrams/chapter4/grid-area.svg" />
           </section>
           <section>
-            <h2>Grid Track</h2>
+            <h3>Grid Track</h3>
             <p>
               The space between two grid lines.
               <br />
@@ -92,17 +91,17 @@
             <img src="../assets/diagrams/chapter4/grid-track.svg" />
           </section>
           <section>
-            <h2>Grid Row</h2>
+            <h3>Grid Row</h3>
             <p>A horizontal track of a grid.</p>
             <img src="../assets/diagrams/chapter4/grid-row.svg" />
           </section>
           <section>
-            <h2>Grid Column</h2>
+            <h3>Grid Column</h3>
             <p>A vertical track of a grid.</p>
             <img src="../assets/diagrams/chapter4/grid-column.svg" />
           </section>
           <section>
-            <h2>Gutter / Gap</h2>
+            <h3>Gutter / Gap</h3>
             <p>The space between rows and columns in a grid.</p>
             <img src="../assets/diagrams/chapter4/gutter.svg" />
           </section>
@@ -112,7 +111,7 @@
             <h2>Example</h2>
           </section>
           <section>
-            <h2>Example</h2>
+            <h3>Example</h3>
             <div class="comparison">
               <pre><code class="css" data-trim data-noescape>
                 .grid-container {
@@ -158,20 +157,20 @@
             </aside>
           </section>
           <section>
-            <h2>
+            <h3>
               <span class="code">grid-template-columns</span>
               <br />
               &
               <br />
               <span class="code">grid-template-rows</span>
-            </h2>
+            </h3>
             <p>A way to define the number of rows and columns as well as their size.</p>
           </section>
           <section>
-            <h2>
+            <h3>
               CSS length unit:
               <span class="code">fr</span>
-            </h2>
+            </h3>
             <ul>
               <li class="fragment">
                 What is
@@ -240,7 +239,7 @@
         </section>
         <section>
           <section>
-            <h2>An Explicit Grid</h2>
+            <h3>An Explicit Grid</h3>
             <pre><code class="css" data-trim data-noescape>
               .grid-container {
                 display: grid;
@@ -278,7 +277,7 @@
             </aside>
           </section>
           <section>
-            <h2 style="margin-bottom: 0.5em !important">An Explicit Grid</h2>
+            <h3 style="margin-bottom: 0.5em !important">An Explicit Grid</h3>
             <p>with dynamic row and column size</p>
             <pre><code class="css" data-trim data-noescape>
               .grid-container {
@@ -329,7 +328,7 @@
             </aside>
           </section>
           <section>
-            <h2>An Implicit Grid</h2>
+            <h3>An Implicit Grid</h3>
             <pre><code class="css" data-trim data-noescape>
               .grid-container {
                 display: grid;
@@ -369,7 +368,7 @@
             </aside>
           </section>
           <section>
-            <h2>An Implicit Grid (Continued)</h2>
+            <h3>An Implicit Grid (Continued)</h3>
             <pre><code class="css" data-trim data-noescape>
               .grid-container {
                 display: grid;
@@ -431,7 +430,7 @@
         </section>
 
         <section>
-          <h2>Browser Dev Tools</h2>
+          <h3>Browser Dev Tools</h3>
           <img src="../assets/diagrams/chapter4/grid-devtools.png" alt="css grid devtools" />
           <ul>
             <li>Open the DevTools (F12, Right-Click + Inspect)</li>
@@ -449,7 +448,7 @@
             <h2>Grid Items</h2>
           </section>
           <section>
-            <h2>Grid Lines</h2>
+            <h3>Grid Lines</h3>
             <p>Grid items are positioned using grid lines.</p>
             <img src="../assets/diagrams/chapter4/gird-lines-with-numbers.svg" width="500" />
             <aside class="notes">
@@ -459,7 +458,7 @@
             </aside>
           </section>
           <section>
-            <h2>Positioning</h2>
+            <h3>Positioning</h3>
             <div class="comparison">
               <pre><code class="css" data-trim data-noescape>
                 .item-1 {
@@ -497,7 +496,7 @@
             </div>
           </section>
           <section>
-            <h2>Properties</h2>
+            <h3>Properties</h3>
             <ul>
               <li>
                 <span class="code">grid-row</span>
@@ -544,7 +543,7 @@
             <h2>Advanced Grid</h2>
           </section>
           <section>
-            <h2>Template Areas</h2>
+            <h3>Template Areas</h3>
             <p>
               What is
               <span class="code">grid-area</span>
@@ -562,7 +561,7 @@
             </aside>
           </section>
           <section>
-            <h2>Template Areas (v2)</h2>
+            <h3>Template Areas (v2)</h3>
             <pre><code class="fragment css" data-trim data-noescape>
               .container {
                 display: grid;
@@ -619,7 +618,7 @@
         </section>
 
         <section>
-          <h2>Further Resources</h2>
+          <h3>Further Resources</h3>
           <ul>
             <li>
               <a href="https://web.dev/learn/css/grid" target="_blank" rel="noopener">https://web.dev/learn/css/grid</a>

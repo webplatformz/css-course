@@ -13,8 +13,8 @@
 <div class="reveal">
     <div class="slides">
         <section class="title-slide">
-            <h1>CSS for Developers: CSS Basics</h1>
-            <h2>Lucas Schnüriger</h2>
+            <h1>CSS for Developers</h1>
+            <h2>Basics</h2>
         </section>
 
         <section>
@@ -96,40 +96,41 @@
 
         <section>
             <section class="subtitle-slide">
-                <h2>CSS?</h2>
+                <h2>CSS</h2>
             </section>
 
             <section>
-                <h2>Why do we need CSS?</h2>
-                <p>HTML was never intended to include formatting. It is used to describe the <b>structure</b> and content of a web page.</p>
-                <p>CSS was introduced to allow style formatting.</p>
+                <h3>Why do we need CSS?</h3>
+                <p><b class="hl">HTML</b> was never intended to include formatting. It is used to describe the <b>structure</b>
+                    and content of a web page.</p>
+                <p><b class="hl">CSS</b> was introduced to allow style formatting.</p>
                 <div class="fragment tip">CSS = Cascading Style Sheets</div>
             </section>
 
             <section>
-                <h2>What can CSS do?</h2>
+                <h3>What can CSS do?</h3>
                 <p>Three main categories:</p>
                 <ul>
-                    <li><b>text appearance:</b> font, color, size, style, alignment, …</li>
-                    <li><b>layout:</b> arrange elements, visual organisation, …</li>
-                    <li><b>interaction design:</b> hover effects, animations, …</li>
+                    <li><b class="hl">text appearance:</b> font, color, size, style, alignment, …</li>
+                    <li><b class="hl">layout:</b> arrange elements, visual organisation, …</li>
+                    <li><b class="hl">interaction design:</b> hover effects, animations, …</li>
                 </ul>
             </section>
 
             <section>
-                <h2>Adding CSS to our HTML</h2>
+                <h3>Adding CSS to our HTML</h3>
                 <p>We have different options on how to add styling.</p>
                 <ul>
-                    <li>inline styles with the <span class="code">style</span> attribute on any HTML element</li>
-                    <li>CSS inside a <span class="code">&lt;style&gt;</span> tag</li>
+                    <li>inline styles with the <code class="code">style</code> attribute on any HTML element</li>
+                    <li>CSS inside a <code class="code">&lt;style&gt;</code> tag</li>
                     <li>include external CSS file (preferred option)</li>
                 </ul>
             </section>
 
             <section>
-                <h2>Link CSS file</h2>
-                <p>Add a <span class="code">link</span> tag to the HTML head with the <span
-                        class="code">href</span> pointing to the CSS file:</p>
+                <h3>Link CSS file</h3>
+                <p>Add a <code class="code">link</code> tag to the HTML head with the <code
+                        class="code">href</code> pointing to the CSS file:</p>
                 <pre><code class="hljs html" data-trim data-editable-content contenteditable>
                    <link rel="stylesheet" type="text/css" href="myfile.css">
                 </code></pre>
@@ -142,19 +143,21 @@
             </section>
 
             <section>
-                <h2>Syntax</h2>
-                <p>CSS is a rule-based language: you define the rules by specifying groups of styles that should be applied to particular elements.</p>
+                <h3>Syntax</h3>
+                <p>CSS is a <b>rule-based language</b>: you define the rules by specifying groups of styles that should
+                    be applied to particular elements.</p>
                 <p>One <b class="hl">rule</b> consists of selector and declaration block:</p>
                 <pre><code class="hljs css" data-trim>
                     selector { /* <- e.g. class name */
                         property: value; /* <- declaration */
                     }
                 </code></pre>
-                <aside class="notes">With the selector we define what HTML elements should be affected by this rule</aside>
+                <aside class="notes">With the selector we define what HTML elements should be affected by this rule
+                </aside>
             </section>
 
             <section>
-                <h2>Shorthand Properties</h2>
+                <h3>Shorthand Properties</h3>
                 <p>Some specific properties can be grouped with a shorthand version.</p>
                 <pre><code class="hljs css" data-trim contenteditable>
                     div {
@@ -164,7 +167,7 @@
                     }
                 </code></pre>
                 <div class="fragment">
-                    <p>Can be simplified with the <span class="code">background</span> shorthand:</p>
+                    <p>Can be simplified with the <code class="code">background</code> shorthand:</p>
                     <pre><code class="hljs css" data-trim contenteditable>
                         div {
                             background: url('logo.png') top left no-repeat;
@@ -174,16 +177,18 @@
             </section>
 
             <section>
-                <h2>Other shorthands</h2>
+                <h3>Other shorthands</h3>
                 <ul>
-                    <li><span class="code">margin</span> and <span class="code">padding</span> instead of their specific top, right, bottom, left versions</li>
-                    <li><span class="code">font</span> to set font family, size, weight and style</li>
-                    <li><span class="code">border</span> for size, color and style of the border on all sides</li>
+                    <li><code class="code">margin</code> and <code class="code">padding</code> instead of their specific
+                        top, right, bottom, left versions
+                    </li>
+                    <li><code class="code">font</code> to set font family, size, weight and style</li>
+                    <li><code class="code">border</code> for size, color and style of the border on all sides</li>
                 </ul>
             </section>
 
             <section>
-                <h2>Custom Properties</h2>
+                <h3>Custom Properties</h3>
                 <p>Also known as "CSS Variables", these allow to easily reuse values:</p>
                 <pre><code class="hljs css" data-trim contenteditable>
                     :root {
@@ -198,10 +203,15 @@
             </section>
 
             <section>
-                <h2>Helpful resources</h2>
+                <h3>Helpful resources</h3>
                 <ul>
-                    <li>All of that and much more with explanations and examples can be found in this excellent <a href="https://www.freecodecamp.org/news/the-css-handbook-a-handy-guide-to-css-for-developers-b56695917d11/">CSS Handbook</a> from 2019</li>
-                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS Section</a> on the Mozilla Developer Network</li>
+                    <li>All of that and much more with explanations and examples can be found in this excellent <a
+                            href="https://www.freecodecamp.org/news/the-css-handbook-a-handy-guide-to-css-for-developers-b56695917d11/">CSS
+                        Handbook</a> from 2019
+                    </li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS Section</a> on the Mozilla
+                        Developer Network
+                    </li>
                     <li><a href="https://caniuse.com">Can I use?</a> to check browser support of any CSS feature</li>
                 </ul>
                 <p></p>
@@ -210,13 +220,14 @@
 
         <section>
             <section class="subtitle-slide">
-                <h2>How to style HTML elements?</h2>
+                <h2>Applying styles</h2>
             </section>
 
             <section>
-                <h2>Inline styles</h2>
-                <p>We can use the <span
-                        class="code">style</span> attribute to define styles for our HTML elements, using the following syntax:
+                <h3>Inline styles</h3>
+                <p>We can use the <code
+                        class="code">style</code> attribute to define styles for our HTML elements, using the following
+                    syntax:
                 </p>
                 <pre><code class="hljs html" data-trim>
                     <div style="property: value;"></div>
@@ -224,7 +235,7 @@
             </section>
 
             <section>
-                <h2>Inline styles example</h2>
+                <h3>Inline styles example</h3>
                 <pre><code class="hljs html" data-trim>
                     <p style="color: red; font-size: 50px;">
                         Paragraph text in red.
@@ -235,13 +246,13 @@
                 </p>
             </section>
 
-            <section>
-                There's a better way though…
+            <section class="statement-slide">
+                <p>But, there's a better way …</p>
             </section>
 
             <section>
-                <h2>The class attribute</h2>
-                <p>We write a meaningful name into the <span class="code">class</span> attribute:</p>
+                <h3>The class attribute</h3>
+                <p>We write a meaningful name into the <code class="code">class</code> attribute:</p>
                 <pre><code class="hljs html" data-trim>
                     <p class="highlight">
                         Paragraph text in red.
@@ -262,7 +273,7 @@
             </section>
 
             <section>
-                <h2>Classes</h2>
+                <h3>Classes</h3>
                 <p>Elements can have multiple classes, which applies multiple rules:</p>
                 <pre><code class="hljs html" data-trim>
                     <p class="big red">
@@ -283,7 +294,7 @@
             </section>
 
             <section>
-                <h2>Precedence</h2>
+                <h3>Precedence</h3>
                 <p>What happens if we combine classes and inline styles?</p>
                 <pre><code class="hljs html" data-trim>
                     <p class="red" style="color: blue;">
@@ -304,7 +315,7 @@
             </section>
 
             <section>
-                <h2>Class vs. Inline</h2>
+                <h3>Class vs. Inline</h3>
                 <p>Why use classes instead of inline styles?</p>
                 <ul>
                     <li class="fragment">Inline styles are hard to override/adjust</li>
@@ -324,21 +335,36 @@
             </section>
 
             <section>
-                <h2>Selectors</h2>
-                <p>Classes aren't our only way to target elements. We can use different identifiers from our HTML as selector:</p>
+                <h3>Selectors</h3>
+                <p>Classes aren't our only way to target elements. We can use different identifiers from our HTML as
+                    selector:</p>
                 <ul>
-                    <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Type_selectors">Type</a>: <span class="code">div</span>, <span class="code">input</span>, <span class="code">h1</span>…</li>
-                    <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Class_selectors">Classes</a>: <span class="code">.red</span>, <span class="code">.primary-button</span>, …</li>
-                    <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/ID_selectors">IDs</a>: <span class="code">#title</span>, <span class="code">#submit</span>, …</li>
-                    <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors">Attributes</a>: <span class="code">[type=radio]</span>, <span class="code">[href^="#"]</span>, …</li>
-                    <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">Pseudo-Classes</a>: <span class="code">:hover</span>, <span class="code">:disabled</span>, <span class="code">:last-child</span>, …</li>
-                    <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">Pseudo-Elements</a>: <span class="code">::before</span>, <span class="code">::placeholder</span>, …</li>
+                    <li class="fragment"><a
+                            href="https://developer.mozilla.org/en-US/docs/Web/CSS/Type_selectors">Type</a>: <code
+                            class="code">div</code>, <code class="code">input</code>, <code class="code">h1</code>…
+                    </li>
+                    <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Class_selectors">Classes</a>:
+                        <code class="code">.red</code>, <code class="code">.primary-button</code>, …
+                    </li>
+                    <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/ID_selectors">IDs</a>:
+                        <code class="code">#title</code>, <code class="code">#submit</code>, …
+                    </li>
+                    <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors">Attributes</a>:
+                        <code class="code">[type=radio]</code>, <code class="code">[href^="#"]</code>, …
+                    </li>
+                    <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">Pseudo-Classes</a>:
+                        <code class="code">:hover</code>, <code class="code">:disabled</code>, <code class="code">:last-child</code>,
+                        …
+                    </li>
+                    <li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">Pseudo-Elements</a>:
+                        <code class="code">::before</code>, <code class="code">::placeholder</code>, …
+                    </li>
                 </ul>
                 <aside class="notes">Tags and classes are sufficient for most cases</aside>
             </section>
 
             <section>
-                <h2>Multiple Selectors</h2>
+                <h3>Multiple Selectors</h3>
                 <p>We can list multiple selectors separated with comma to apply the same rule to different elements:</p>
                 <pre><code class="hljs css" data-trim>
                     p, li {
@@ -348,7 +374,7 @@
             </section>
 
             <section>
-                <h2>Combinator Selectors</h2>
+                <h3>Combinator Selectors</h3>
                 <p>Some elements should look different based on where they are.</p>
                 <div class="comparison">
                     <pre class="fragment"><code class="hljs css" data-trim data-noescape>
@@ -369,15 +395,16 @@
                 <aside class="notes">
                     <ul>
                         <li>
-                            explain by refering to the tree structure of HTML (descendents are anywhere in the specified subtree)
+                            explain by refering to the tree structure of HTML (descendents are anywhere in the specified
+                            subtree)
                         </li>
                     </ul>
                 </aside>
             </section>
 
             <section>
-                <h2>Combinator Selectors</h2>
-                <p>Use <span class="code">&gt;</span> to style only <span class="hl">direct</span> child elements.</p>
+                <h3>Combinator Selectors</h3>
+                <p>Use <code class="code">&gt;</code> to style only <span class="hl">direct</span> child elements.</p>
                 <div class="comparison">
                     <pre class="fragment"><code class="hljs css" data-trim data-noescape>
                         /* span that are <b>direct children</b> of a li */
@@ -397,15 +424,17 @@
                 <aside class="notes">
                     <ul>
                         <li>
-                            explain by referring to the tree structure of HTML (descendents are anywhere in the specified subtree)
+                            explain by referring to the tree structure of HTML (descendents are anywhere in the
+                            specified subtree)
                         </li>
                     </ul>
                 </aside>
             </section>
 
             <section>
-                <h2>Combinator Selectors</h2>
-                <p>Select <span class="hl">next adjacent siblings</span> following an element with <span class="code">+</span>.</p>
+                <h3>Combinator Selectors</h3>
+                <p>Select <span class="hl">next adjacent siblings</span> following an element with <code
+                        class="code">+</code>.</p>
                 <div class="comparison">
                     <pre class="fragment"><code class="hljs css" data-trim data-noescape>
                         /* p that are <b>adjacent siblings following</b> a ul */
@@ -425,7 +454,7 @@
             </section>
 
             <section>
-                <h2>Combined Selectors</h2>
+                <h3>Combined Selectors</h3>
                 <p>We can combine selectors to target more specific elements:</p>
                 <aside class="notes">Ask attendees to explain the following rules:</aside>
                 <pre class="fragment"><code class="hljs css" data-trim>div.banner a</code></pre>
@@ -443,7 +472,8 @@
             <section class="exercise">
                 <div>
                     <span class="title">Exercise</span>
-                    <span class="description">Solve levels <b class="hl">1 to 14</b> of <a href="https://flukeout.github.io">CSS Diner</a> (open link or use next slide)</span>
+                    <span class="description">Solve levels <b class="hl">1 to 14</b> of <a
+                            href="https://flukeout.github.io">CSS Diner</a> (open link or use next slide)</span>
                 </div>
             </section>
 
@@ -461,13 +491,15 @@
             </section>
 
             <section>
-                <h2>Official Standard</h2>
-                <p>Since December 2023 all major browsers support <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting">CSS nesting</a>.</p>
-                <p>Nesting (along with variables) used to be a major argument for preprocessors and has now finally found it way into the CSS standard.</p>
+                <h3>Official Standard</h3>
+                <p>Since December 2023 all major browsers support <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting">CSS nesting</a>.</p>
+                <p>Nesting (along with variables) used to be a major argument for preprocessors and has now finally
+                    found it way into the CSS standard.</p>
             </section>
 
             <section>
-                <h2>Nesting Syntax</h2>
+                <h3>Nesting Syntax</h3>
                 <pre><code class="hljs css" data-trim>
                     ul {
                         font-size: 1.2rem;
@@ -477,7 +509,7 @@
                     }
                 </code></pre>
                 <div class="fragment">
-                <p>is parsed as:</p>
+                    <p>is parsed as:</p>
                     <pre><code class="hljs css" data-trim>
                         ul {
                             font-size: 1.2rem;
@@ -491,8 +523,9 @@
             </section>
 
             <section>
-                <h2>Compound Selectors</h2>
-                <p>The new <span class="code">&</span> nesting selector is used to explicitly specify the relationship between parent and child.</p>
+                <h3>Compound Selectors</h3>
+                <p>The new <code class="code">&</code> nesting selector is used to explicitly specify the relationship
+                    between parent and child.</p>
                 <pre><code class="hljs css" data-trim>
                     a {
                         &:hover {
@@ -512,7 +545,7 @@
             </section>
 
             <section>
-                <h2>Advanced Use</h2>
+                <h3>Advanced Use</h3>
                 <p>The nesting selector doesn't have to be at the start:</p>
                 <pre><code class="hljs css" data-trim>
                     h2 {
@@ -537,15 +570,19 @@
             </section>
 
             <section>
-                <h2>Use Cases</h2>
-                <p>Nesting helps with readability and maintainability of CSS. It can also be used with "at-rules" such as media or container queries.</p>
-                <p>It's especially helpful to <span class="hl">override special cases</span> like hover states or responsive behaviour.</p>
+                <h3>Use Cases</h3>
+                <p>Nesting helps with readability and maintainability of CSS. It can also be used with "at-rules" such
+                    as media or container queries.</p>
+                <p>It's especially helpful to <span class="hl">override special cases</span> like hover states or
+                    responsive behaviour.</p>
                 <p><b>But:</b> don't nest just because you can. Don't bloat the selector unnecessarily.</p>
             </section>
 
             <section>
-                <h2>Further Reading</h2>
-                <p>There are plenty more examples and in-depth explanations in the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting">CSS nesting section on MDN</a>.</p>
+                <h3>Further Reading</h3>
+                <p>There are plenty more examples and in-depth explanations in the <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting">CSS nesting section on
+                    MDN</a>.</p>
             </section>
         </section>
 
@@ -554,20 +591,21 @@
                 <h2>Units</h2>
             </section>
             <section>
-                <h2>px</h2>
+                <h3>px</h3>
                 <p>Specifies a size in exact pixels</p>
             </section>
             <section>
-                <h2>Sizing relative to font size</h2>
-                <p><span class="code">rem</span>: specifies a size relative to the <b>root</b> font size</p>
-                <p><span class="code">em</span>: specifies a size relative to the font size of the element being styled</p>
+                <h3>Sizing relative to font size</h3>
+                <p><code class="code">rem</code>: specifies a size relative to the <b>root</b> font size</p>
+                <p><code class="code">em</code>: specifies a size relative to the font size of the element being styled
+                </p>
             </section>
             <section>
-                <h2>Why <span class="code">rem</span>?</h2>
+                <h3>Why <code class="code">rem</code>?</h3>
                 <ul>
                     <li>Some users change the root font size (for example for accessibility reasons)</li>
-                    <li>With <span class="code">px</span> this preference is ignored</li>
-                    <li>With <span class="code">rem</span> everything can scale accordingly</li>
+                    <li>With <code class="code">px</code> this preference is ignored</li>
+                    <li>With <code class="code">rem</code> everything can scale accordingly</li>
                 </ul>
                 <div class="tip fragment">use rem instead of px if possible</div>
                 <aside class="notes">
@@ -576,16 +614,19 @@
             </section>
 
             <section>
-                <h2>Other Units</h2>
+                <h3>Other Units</h3>
                 <ul>
-                    <li><span class="code">%</span>: percentage based on the parent element</li>
-                    <li><span class="code">vh</span>/<span class="code">vw</span>: percentage of viewport (height and width)</li>
+                    <li><code class="code">%</code>: percentage based on the parent element</li>
+                    <li><code class="code">vh</code>/<span class="code">vw</span>: percentage of viewport (height and
+                        width)
+                    </li>
                 </ul>
             </section>
 
             <section>
-                <h2>Calculations</h2>
-                <p>CSS offers a <span class="code">calc()</span> function for basic math operations. It allows different units:</p>
+                <h3>Calculations</h3>
+                <p>CSS offers a <code class="code">calc()</code> function for basic math operations. It allows different
+                    units:</p>
                 <pre><code class="hljs css" data-trim contenteditable>
                     div {
                         max-width: calc(80% - 100px);

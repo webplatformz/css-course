@@ -14,12 +14,11 @@
     <div class="slides">
         <section class="title-slide">
             <h1>CSS for Developers</h1>
-            <h2>Lucas Schnüriger</h2>
-            <h3>Flexbox layout</h3>
+            <h2>Flexbox Layout</h2>
         </section>
 
         <section>
-            <h2><span class="code">display</span> Property</h2>
+            <h3><span class="code">display</span> Property</h3>
             <p>With this we control how an element is rendered:</p>
             <ul>
                 <li class="fragment"><span class="code">inline</span>: default for most elements, no size, no margin & padding</li>
@@ -30,7 +29,7 @@
         </section>
 
         <section>
-            <h2>display: <span class="code">block</span></h2>
+            <h3>display: <span class="code">block</span></h3>
             <ul>
                 <li>Displays an element as a block element</li>
                 <li>Element starts on a new line and takes up the 100% width</li>
@@ -39,7 +38,7 @@
             </ul>
         </section>
         <section>
-            <h2><span class="code">block</span> challenges</h2>
+            <h3><span class="code">block</span> challenges</h3>
             <ul>
                 <li>how to center element within another?</li>
                 <li>how to handle dynamic element sizes?</li>
@@ -47,7 +46,7 @@
             </ul>
         </section>
         <section>
-            <h2>Flexbox layout (Flexible Box)</h2>
+            <h3>Flexbox layout (Flexible Box)</h3>
             <p>The flexbox layout aims to provide an efficient way to layout items in a container, even when
                 their size is unknown.</p>
         </section>
@@ -60,7 +59,7 @@
             <img src="../assets/diagrams/chapter3/flexbox_axis.svg"/>
         </section>
         <section>
-            <h2>Flex Container</h2>
+            <h3>Flex Container</h3>
             <p>
                 The container that is styled with
                 <span class="code">display: flex</span>
@@ -74,7 +73,7 @@
             </code></pre>
         </section>
         <section>
-            <h2>Flex Item</h2>
+            <h3>Flex Item</h3>
             <p>Any element that is a direct child of a flex container.</p>
             <div class="comparison">
                 <pre><code class="css" data-trim data-noescape>
@@ -492,7 +491,7 @@
                 </div>
             </section>
             <section>
-                <h2>flex-wrap</h2>
+                <h3>flex-wrap</h3>
                 <p>Controls if and how elements are wrapped on new lines</p>
                 <div class="flex-example-parent-horizontal"
                      style="align-items: flex-start; flex-wrap: nowrap">
@@ -538,7 +537,7 @@
                 </aside>
             </section>
             <section>
-                <h2>gap / row-gap / column-gap</h2>
+                <h3>gap / row-gap / column-gap</h3>
                 <p>Control the gaps between rows and columns</p>
                 <div class="flex-example-parent-horizontal"
                      style="align-items: flex-start; flex-wrap: wrap; row-gap: 20px; column-gap: 10px;">
@@ -569,7 +568,7 @@
                 </code></pre>
             </section>
             <section>
-                <h2>align-content</h2>
+                <h3>align-content</h3>
                 <p>Control how extra space on the cross axis is allocated</p>
                 <div class="flex-example-parent-horizontal"
                      style="flex-wrap: wrap; height: 180px; align-content: stretch">
@@ -620,7 +619,7 @@
             </div>
         </section>
         <section>
-            <h2>Build person card</h2>
+            <h3>Build person card</h3>
             <div class="person-tile">
                 <div class="personal-header">
                     <img src="../assets/images/chapter3/person-tile.jpg"/>
@@ -631,7 +630,7 @@
                     </div>
                 </div>
                 <hr/>
-                <h2>Offers</h2>
+                <h3>Offers</h3>
                 <div class="product">
                     <img src="../assets/images/chapter3/product1.jpg"/>
                     <div>
@@ -667,7 +666,7 @@
             <p class="fragment"><a href="https://githubbox.com/webplatformz/css-course-exercises/tree/main/offer-gallery/flex-solution" target="_blank">Link to possible solution</a></p>
         </section>
         <section>
-            <h2>Build person card</h2>
+            <h3>Build person card</h3>
             <div style="display: flex; align-items: flex-start">
                 <div class="person-tile">
                     <div class="personal-header" style="border: 1px solid var(--zuehlke-blue)">
@@ -679,7 +678,7 @@
                         </div>
                     </div>
                     <hr/>
-                    <h2>Offers</h2>
+                    <h3>Offers</h3>
                     <div class="product" style="border: 1px solid var(--zuehlke-blue)">
                         <img src="../assets/images/chapter3/product1.jpg"/>
                         <div>
