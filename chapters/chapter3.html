@@ -18,115 +18,215 @@
         </section>
 
         <section>
-            <h3><span class="code">display</span> Property</h3>
-            <p>With this we control how an element is rendered:</p>
-            <ul>
-                <li class="fragment"><span class="code">inline</span>: default for most elements, no size, no margin & padding</li>
-                <li class="fragment"><span class="code">inline-block</span>: like <span class="code">inline</span> but with margin & padding</li>
-                <li class="fragment"><span class="code">none</span>: doesn't get rendered at all</li>
-                <li class="fragment">and more (important ones)…</li>
-            </ul>
+            <section class="subtitle-slide">
+                <h2>Flow Layout</h2>
+            </section>
+
+            <section>
+                <h3>CSS flow layout</h3>
+                <p>The flow of elements can be divided into two groups:</p>
+                <ul>
+                    <li><b class="hl">inline</b>: the way words are following one after another, taking just as much space as necessary for the content</li>
+                    <li><b class="hl">block</b>: like paragraphs starting a new line, taking up the full available width</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3><code class="code">display</code> Property</h3>
+                <p>With this we control how an element is rendered:</p>
+                <ul>
+                    <li class="fragment"><code class="code">inline</code>: default for most elements, no size, no margin & padding, elements follow in writing direction</li>
+                    <li class="fragment"><code class="code">inline-block</code>: like <code class="code">inline</code> but with margin & padding</li>
+                    <li class="fragment"><code class="code">none</code>: doesn't get rendered at all</li>
+                    <li class="fragment">and more (important ones)…</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>display: <code class="code">block</code></h3>
+                <ul>
+                    <li>displays an element as a block element</li>
+                    <li>element starts on a new line and takes up the 100% width</li>
+                    <li><b>block</b> is vertically oriented (stacked)</li>
+                    <li>this is the default for some elements, has size and margin & padding.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3><code class="code">block</code> challenges</h3>
+                <ul>
+                    <li>how to center element within another?</li>
+                    <li>how to handle dynamic element sizes?</li>
+                    <li>how to layout elements horizontally?</li>
+                </ul>
+            </section>
         </section>
 
         <section>
-            <h3>display: <span class="code">block</span></h3>
-            <ul>
-                <li>Displays an element as a block element</li>
-                <li>Element starts on a new line and takes up the 100% width</li>
-                <li><em>block</em> is vertically oriented (stacked)</li>
-                <li>This is the default for some elements, has size and margin & padding.</li>
-            </ul>
-        </section>
-        <section>
-            <h3><span class="code">block</span> challenges</h3>
-            <ul>
-                <li>how to center element within another?</li>
-                <li>how to handle dynamic element sizes?</li>
-                <li>how to layout elements horizontally?</li>
-            </ul>
-        </section>
-        <section>
-            <h3>Flexbox layout (Flexible Box)</h3>
-            <p>The flexbox layout aims to provide an efficient way to layout items in a container, even when
-                their size is unknown.</p>
-        </section>
-        <section>
-            <ul>
-                <li>Flexbox is mainly a single-direction layout concept</li>
-                <li>It has a main axis and a cross axis</li>
-                <li>We can choose whether the main axis is horizontal (default) or vertical</li>
-            </ul>
-            <img src="../assets/diagrams/chapter3/flexbox_axis.svg"/>
-        </section>
-        <section>
-            <h3>Flex Container</h3>
-            <p>
-                The container that is styled with
-                <span class="code">display: flex</span>
-                or
-                <span class="code">display: inline-flex</span>.
-            </p>
-            <pre><code class="css" data-trim data-noescape>
-              .flex-container {
-                display: flex;
-              }
-            </code></pre>
-        </section>
-        <section>
-            <h3>Flex Item</h3>
-            <p>Any element that is a direct child of a flex container.</p>
-            <div class="comparison">
+            <section class="subtitle-slide">
+                <h2>Flexbox Concept</h2>
+            </section>
+
+            <section>
+                <h3>Flexible Boxes</h3>
+                <p>The flexbox layout aims to provide an efficient way to layout items in a container, even when
+                    their size is unknown.</p>
+            </section>
+
+            <section>
+                <h3>Flexbox Axis</h3>
+                <ul>
+                    <li>flexbox is mainly a <b class="hl">single-direction</b> layout concept</li>
+                    <li>it has a <b>main</b> axis and a <b>cross</b> axis</li>
+                    <li>we can choose whether the main axis is horizontal (default) or vertical</li>
+                </ul>
+                <img src="../assets/diagrams/chapter3/flexbox_axis.svg" alt="three items inside a flex container arranged horizontally next to each other"/>
+            </section>
+
+            <section>
+                <h3>Flex Container</h3>
+                <p>An element set to <code class="code">display: flex</code> or <code class="code">inline-flex</code>.</p>
                 <pre><code class="css" data-trim data-noescape>
-                    .flex-container {
-                      display: flex;
-                    }
+                  .flex-container {
+                    display: flex;
+                  }
                 </code></pre>
-                <pre><code class="html" data-trim>
-                    <div class="flex-container">
-                      <div>Flex Item 1</div>
-                      <div>Flex Item 2</div>
-                      <div>Flex Item 3</div>
-                    </div>
-                </code></pre>
-            </div>
+            </section>
+
+            <section>
+                <h3>Flex Item</h3>
+                <p>Any element that is a direct child of a flex container.</p>
+                <div class="comparison">
+                    <pre><code class="css" data-trim data-noescape>
+                        .flex-container {
+                          display: flex;
+                        }
+                    </code></pre>
+                    <pre><code class="html" data-trim>
+                        <div class="flex-container">
+                          <div>Flex Item 1</div>
+                          <div>Flex Item 2</div>
+                          <div>Flex Item 3</div>
+                        </div>
+                    </code></pre>
+                </div>
+            </section>
+
+            <section>
+                <h3>Example</h3>
+                <p>Default layout with main axis from left to right:</p>
+                <pre><code class="hljs css" data-trim data-noescape>
+                        .parent {
+                            display: flex;
+                        }
+                    </code></pre>
+                <pre><code class="hljs html" data-trim data-noescape>
+                        &lt;div class=&quot;parent&quot;&gt;
+                          &lt;div&gt;Item 1&lt;/div&gt;
+                          &lt;div&gt;Item 2&lt;/div&gt;
+                          &lt;div&gt;Item 3&lt;/div&gt;
+                        &lt;/div&gt;
+                    </code></pre>
+                <div class="flex-example-parent-horizontal">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>Item 3</div>
+                </div>
+                <small>container</small>
+            </section>
+
+            <section class="statement-slide">
+                <p>Flexbox has some properties for the parent container and some for the individual items</p>
+            </section>
         </section>
+
         <section>
-            <h3>display: <span class="code">flex</span></h3>
-            <pre><code class="hljs css" data-trim data-noescape>
+            <section class="subtitle-slide">
+                <h2>Flow Direction</h2>
+            </section>
+            <section>
+                <h3>Direction</h3>
+                <p>What if we want to layout vertically instead of horizontally?</p>
+                <img src="../assets/diagrams/chapter3/flexbox_axis.svg"/>
+                <p>We can <b>switch</b> the main and cross axis with <code class="code">flex-direction</code>!</p>
+            </section>
+
+            <section>
+                <h3>flex-direction</h3>
+                <p>Controls which axis is the main axis (horizontal/vertical)</p>
+                <div class="comparison">
+                    <div>
+                        flex-direction: row (default)
+                        <div class="flex-example-parent-horizontal" style="flex-direction: row">
+                            <div>Item 1</div>
+                            <div>Item 2</div>
+                            <div>Item 3</div>
+                        </div>
+                    </div>
+                    <div>
+                        flex-direction: column
+                        <div class="flex-example-parent-horizontal" style="flex-direction: column">
+                            <div>Item 1</div>
+                            <div>Item 2</div>
+                            <div>Item 3</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h3>flex-direction</h3>
+                <p>It's also possible to reverse the direction</p>
+                <div class="comparison">
+                    <div>
+                        flex-direction: row-reverse (default)
+                        <div class="flex-example-parent-horizontal" style="flex-direction: row-reverse">
+                            <div>Item 1</div>
+                            <div>Item 2</div>
+                            <div>Item 3</div>
+                        </div>
+                    </div>
+                    <div>
+                        flex-direction: column-reverse
+                        <div class="flex-example-parent-horizontal"
+                             style="flex-direction: column-reverse">
+                            <div>Item 1</div>
+                            <div>Item 2</div>
+                            <div>Item 3</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h3>flex-direction</h3>
+                <p>hint: flex-start and flex-end are also reversed</p>
+                <div>
+                    <div class="flex-example-parent-horizontal"
+                         style="flex-direction: row-reverse; justify-content: flex-end">
+                        <div>Item 1</div>
+                        <div>Item 2</div>
+                        <div>Item 3</div>
+                    </div>
+                    <pre><code class="hljs css" data-trim data-noescape>
                     .parent {
                         display: flex;
+                        flex-direction: row-reverse;
+                        justify-content: flex-end;
                     }
-                </code></pre>
-            <pre><code class="hljs html" data-trim data-noescape>
-                    &lt;div class=&quot;parent&quot;&gt;
-                      &lt;div&gt;Item 1&lt;/div&gt;
-                      &lt;div&gt;Item 2&lt;/div&gt;
-                      &lt;div&gt;Item 3&lt;/div&gt;
-                    &lt;/div&gt;
-                </code></pre>
-            <div class="flex-example-parent-horizontal">
-                <div>Item 1</div>
-                <div>Item 2</div>
-                <div>Item 3</div>
-            </div>
-            <p>main axis from left to right</p>
+                    </code></pre>
+                </div>
+            </section>
         </section>
-        <section>
-            <p>Flexbox has some properties for the parent container and some for the individual items</p>
-            <div class="flex-example-parent-horizontal">
-                <div>Item 1</div>
-                <div>Item 2</div>
-                <div>Item 3</div>
-            </div>
-            <small>container</small>
-        </section>
+
         <section>
             <section class="subtitle-slide">
                 <h2>Parent container properties</h2>
             </section>
+
             <section>
                 <h3>justify-content</h3>
-                <p>Controls how elements are layouted along the main axis</p>
+                <p>Controls how elements are layouted along the <b>main axis</b></p>
                 <pre><code class="hljs css" data-trim data-noescape>
                     .parent {
                         display: flex;
@@ -147,6 +247,7 @@
                     <div>Item 3</div>
                 </div>
             </section>
+
             <section>
                 <h3>justify-content: most used values</h3>
                 <div class="flex-example-parent-horizontal" style="justify-content: flex-start">
@@ -180,9 +281,10 @@
                 </div>
                 <small>space-around</small>
             </section>
+
             <section>
                 <h3>align-items</h3>
-                <p>Controls how elements are layouted along the cross axis</p>
+                <p>Controls how elements are layouted along the <b>cross axis</b></p>
                 <pre><code class="hljs css" data-trim data-noescape>
                     .parent {
                         display: flex;
@@ -203,6 +305,7 @@
                     <div>Item 3</div>
                 </div>
             </section>
+
             <section>
                 <h3>align-items: most used values</h3>
                 <div class="flex-example-parent-horizontal flex-example-parent-horizontal-medium"
@@ -227,80 +330,13 @@
                 </div>
                 <small>center</small>
             </section>
-            <section>
-                <p>What if we want to layout vertically instead of horizontally?</p>
-                <img src="../assets/diagrams/chapter3/flexbox_axis.svg"/>
-                <p>We can switch the main and cross axis with <span class="code">flex-direction</span>!</p>
-            </section>
-            <section>
-                <h3>flex-direction</h3>
-                <p>Controls which axis is the main axis (horizontal/vertical)</p>
-                <div class="comparison">
-                    <div>
-                        flex-direction: row (default)
-                        <div class="flex-example-parent-horizontal" style="flex-direction: row">
-                            <div>Item 1</div>
-                            <div>Item 2</div>
-                            <div>Item 3</div>
-                        </div>
-                    </div>
-                    <div>
-                        flex-direction: column
-                        <div class="flex-example-parent-horizontal" style="flex-direction: column">
-                            <div>Item 1</div>
-                            <div>Item 2</div>
-                            <div>Item 3</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section>
-                <h3>flex-direction</h3>
-                <p>It's also possible to reverse the direction</p>
-                <div class="comparison">
-                    <div>
-                        flex-direction: row-reverse (default)
-                        <div class="flex-example-parent-horizontal" style="flex-direction: row-reverse">
-                            <div>Item 1</div>
-                            <div>Item 2</div>
-                            <div>Item 3</div>
-                        </div>
-                    </div>
-                    <div>
-                        flex-direction: column-reverse
-                        <div class="flex-example-parent-horizontal"
-                             style="flex-direction: column-reverse">
-                            <div>Item 1</div>
-                            <div>Item 2</div>
-                            <div>Item 3</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section>
-                <h3>flex-direction</h3>
-                <p>hint: flex-start and flex-end are also reversed</p>
-                <div>
-                    <div class="flex-example-parent-horizontal"
-                         style="flex-direction: row-reverse; justify-content: flex-end">
-                        <div>Item 1</div>
-                        <div>Item 2</div>
-                        <div>Item 3</div>
-                    </div>
-                    <pre><code class="hljs css" data-trim data-noescape>
-                    .parent {
-                        display: flex;
-                        flex-direction: row-reverse;
-                        justify-content: flex-end;
-                    }
-                    </code></pre>
-                </div>
-            </section>
         </section>
+
         <section>
             <section class="subtitle-slide">
                 <h2>Child item properties</h2>
             </section>
+
             <section>
                 <p>What if we don't want to layout all items along the cross axis the same way?</p>
                 <div class="flex-example-parent-horizontal flex-example-parent-horizontal-medium"
@@ -310,6 +346,7 @@
                     <div>Item 3</div>
                 </div>
             </section>
+
             <section>
                 <h3>align-self</h3>
                 <p>controls alignment along cross axis for individual element (similar to align-items)</p>
@@ -333,6 +370,7 @@
                 </code></pre>
                 </div>
             </section>
+
             <section>
                 <h3>flex-basis</h3>
                 <p>Sets the initial size of a flex item along the main axis - useful in combination with
@@ -352,6 +390,7 @@
                         space</small>
                 </div>
             </section>
+
             <section>
                 <p>What if we want to make sure that the items use up all the available space?</p>
                 <div class="flex-example-parent-horizontal">
@@ -366,6 +405,7 @@
                     <div style="flex-grow: 1">Item 3</div>
                 </div>
             </section>
+
             <section>
                 <h3>flex-grow</h3>
                 <ul>
@@ -390,6 +430,7 @@
                 </div>
                 <div class="fragment tip">flex-grow only influences the remaining space!</div>
             </section>
+
             <section>
                 <h3>flex-shrink</h3>
                 <ul>
@@ -409,6 +450,7 @@
                 </div>
                 <div class="fragment tip">flex-shrink only applies if the children are larger than the container!</div>
             </section>
+
             <section>
                 <p>What if we change the order in which individual elements appear?</p>
                 <div class="flex-example-parent-horizontal">
@@ -427,6 +469,7 @@
                     but that concept might not have been introduced yet at this point.
                 </aside>
             </section>
+
             <section>
                 <h3>order</h3>
                 <ul>
@@ -454,21 +497,30 @@
                 <div class="fragment tip">Use order with care, it can be unintuitive</div>
             </section>
         </section>
-        <section class="exercise">
-            <span class="title">Exercise 1</span>
-            <span class="description">Try to solve levels 1-13 and 16 of <a href="https://flexboxfroggy.com/" target="_blank">Flexbox froggy</a> (or use next slide)</span>
+
+        <section>
+            <section class="subtitle-slide">
+                <h2>Flexbox Froggy – Part 1</h2>
+            </section>
+            <section class="exercise">
+                <span class="title">Exercise 1</span>
+                <span class="description">Try to solve levels 1-13 and 16 of <a href="https://flexboxfroggy.com/" target="_blank">Flexbox froggy</a> (or use next slide)</span>
+            </section>
+
+            <section data-background-iframe="https://flexboxfroggy.com/" data-preload data-background-interactive>
+                <div class="fragment fade-out tip">
+                    Solve levels 1-13 and 16
+                    <br />
+                    (press down to hide this)
+                </div>
+            </section>
         </section>
-        <section data-background-iframe="https://flexboxfroggy.com/" data-preload data-background-interactive>
-            <div class="fragment fade-out tip">
-                Solve levels 1-13 and 16
-                <br />
-                (press down to hide this)
-            </div>
-        </section>
+
         <section>
             <section class="subtitle-slide">
                 <h2>Properties for containers with many elements</h2>
             </section>
+
             <section>
                 <p>What if we have too many child items for one line?</p>
                 <div class="flex-example-parent-horizontal"
@@ -490,6 +542,7 @@
                     <div>Item 15</div>
                 </div>
             </section>
+
             <section>
                 <h3>flex-wrap</h3>
                 <p>Controls if and how elements are wrapped on new lines</p>
@@ -536,6 +589,7 @@
                     works exactly the same way for columns.
                 </aside>
             </section>
+
             <section>
                 <h3>gap / row-gap / column-gap</h3>
                 <p>Control the gaps between rows and columns</p>
@@ -567,6 +621,7 @@
                     }
                 </code></pre>
             </section>
+
             <section>
                 <h3>align-content</h3>
                 <p>Control how extra space on the cross axis is allocated</p>
@@ -607,69 +662,35 @@
                 <div class="fragment tip">only applies if elements wrap</div>
             </section>
         </section>
-        <section class="exercise">
-            <span class="title">Exercise 2</span>
-            <span class="description">Try to solve levels 18-23 of <a href="https://flexboxfroggy.com/" target="_blank">Flexbox froggy</a> (or use next slide).</span>
-        </section>
-        <section data-background-iframe="https://flexboxfroggy.com/" data-preload data-background-interactive>
-            <div class="fragment fade-out tip">
-                Solve levels 18-23
-                <br />
-                (press down to hide this)
-            </div>
-        </section>
+
         <section>
-            <h3>Build person card</h3>
-            <div class="person-tile">
-                <div class="personal-header">
-                    <img src="../assets/images/chapter3/person-tile.jpg"/>
-                    <div>
-                        <h1>Laura Roberts</h1>
-                        <p>Member since 2015</p>
-                        <p>4600 Olten</p>
-                    </div>
+            <section class="subtitle-slide">
+                <h2>Flexbox Froggy – Part 2</h2>
+            </section>
+
+            <section class="exercise">
+                <span class="title">Exercise 2</span>
+                <span class="description">Try to solve levels 18-23 of <a href="https://flexboxfroggy.com/" target="_blank">Flexbox froggy</a> (or use next slide).</span>
+            </section>
+
+            <section data-background-iframe="https://flexboxfroggy.com/" data-preload data-background-interactive>
+                <div class="fragment fade-out tip">
+                    Solve levels 18-23
+                    <br />
+                    (press down to hide this)
                 </div>
-                <hr/>
-                <h3>Offers</h3>
-                <div class="product">
-                    <img src="../assets/images/chapter3/product1.jpg"/>
-                    <div>
-                        <p class="product-title">Vintage Jacket</p>
-                        <p>CHF 65</p>
-                    </div>
-                </div>
-                <div class="product">
-                    <img src="../assets/images/chapter3/product2.jpg"/>
-                    <div>
-                        <p class="product-title">Blazer Black</p>
-                        <p>CHF 115</p>
-                    </div>
-                </div>
-                <div class="product">
-                    <img src="../assets/images/chapter3/product3.jpg"/>
-                    <div>
-                        <p class="product-title">Nike Air Force</p>
-                        <p>CHF 95</p>
-                    </div>
-                </div>
-                <div class="actions-container">
-                    <div>Close</div>
-                    <div>More</div>
-                </div>
-            </div>
+            </section>
         </section>
-        <section class="exercise">
-            <span class="title">Exercise 3</span>
-            <span class="description">Build your own person tile</span>
-            <p>Go to the <a href="https://githubbox.com/webplatformz/css-course-exercises/tree/main/offer-gallery/flex" target="_blank">code sandbox</a>
-                and try to build the person tile after the design from <a href="https://www.figma.com/file/AOeJrusUin6jLSggPW1KN1/Z%C3%BChlke_CSS_Kurs?node-id=18%3A291" target="_blank">figma</a></p>
-            <p class="fragment"><a href="https://githubbox.com/webplatformz/css-course-exercises/tree/main/offer-gallery/flex-solution" target="_blank">Link to possible solution</a></p>
-        </section>
+
         <section>
-            <h3>Build person card</h3>
-            <div style="display: flex; align-items: flex-start">
+            <section class="subtitle-slide">
+                <h2>Layout Exercise</h2>
+            </section>
+
+            <section>
+                <h3>Build person card</h3>
                 <div class="person-tile">
-                    <div class="personal-header" style="border: 1px solid var(--zuehlke-blue)">
+                    <div class="personal-header">
                         <img src="../assets/images/chapter3/person-tile.jpg"/>
                         <div>
                             <h1>Laura Roberts</h1>
@@ -679,33 +700,83 @@
                     </div>
                     <hr/>
                     <h3>Offers</h3>
-                    <div class="product" style="border: 1px solid var(--zuehlke-blue)">
+                    <div class="product">
                         <img src="../assets/images/chapter3/product1.jpg"/>
                         <div>
                             <p class="product-title">Vintage Jacket</p>
                             <p>CHF 65</p>
                         </div>
                     </div>
-                    <div class="product" style="border: 1px solid var(--zuehlke-blue)">
+                    <div class="product">
                         <img src="../assets/images/chapter3/product2.jpg"/>
                         <div>
                             <p class="product-title">Blazer Black</p>
                             <p>CHF 115</p>
                         </div>
                     </div>
-                    <div class="product" style="border: 1px solid var(--zuehlke-blue)">
+                    <div class="product">
                         <img src="../assets/images/chapter3/product3.jpg"/>
                         <div>
                             <p class="product-title">Nike Air Force</p>
                             <p>CHF 95</p>
                         </div>
                     </div>
-                    <div class="actions-container" style="border: 1px solid var(--zuehlke-blue)">
+                    <div class="actions-container">
                         <div>Close</div>
                         <div>More</div>
                     </div>
                 </div>
-                <div style="flex-grow: 2">
+            </section>
+
+            <section class="exercise">
+                <span class="title">Exercise 3</span>
+                <span class="description">Build your own person tile</span>
+                <p>Go to the <a href="https://githubbox.com/webplatformz/css-course-exercises/tree/main/offer-gallery/flex" target="_blank">code sandbox</a>
+                    and try to build the person tile after the design from <a href="https://www.figma.com/file/AOeJrusUin6jLSggPW1KN1/Z%C3%BChlke_CSS_Kurs?node-id=18%3A291" target="_blank">figma</a></p>
+                <p class="fragment"><a href="https://githubbox.com/webplatformz/css-course-exercises/tree/main/offer-gallery/flex-solution" target="_blank">Link to possible solution</a></p>
+            </section>
+
+            <section>
+                <h3>Build person card</h3>
+                <div style="display: flex; align-items: flex-start">
+                    <div class="person-tile">
+                        <div class="personal-header" style="border: 1px solid var(--zuehlke-blue)">
+                            <img src="../assets/images/chapter3/person-tile.jpg"/>
+                            <div>
+                                <h1>Laura Roberts</h1>
+                                <p>Member since 2015</p>
+                                <p>4600 Olten</p>
+                            </div>
+                        </div>
+                        <hr/>
+                        <h3>Offers</h3>
+                        <div class="product" style="border: 1px solid var(--zuehlke-blue)">
+                            <img src="../assets/images/chapter3/product1.jpg"/>
+                            <div>
+                                <p class="product-title">Vintage Jacket</p>
+                                <p>CHF 65</p>
+                            </div>
+                        </div>
+                        <div class="product" style="border: 1px solid var(--zuehlke-blue)">
+                            <img src="../assets/images/chapter3/product2.jpg"/>
+                            <div>
+                                <p class="product-title">Blazer Black</p>
+                                <p>CHF 115</p>
+                            </div>
+                        </div>
+                        <div class="product" style="border: 1px solid var(--zuehlke-blue)">
+                            <img src="../assets/images/chapter3/product3.jpg"/>
+                            <div>
+                                <p class="product-title">Nike Air Force</p>
+                                <p>CHF 95</p>
+                            </div>
+                        </div>
+                        <div class="actions-container" style="border: 1px solid var(--zuehlke-blue)">
+                            <div>Close</div>
+                            <div>More</div>
+                        </div>
+                    </div>
+                    <div style="flex-grow: 2">
                      <pre><code class="css" data-trim data-noescape>
                         .personal-header {
                             display: flex;
@@ -723,12 +794,13 @@
                             margin-top: 24px;
                         }
                     </code></pre>
+                    </div>
                 </div>
-            </div>
-            <aside class="notes">
-                Not that much styling is actually needed to build the card. For the vertical things we don't even need to use flex, as elements
-                slot in vertically among each other by default.
-            </aside>
+                <aside class="notes">
+                    Not that much styling is actually needed to build the card. For the vertical things we don't even need to use flex, as elements
+                    slot in vertically among each other by default.
+                </aside>
+            </section>
         </section>
 
         <section class="break-slide">

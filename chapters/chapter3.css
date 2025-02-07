@@ -1,7 +1,7 @@
 .flex-example-parent-horizontal {
     display: flex;
     width: 100%;
-    background-color: var(--zuehlke-bright-blue);
+    background-color: var(--zuehlke-bright-gray);
 }
 
 .flex-example-parent-horizontal-medium {
@@ -9,8 +9,8 @@
 }
 
 .flex-example-parent-horizontal > div {
-    background-color: var(--zuehlke-orange);
-    border: 4px solid var(--zuehlke-green);
+    background-color: var(--zuehlke-bright-blue);
+    border: 4px solid var(--zuehlke-purple);
     padding: 0.5rem;
 }
 
