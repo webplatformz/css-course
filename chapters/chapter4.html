@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/Zuehlke/zuehlke-reveal-package@12d464d3ae3c5bbe96af93ece05bd5ebeaabefbe/release/index.css"
     />
+    <link rel="stylesheet" href="chapter4.css"/>
   </head>
 
   <body>
@@ -18,35 +19,33 @@
           <h1>CSS for Developers</h1>
           <h2>Grid Layout</h2>
         </section>
-        <section>
-          <h3>What is the CSS Grid?</h3>
-          <p>A two dimensional layout system, controlling layout in rows and columns.</p>
-          <aside class="notes">
-            Explain how we go from 1-D (flexbox) to 2-D (flexbox) and describe usecase where this will make it easier.
-          </aside>
-        </section>
+
         <section>
           <section class="subtitle-slide">
-            <h2>Terminology</h2>
+            <h2>Grid Concept</h2>
           </section>
+
+          <section>
+            <h3>What is the CSS Grid?</h3>
+            <p>A <b class="hl">two-dimensional</b> layout system, controlling layout both in <b>rows</b> and <b>columns</b>.</p>
+            <aside class="notes">
+              Explain how we go from 1-D (flexbox) to 2-D (flexbox) and describe usecase where this will make it easier.
+            </aside>
+          </section>
+
           <section>
             <h3>Grid Container</h3>
-            <p>
-              The container that holds the entire CSS grid. It is the element that has the display:
-              <span class="code">grid</span>
-              or display:
-              <span class="code">inline-grid</span>
-              property on it.
-            </p>
+            <p>The container that holds the entire CSS grid. It is the element that has <code class="code">display: grid</code> or <code class="code">inline-grid</code> property on it.</p>
             <pre><code class="css" data-trim data-noescape>
               .grid-container {
                 display: grid;
               }
             </code></pre>
           </section>
+
           <section>
             <h3>Grid Item</h3>
-            <p>Any element that is a direct child of a grid container.</p>
+            <p>Any element that is a <b>direct child</b> of a grid container.</p>
             <div class="comparison">
               <pre><code class="css" data-trim data-noescape>
                 .grid-container {
@@ -62,86 +61,90 @@
               </code></pre>
             </div>
           </section>
+        </section>
+
+        <section>
+          <section class="subtitle-slide">
+            <h2>Terminology</h2>
+          </section>
+
           <section>
             <h3>Grid Line</h3>
             <p>The vertical and horizontal lines that divide the grid and separate the columns and rows.</p>
+            <p>Their numbering starts with 1 (not 0).</p>
             <img src="../assets/diagrams/chapter4/grid-line.svg" />
           </section>
+
           <section>
             <h3>Grid Cell</h3>
             <p>A single unit of a CSS grid.</p>
             <img src="../assets/diagrams/chapter4/grid-cell.svg" />
           </section>
+
           <section>
             <h3>Grid Area</h3>
-            <p>
-              Rectangular space surrounded by four grid lines.
-              <br />
-              A grid area can contain any number of grid cells.
-            </p>
+            <p>Rectangular space surrounded by four grid lines.</p>
+            <p>A grid area can contain any number of grid cells.</p>
             <img src="../assets/diagrams/chapter4/grid-area.svg" />
           </section>
+
           <section>
             <h3>Grid Track</h3>
-            <p>
-              The space between two grid lines.
-              <br />
-              This space can be horizontal or vertical.
-            </p>
+            <p>The space between two grid lines.</p>
+            <p>This space can be horizontal or vertical.</p>
             <img src="../assets/diagrams/chapter4/grid-track.svg" />
           </section>
+
           <section>
-            <h3>Grid Row</h3>
-            <p>A horizontal track of a grid.</p>
-            <img src="../assets/diagrams/chapter4/grid-row.svg" />
+            <h3>Row and Columns</h3>
+            <div class="comparison">
+              <div>
+                <h4>Grid Row</h4>
+                <p>A horizontal track of a grid.</p>
+                <img src="../assets/diagrams/chapter4/grid-row.svg" />
+              </div>
+              <div>
+                <h4>Grid Column</h4>
+                <p>A vertical track of a grid.</p>
+                <img src="../assets/diagrams/chapter4/grid-column.svg" />
+              </div>
+            </div>
           </section>
-          <section>
-            <h3>Grid Column</h3>
-            <p>A vertical track of a grid.</p>
-            <img src="../assets/diagrams/chapter4/grid-column.svg" />
-          </section>
+
           <section>
             <h3>Gutter / Gap</h3>
-            <p>The space between rows and columns in a grid.</p>
+            <p>The space <b>between</b> rows and columns in a grid.</p>
             <img src="../assets/diagrams/chapter4/gutter.svg" />
           </section>
         </section>
+
         <section>
           <section class="subtitle-slide">
-            <h2>Example</h2>
+            <h2>Basic Grids</h2>
           </section>
+
           <section>
             <h3>Example</h3>
-            <div class="comparison">
-              <pre><code class="css" data-trim data-noescape>
+            <pre><code class="css" data-trim data-noescape>
                 .grid-container {
                   display: grid;
-                  grid-template-columns:
-                    repeat(3, 1fr);
+                  grid-template-columns:repeat(3, 1fr);
                 }
-              </code></pre>
-              <pre><code class="html" data-trim>
+            </code></pre>
+            <pre><code class="html" data-trim>
                 <div class="grid-container">
                   <div>Grid Item 1</div>
                   <div>Grid Item 2</div>
                   <div>Grid Item 3</div>
                 </div>
-              </code></pre>
-            </div>
+            </code></pre>
             <div
-              class="fragment"
-              style="
-                display: grid;
-                padding: 1rem;
-                grid-gap: 1rem;
-                grid-template-columns: repeat(3, 1fr);
-                border: 2px solid red;
-                margin-top: 1rem;
-              "
+              class="fragment grid-example"
+              style="grid-template-columns: repeat(3, 1fr);"
             >
-              <div style="border: 2px solid black">Grid Item 1</div>
-              <div style="border: 2px solid black">Grid Item 2</div>
-              <div style="border: 2px solid black">Grid Item 3</div>
+              <div>Grid Item 1</div>
+              <div>Grid Item 2</div>
+              <div>Grid Item 3</div>
             </div>
             <aside class="notes">
               <ul>
@@ -156,76 +159,60 @@
               </ul>
             </aside>
           </section>
+
           <section>
             <h3>
-              <span class="code">grid-template-columns</span>
+              <code class="code">grid-template-columns</code>
               <br />
               &
               <br />
-              <span class="code">grid-template-rows</span>
+              <code class="code">grid-template-rows</code>
             </h3>
             <p>A way to define the number of rows and columns as well as their size.</p>
           </section>
+
           <section>
             <h3>
               CSS length unit:
-              <span class="code">fr</span>
+              <code class="code">fr</code>
             </h3>
             <ul>
               <li class="fragment">
                 What is
-                <span class="code">fr</span>
+                <code class="code">fr</code>
                 ?
               </li>
               <li class="fragment">
                 What does
-                <span class="code">repeat()</span>
+                <code class="code">repeat()</code>
                 do?
               </li>
               <li class="fragment">
                 <b>Example:</b>
-                <span class="code">repeat(4, 25%)</span>
+                <code class="code">repeat(4, 25%)</code>
                 vs.
-                <span class="code">repeat(4, 1fr)</span>
+                <code class="code">repeat(4, 1fr)</code>
                 with
                 <br />
-                <span class="code">grid-column-gap: 10px</span>
+                <code class="code">grid-column-gap: 10px</code>
                 ?
               </li>
               <br />
               <div class="fragment">
                 <h5>repeat(4, 25%)</h5>
-                <div
-                  style="
-                    display: grid;
-                    grid-template-columns: repeat(4, 25%);
-                    padding: 0.5rem;
-                    grid-column-gap: 0.5rem;
-                    border: 2px solid red;
-                    width: 50rem;
-                  "
-                >
-                  <div style="border: 2px solid black">Grid Item 1</div>
-                  <div style="border: 2px solid black">Grid Item 2</div>
-                  <div style="border: 2px solid black">Grid Item 3</div>
-                  <div style="border: 2px solid black">Grid Item 4</div>
+                <div class="grid-example" style="grid-template-columns: repeat(4, 25%);">
+                  <div>Grid Item 1</div>
+                  <div>Grid Item 2</div>
+                  <div>Grid Item 3</div>
+                  <div>Grid Item 4</div>
                 </div>
                 <br />
                 <h5>repeat(4, 1fr)</h5>
-                <div
-                  style="
-                    display: grid;
-                    grid-template-columns: repeat(4, 1fr);
-                    padding: 0.5rem;
-                    grid-column-gap: 0.5rem;
-                    border: 2px solid red;
-                    width: 50rem;
-                  "
-                >
-                  <div style="border: 2px solid black">Grid Item 1</div>
-                  <div style="border: 2px solid black">Grid Item 2</div>
-                  <div style="border: 2px solid black">Grid Item 3</div>
-                  <div style="border: 2px solid black">Grid Item 4</div>
+                <div class="grid-example" style="grid-template-columns: repeat(4, 1fr);">
+                  <div>Grid Item 1</div>
+                  <div>Grid Item 2</div>
+                  <div>Grid Item 3</div>
+                  <div>Grid Item 4</div>
                 </div>
               </div>
             </ul>
@@ -237,6 +224,7 @@
             </aside>
           </section>
         </section>
+
         <section>
           <section>
             <h3>An Explicit Grid</h3>
@@ -247,28 +235,21 @@
                 grid-template-rows: 4fr 1fr 2fr;
               }
             </code></pre>
-            <div
-              class="fragment"
+            <div class="fragment grid-example"
               style="
-                display: grid;
-                margin: 0 1.5rem;
-                padding: 1rem;
                 grid-template-columns: 1fr 2fr 1fr;
                 grid-template-rows: 4fr 1fr 2fr;
-                grid-row-gap: 1rem;
-                grid-column-gap: 2rem;
-                border: 2px solid red;
               "
             >
-              <div style="border: 2px solid black">Grid Item 1</div>
-              <div style="border: 2px solid black">Grid Item 2</div>
-              <div style="border: 2px solid black">Grid Item 3</div>
-              <div style="border: 2px solid black">Grid Item 4</div>
-              <div style="border: 2px solid black">Grid Item 5</div>
-              <div style="border: 2px solid black">Grid Item 6</div>
-              <div style="border: 2px solid black">Grid Item 7</div>
-              <div style="border: 2px solid black">Grid Item 8</div>
-              <div style="border: 2px solid black">Grid Item 9</div>
+              <div>Grid Item 1</div>
+              <div>Grid Item 2</div>
+              <div>Grid Item 3</div>
+              <div>Grid Item 4</div>
+              <div>Grid Item 5</div>
+              <div>Grid Item 6</div>
+              <div>Grid Item 7</div>
+              <div>Grid Item 8</div>
+              <div>Grid Item 9</div>
             </div>
             <aside class="notes">
               <ol>
@@ -276,8 +257,9 @@
               </ol>
             </aside>
           </section>
+
           <section>
-            <h3 style="margin-bottom: 0.5em !important">An Explicit Grid</h3>
+            <h3>An Explicit Grid</h3>
             <p>with dynamic row and column size</p>
             <pre><code class="css" data-trim data-noescape>
               .grid-container {
@@ -287,31 +269,25 @@
               }
             </code></pre>
             <div
-              class="fragment"
+              class="fragment grid-example"
               style="
-                display: grid;
-                margin: 0 1.5rem;
-                padding: 1rem;
                 grid-template-columns: minmax(auto, 40%) 1fr 12rem;
                 grid-template-rows: minmax(75px, auto) minmax(75px, 150px) auto;
-                grid-row-gap: 2rem;
-                grid-column-gap: 1rem;
-                border: 2px solid red;
               "
             >
-              <div style="border: 2px solid black">Grid Item 1</div>
-              <div style="border: 2px solid black">Grid Item 2</div>
-              <div style="border: 2px solid black">Grid Item 3</div>
-              <div style="border: 2px solid black">Grid Item 4</div>
-              <div style="border: 2px solid black">
+              <div>Grid Item 1</div>
+              <div>Grid Item 2</div>
+              <div>Grid Item 3</div>
+              <div>Grid Item 4</div>
+              <div>
                 Grid Item 5
                 <br />
                 (very very very very very very long content)
               </div>
-              <div style="border: 2px solid black">Grid Item 6</div>
-              <div style="border: 2px solid black">Grid Item 7</div>
-              <div style="border: 2px solid black">Grid Item 8</div>
-              <div style="border: 2px solid black">Grid Item 9</div>
+              <div>Grid Item 6</div>
+              <div>Grid Item 7</div>
+              <div>Grid Item 8</div>
+              <div>Grid Item 9</div>
             </div>
             <aside class="notes">
               <ol>
@@ -327,6 +303,7 @@
               </ol>
             </aside>
           </section>
+
           <section>
             <h3>An Implicit Grid</h3>
             <pre><code class="css" data-trim data-noescape>
@@ -336,26 +313,21 @@
               }
             </code></pre>
             <div
-              class="fragment"
-              style="
-                display: grid;
-                margin: 0 1.5rem;
-                padding: 1rem;
-                grid-template-columns: repeat(3, 1fr);
-                grid-row-gap: 0.5rem;
-                grid-column-gap: 1rem;
-                border: 2px solid red;
-              "
+              class="fragment grid-example"
+              style="grid-template-columns: repeat(3, 1fr);"
             >
-              <div style="border: 2px solid black">Grid Item 1</div>
-              <div style="border: 2px solid black">Grid Item 2</div>
-              <div style="border: 2px solid black">Grid Item 3</div>
-              <div style="border: 2px solid black">Grid Item 4</div>
-              <div style="border: 2px solid black">
+              <div>Grid Item 1</div>
+              <div>Grid Item 2</div>
+              <div>Grid Item 3</div>
+              <div>Grid Item 4</div>
+              <div>
                 Grid Item 5
                 <br />
                 (very very very very very very long content)
               </div>
+              <div class="fragment">Grid Item 6</div>
+              <div class="fragment">Grid Item 7</div>
+              <div class="fragment">Grid Item 8</div>
             </div>
             <aside class="notes">
               <ol>
@@ -367,47 +339,13 @@
               </ol>
             </aside>
           </section>
-          <section>
-            <h3>An Implicit Grid (Continued)</h3>
-            <pre><code class="css" data-trim data-noescape>
-              .grid-container {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-              }
-            </code></pre>
-            <div
-              class="fragment"
-              style="
-                display: grid;
-                margin: 0 1.5rem;
-                padding: 1rem;
-                grid-template-columns: repeat(3, 1fr);
-                grid-gap: 1rem;
-                border: 2px solid red;
-              "
-            >
-              <div style="border: 2px solid black">Grid Item 1</div>
-              <div style="border: 2px solid black">Grid Item 2</div>
-              <div style="border: 2px solid black">Grid Item 3</div>
-              <div style="border: 2px solid black">Grid Item 4</div>
-              <div style="border: 2px solid black">
-                Grid Item 5
-                <br />
-                (very very very very very very long content)
-              </div>
-              <div style="border: 2px solid black">Grid Item 6</div>
-              <div style="border: 2px solid black">Grid Item 7</div>
-              <div style="border: 2px solid black">Grid Item 8</div>
-            </div>
-            <aside class="notes">
-              <ol>
-                <li>Just shows what happens with an additional 3 items</li>
-              </ol>
-            </aside>
-          </section>
         </section>
 
         <section>
+          <section class="subtitle-slide">
+            <h2>Grid Garden – Part 1</h2>
+          </section>
+
           <section class="exercise">
             <span class="title">Exercise</span>
             <span class="description">
@@ -443,10 +381,12 @@
             </ul>
           </aside>
         </section>
+
         <section>
           <section class="subtitle-slide">
             <h2>Grid Items</h2>
           </section>
+
           <section>
             <h3>Grid Lines</h3>
             <p>Grid items are positioned using grid lines.</p>
@@ -457,6 +397,7 @@
               </ul>
             </aside>
           </section>
+
           <section>
             <h3>Positioning</h3>
             <div class="comparison">
@@ -479,37 +420,33 @@
               </code></pre>
             </div>
             <div
-              class="fragment"
+              class="fragment grid-example"
               style="
-                display: grid;
                 grid-template-columns: repeat(3, 1fr);
-                grid-row-gap: 1rem;
-                grid-column-gap: 4rem;
-                border: 2px solid red;
-                padding: 1rem;
-                margin-top: 1rem;
+                margin-top: 2rem;
               "
             >
-              <div style="border: 2px solid black; grid-row: 2/3; grid-column: 2/3">Grid Item 1</div>
-              <div style="border: 2px solid black">Grid Item 2</div>
-              <div style="border: 2px solid black; grid-row: 3/4; grid-column: 3/4">Grid Item 3</div>
+              <div style=" grid-row: 2/3; grid-column: 2/3">Grid Item 1</div>
+              <div>Grid Item 2</div>
+              <div style=" grid-row: 3/4; grid-column: 3/4">Grid Item 3</div>
             </div>
           </section>
+
           <section>
             <h3>Properties</h3>
             <ul>
               <li>
-                <span class="code">grid-row</span>
+                <code class="code">grid-row</code>
                 <ul>
-                  <li><span class="code">grid-row-start</span></li>
-                  <li><span class="code">grid-row-end</span></li>
+                  <li><code class="code">grid-row-start</code></li>
+                  <li><code class="code">grid-row-end</code></li>
                 </ul>
               </li>
               <li>
-                <span class="code">grid-column</span>
+                <code class="code">grid-column</code>
                 <ul>
-                  <li><span class="code">grid-column-start</span></li>
-                  <li><span class="code">grid-column-end</span></li>
+                  <li><code class="code">grid-column-start</code></li>
+                  <li><code class="code">grid-column-end</code></li>
                 </ul>
               </li>
             </ul>
@@ -517,6 +454,9 @@
         </section>
 
         <section>
+          <section class="subtitle-slide">
+            <h2>Grid Garden – Part 2</h2>
+          </section>
           <section class="exercise">
             <span class="title">Exercise</span>
             <span class="description">
@@ -542,24 +482,26 @@
           <section class="subtitle-slide">
             <h2>Advanced Grid</h2>
           </section>
+
           <section>
             <h3>Template Areas</h3>
             <p>
               What is
-              <span class="code">grid-area</span>
+              <code class="code">grid-area</code>
               again?
             </p>
             <ol class="fragment">
-              <li><span class="code">grid-row-start</span></li>
-              <li><span class="code">grid-column-start</span></li>
-              <li><span class="code">grid-row-end</span></li>
-              <li><span class="code">grid-column-end</span></li>
+              <li><code class="code">grid-row-start</code></li>
+              <li><code class="code">grid-column-start</code></li>
+              <li><code class="code">grid-row-end</code></li>
+              <li><code class="code">grid-column-end</code></li>
             </ol>
             <aside class="notes">
               What is grid-area? If we remember:
               <p>Rectangular space surrounded by four grid lines. A grid area can contain any number of grid cells.</p>
             </aside>
           </section>
+
           <section>
             <h3>Template Areas (v2)</h3>
             <pre><code class="fragment css" data-trim data-noescape>
@@ -588,60 +530,92 @@
           </section>
         </section>
 
-        <section class="exercise">
-          <span class="title">Final Exercise</span>
-          <span class="description">person tile(s) in a grid</span>
-          <p>
-            Go to the
-            <a
-              href="https://githubbox.com/webplatformz/css-course-exercises/tree/main/offer-gallery/grid"
-              target="_blank"
-              rel="noopener"
-            >
-              code sandbox
-            </a>
-            and fill up the available space with the person tiles. Think of mobile, tablet and desktop widths. Align the
-            previously built person tiles using a CSS grid layout.
-          </p>
-          <p class="fragment">
-            <b>Hint:</b>
-            Try if you can make the layout responsive without media queries.
-          </p>
-          <p class="fragment">
-            <a
-              href="https://githubbox.com/webplatformz/css-course-exercises/tree/main/offer-gallery/grid-solution-no-media-queries"
-              target="_blank"
-            >
-              Link to a possible solution
-            </a>
-          </p>
-        </section>
-
         <section>
-          <h3>Further Resources</h3>
-          <ul>
-            <li>
-              <a href="https://web.dev/learn/css/grid" target="_blank" rel="noopener">https://web.dev/learn/css/grid</a>
-            </li>
-            <li>
-              <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout" target="_blank" rel="noopener">
-                https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout
+          <section class="subtitle-slide">
+              <h2>Conclusion</h2>
+          </section>
+
+          <section>
+            <h3>Flex vs. Grid</h3>
+              <div class="comparison">
+                 <div>
+                   <h4>Flex</h4>
+                   <ul>
+                     <li><b>single direction</b>, main and cross axis</li>
+                     <li>primarily for row <b>or</b> column layouts (with wrapping)</li>
+                     <li><b>flow</b> and <b>alignment</b> defined on container</li>
+                     <li>layout and sizing defined <b>by items</b></li>
+                     <li>items shrink/grow <b>based on space available</b></li>
+                   </ul>
+                </div>
+                <div>
+                  <h4>Grid</h4>
+                  <ul>
+                    <li><b>two-dimensional</b>, rows and columns</li>
+                    <li>manage rows and columns <b>simultaneously</b></li>
+                    <li>full <b>layout</b> defined on container</li>
+                    <li>spacing in both directions (gap)</li>
+                    <li>items <b>placed</b> inside grid cells</li>
+                  </ul>
+                </div>
+              </div>
+          </section>
+
+          <section class="exercise">
+            <span class="title">Final Exercise</span>
+            <span class="description">person tile(s) in a grid</span>
+            <p>
+              Go to the
+              <a
+                href="https://githubbox.com/webplatformz/css-course-exercises/tree/main/offer-gallery/grid"
+                target="_blank"
+                rel="noopener"
+              >
+                code sandbox
               </a>
-            </li>
-            <li>
-              <a href="https://cssgridgarden.com/" target="_blank" rel="noopener">https://cssgridgarden.com</a>
-            </li>
-            <li>
-              <a href="https://mozilladevelopers.github.io/playground/css-grid/" target="_blank" rel="noopener">
-                https://mozilladevelopers.github.io/playground/css-grid/
+              and fill up the available space with the person tiles. Think of mobile, tablet and desktop widths. Align the
+              previously built person tiles using a CSS grid layout.
+            </p>
+            <p class="fragment">
+              <b>Hint:</b>
+              Try if you can make the layout responsive without media queries.
+            </p>
+            <p class="fragment">
+              <a
+                href="https://githubbox.com/webplatformz/css-course-exercises/tree/main/offer-gallery/grid-solution-no-media-queries"
+                target="_blank"
+              >
+                Link to a possible solution
               </a>
-            </li>
-            <li>
-              <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="noopener">
-                https://css-tricks.com/snippets/css/complete-guide-grid/
-              </a>
-            </li>
-          </ul>
+            </p>
+          </section>
+
+          <section>
+            <h3>Further Resources</h3>
+            <ul>
+              <li>
+                <a href="https://web.dev/learn/css/grid" target="_blank" rel="noopener">https://web.dev/learn/css/grid</a>
+              </li>
+              <li>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout" target="_blank" rel="noopener">
+                  https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout
+                </a>
+              </li>
+              <li>
+                <a href="https://cssgridgarden.com/" target="_blank" rel="noopener">https://cssgridgarden.com</a>
+              </li>
+              <li>
+                <a href="https://mozilladevelopers.github.io/playground/css-grid/" target="_blank" rel="noopener">
+                  https://mozilladevelopers.github.io/playground/css-grid/
+                </a>
+              </li>
+              <li>
+                <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="noopener">
+                  https://css-tricks.com/snippets/css/complete-guide-grid/
+                </a>
+              </li>
+            </ul>
+          </section>
         </section>
 
         <section class="break-slide">

@@ -1,0 +1,22 @@
+.grid-example {
+    display: grid;
+    padding: .5rem;
+    grid-gap: .5rem;
+    border: 2px solid var(--zuehlke-gray);
+    background-color: var(--zuehlke-bright-gray);
+    font-size: .75em;
+}
+
+.grid-example > div {
+    background-color: var(--zuehlke-bright-blue);
+    border: 2px solid var(--zuehlke-blue);
+    padding: 0.5rem;
+}
+
+.grid-example .fragment {
+    display: none;
+
+    &.visible {
+        display: inherit;
+    }
+}

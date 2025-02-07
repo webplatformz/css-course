@@ -1,16 +1,20 @@
 .flex-example-parent-horizontal {
     display: flex;
     width: 100%;
+    padding: .5rem;
+    gap: .5rem;
+    border: 2px solid var(--zuehlke-gray);
     background-color: var(--zuehlke-bright-gray);
+    font-size: .75em;
 }
 
 .flex-example-parent-horizontal-medium {
-    height: 100px;
+    height: 120px;
 }
 
 .flex-example-parent-horizontal > div {
     background-color: var(--zuehlke-bright-blue);
-    border: 4px solid var(--zuehlke-purple);
+    border: 2px solid var(--zuehlke-blue);
     padding: 0.5rem;
 }
 
