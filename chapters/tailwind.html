@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>CSS Basics</title>
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/Zuehlke/zuehlke-reveal-package@12d464d3ae3c5bbe96af93ece05bd5ebeaabefbe/release/index.css">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section class="title-slide">
+            <h1>CSS for Developers</h1>
+            <h2>Tailwind CSS</h2>
+        </section>
+
+        <section>
+            <section class="subtitle-slide">
+                <h2>Concept</h2>
+            </section>
+
+            <section>
+                <h3>What is Tailwind CSS?</h3>
+                <ul>
+                    <li>a modern <b class="hl">utility-first</b> CSS framework</li>
+                    <li>provides pre-defined, reusable classes for styling</li>
+                    <li>fully responsive by default</li>
+                    <li>no arbitrary values — everything is based on a scale</li>
+                    <li>only outputs CSS which is actually used</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Utility-first?</h3>
+                <p>Tailwind's concept was a departure from previous approaches.</p>
+                <ul>
+                    <li>prioritises single-purpose over component-based classes</li>
+                    <li>small, atomic classes that can be combined</li>
+                    <li>highly flexible and customisable</li>
+                </ul>
+            </section>
+        </section>
+
+        <section>
+            <section class="subtitle-slide">
+                <h2>Features</h2>
+            </section>
+
+            <section>
+                <h3>Utility Classes</h3>
+                <p>Classes for styling elements directly in HTML.</p>
+                <ul>
+                    <li>spacing: <code class="code">mx-auto</code> (horizontal margin), <code class="code">p-2</code>
+                        (padding)
+                    </li>
+                    <li>display: <code class="code">flex</code>, <code class="code">grid</code>, <code class="code">hidden</code>
+                    </li>
+                    <li>typography: <code class="code">text-xl</code>, <code class="code">text-black</code>, <code
+                            class="code">font-medium</code></li>
+                    <li>sizes: <code class="code">max-w-md</code> (max width), <code class="code">size-12</code> (height
+                        & width)
+                    </li>
+                    <li>… and many more, for almost every CSS property and value</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Breakpoint Prefixes</h3>
+                <p>Prefix any class with a breakpoint size to apply that style only for screens <b class="hl">larger</b>
+                    than that.</p>
+                <pre><code class="hljs html" data-trim>
+                    <section class="flex flex-col md:flex-row">
+                        <div>one flex item</div>
+                        <div>second flex item</div>
+                    </section>
+                </code></pre>
+                <p>Displays elements in a column on small screens and in a row above 768px screen width.</p>
+            </section>
+
+            <section>
+                <h3>State and Pseudo-Selector Prefixes</h3>
+                <p>Like breakpoints, different element states and relationships can be targeted with the respective
+                    prefix too.</p>
+                <ul>
+                    <li><code class="code">hover:…</code> to apply styles on mouse over</li>
+                    <li><code class="code">focus-visible:…</code> defines focus styles for keyboard users</li>
+                    <li><code class="code">first:…</code> to style first sibling</li>
+                    <li><code class="code">has-checked:…</code> applies if a checked checkbox is inside</li>
+                    <li>… and many more, check the <a href="https://tailwindcss.com/docs/hover-focus-and-other-states">Tailwind
+                        documentation</a></li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Theming</h3>
+                <p>Tailwind is fully customisable by specifying theme config (v3), setting theme variables (v4), or
+                    adding custom styles.</p>
+                <p>You can overwrite any and all aspects of Tailwind: colors, sizes, fonts, etc.</p>
+            </section>
+        </section>
+
+        <section>
+            <section class="subtitle-slide">
+                <h2>How to use</h2>
+            </section>
+
+            <section>
+                <h3>Setup</h3>
+                <ol>
+                    <li>install: e.g. <code class="code">npm i tailwindcss @tailwindcss/vite</code></li>
+                    <li>configure: add respective plugin to Vite or PostCSS config, depends on your setup/framework</li>
+                    <li>import: <code class="code">@import "tailwindcss";</code> in root CSS file</li>
+                    <li>use in HTML</li>
+                </ol>
+            </section>
+
+            <section>
+                <h3>Using Tailwind CSS</h3>
+                <div class="space-y-4">
+                    <p>Basic usage:</p>
+                    <pre><code class="hljs html" data-trim>
+                        &lt;div class="text-center bg-blue-500 text-white p-4 rounded-lg"&gt;
+                            Hello, World!
+                        &lt;/div&gt;
+                    </code></pre>
+
+                    <div style="background: #2b7fff; color: white; padding: 1rem; border-radius: .5rem;">Hello, World
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h3>Design Token</h3>
+                <p>Tailwind works nicely in with a Design System using Design Token.</p>
+                <ul>
+                    <li><b>consistent styling:</b> use token to configure Tailwind for consistent design with little
+                        effort
+                    </li>
+                    <li><b>limiting choices:</b> reducing the amount of possible values makes it easier to decide, i.e.
+                        having only a few different spacings instead of any possible pixel value
+                    </li>
+                </ul>
+            </section>
+        </section>
+
+        <section>
+            <h2>Summary</h2>
+            <ul>
+                <li>Tailwind CSS is a powerful utility-first framework</li>
+                <li>saves time by avoiding writing custom CSS</li>
+                <li>highly customisable and responsive</li>
+                <li>works well with design systems</li>
+            </ul>
+            <p>Docs and more at <a href="https://tailwindcss.com" target="_blank">tailwindcss.com</a>
+            </p>
+        </section>
+
+        <section class="break-slide">
+            <h1>Questions?</h1>
+        </section>
+
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/Zuehlke/zuehlke-reveal-package@12d464d3ae3c5bbe96af93ece05bd5ebeaabefbe/release/index.js"></script>
+<script>
+    setupZuehlkeRevealPresentation();
+</script>
+</body>
+</html>
