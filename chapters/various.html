@@ -65,16 +65,35 @@
 
         <section>
             <section class="subtitle-slide">
-                <h2>Media Queries</h2>
+                <h2>at-rules</h2>
             </section>
 
             <section>
-                <p>Media Queries are used to style elements depending on certain features, like ...</p>
+                <h3>at-rules</h3>
+                <p>They start with an <span class="code">@</span> and are special instructions to provide:</p>
+                <ul>
+                    <li><b>meta information</b></li>
+                    <li><b>conditional rules</b></li>
+                    <li><b>descriptive expressions</b></li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Imports</h3>
+                <p>Include style rules from other CSS files with <span class="code">@import</span>:</p>
+                <pre><code class="hljs css" data-trim data-noescape>
+                    @import url("my-imported-styles.css");
+                </code></pre>
+            </section>
+
+            <section>
+                <h3>Media Queries</h3>
+                <p>Media Queries (with <span class="code">@media (condition) {…}</span>) are used to style elements depending on certain features, like ...</p>
             </section>
 
             <section>
                 <p>... width of screen</p>
-                <pre class="fragment"><code class="hljs css" data-trim data-noescape data-line-numbers="1-4,8|5-7">
+                <pre><code class="hljs css" data-trim data-noescape data-line-numbers="1-4,8|5-7">
                     .card-container {
                         display: flex;
                         flex-direction: row;
@@ -84,41 +103,28 @@
                         }
                     }
                 </code></pre>
-            </section>
 
-            <section>
-                <p>... how accurate the pointer is</p>
-                <pre class="fragment"><code class="hljs css" data-trim data-noescape data-line-numbers="1,2,7|4-6">
-                    div {
-                        margin: 0 1.4rem;
-
-                        @media (pointer: coarse) { /* touch device */
-                            margin: 0;
+                <div class="fragment">
+                    <p>... print view</p>
+                    <pre><code class="hljs css" data-trim data-noescape>
+                        @media print {
+                            .advertisement {
+                                display: none;
+                            }
                         }
-                    }
-                </code></pre>
+                    </code></pre>
+                </div>
+                <p class="fragment">… and <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media#media_features">many more</a></p>
             </section>
 
             <section>
-                <p>... print view</p>
-                <pre class="fragment"><code class="hljs css" data-trim data-noescape>
-                    @media print {
-                        .advertisement {
-                            display: none;
-                        }
-                    }
-                </code></pre>
-            </section>
-        </section>
-
-        <section>
-            <section class="subtitle-slide">
-                <h2>Container Queries</h2>
+                <h3>Container Queries</h3>
+                <p>Container Queries are similar to Media Queries, but <strong>depend on a defined container</strong> instead of the full viewport.</p>
             </section>
 
             <section>
-                <p>Container Queries are similar to Media Queries, but depend on a defined container</p>
-                <img class="fragment" src="../assets/media-query-vs-container-query.png" alt="Comparison Media & Container Query">
+                <img src="../assets/cq-vs-mq.jpg" alt="Comparison how media queries relate to entire viewport and container queries to respective container size">
             </section>
 
             <section>
@@ -144,6 +150,57 @@
                         }
                     </code></pre>
                 </div>
+            </section>
+            
+            <section>
+                <p>Helpful resources for more in-depth information about container queries:</p>
+                <ul>
+                    <li><a href="https://ishadeed.com/article/container-queries-for-designers/">Container Queries from a design perspective</a></li>
+                    <li>
+                        <a href="https://developer.mozilla.org/en-US/blog/getting-started-with-css-container-queries/">Getting Started article on MDN</a></li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Font Face</h3>
+                <p><span class="code">@font-face</span> can be used to specify custom fonts.</p>
+                <pre><code class="hljs css" data-trim data-noescape>
+                    @font-face {
+                        font-family: "Inter";
+                        font-style: normal;
+                        font-weight: 100 900;
+                        font-display: swap;
+                        src: url("InterVariable.woff2") format("woff2-variations");
+                    }
+
+                    body {
+                        font-family: "Inter", sans-serif;
+                    }
+                </code></pre>
+            </section>
+
+            <section>
+                <h3>Feature Queries</h3>
+                <p>Apply rules based on browser support with <span class="code">@supports</span>.</p>
+                <pre><code class="hljs css" data-trim data-noescape>
+                    @supports selector(h2 > p) {
+                        /* CSS rules using this kind of selector … */
+                    }
+                </code></pre>
+                <pre><code class="hljs css" data-trim data-noescape>
+                    @supports (display: flex) {
+                        /* CSS rules using flex features … */
+                    }
+
+                    @supports not (display: flex) {
+                        /* CSS rules with alternative solution if flex is not available … */
+                    }
+                </code></pre>
+            </section>
+
+            <section>
+                <p>And of course there are more …</p>
+                <p>see the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_syntax/At-rule#index">full list on MDN</a></p>
             </section>
         </section>
 
