@@ -591,14 +591,21 @@
                 <h2>Units</h2>
             </section>
             <section>
-                <h3>px</h3>
-                <p>Specifies a size in exact pixels</p>
+                <h3>Absolute units</h3>
+                <ul>
+                    <li><code class="code">px</code>: size in exact pixels</li>
+                    <li><code class="code">cm</code>/<code class="code">mm</code>: size in metric units (e.g. useful for
+                        print)
+                    </li>
+                </ul>
             </section>
             <section>
                 <h3>Sizing relative to font size</h3>
-                <p><code class="code">rem</code>: specifies a size relative to the <b>root</b> font size</p>
-                <p><code class="code">em</code>: specifies a size relative to the font size of the element being styled
-                </p>
+                <ul>
+                    <li><code class="code">rem</code>: size relative to the <b>root</b> font size (<code class="code">&lt;html&gt;</code>)
+                    </li>
+                    <li><code class="code">em</code>: size relative to the font size of the element itself</li>
+                </ul>
             </section>
             <section>
                 <h3>Why <code class="code">rem</code>?</h3>
@@ -607,18 +614,33 @@
                     <li>With <code class="code">px</code> this preference is ignored</li>
                     <li>With <code class="code">rem</code> everything can scale accordingly</li>
                 </ul>
-                <div class="tip fragment">use rem instead of px if possible</div>
+                <div class="tip fragment">use rem/em instead of px if possible</div>
                 <aside class="notes">
                     Hint: changing the root font size is not the same thing as zooming in
                 </aside>
             </section>
 
             <section>
-                <h3>Other Units</h3>
+                <h3>Percentage</h3>
+                <p><code class="code">%</code>: relative to another value, depending on where it's used</p>
+            </section>
+
+            <section>
+                <h3>Viewport Units</h3>
+                <p>Units relative to the viewport (usually browser window size):</p>
                 <ul>
-                    <li><code class="code">%</code>: percentage based on the parent element</li>
-                    <li><code class="code">vh</code>/<span class="code">vw</span>: percentage of viewport (height and
-                        width)
+                    <li class="fragment">
+                        <code class="code">vh</code>/<code class="code">vw</code>: percentage of viewport, height and
+                        width
+                        <br>
+                        (<code class="code">1vh</code> = 100% of viewport height)
+                    </li>
+                    <li class="fragment"><code class="code">vmax</code>/<code class="code">vmin</code>: the max, resp.
+                        min, dimension of the viewport
+                    </li>
+                    <li class="fragment"><code class="code">sv*</code>/<code class="code">lv*</code>/<code class="code">dv*</code>:
+                        <em>small</em>, <em>large</em> and <em>dynamic</em> viewport sizes for dynamic browser
+                        interfaces (i.e. address bar on mobile)
                     </li>
                 </ul>
             </section>
