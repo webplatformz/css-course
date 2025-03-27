@@ -72,9 +72,9 @@
         <h3>Selector Types</h3>
         <p>Different selector types ordered by increasing weight:</p>
         <ol>
-          <li class="fragment">Types (<span class="code">h1</span>) and pseudo-elements (<span class="code">::before</span>)</li>
-          <li class="fragment">Classes (<span class="code">.red</span>), attributes (<span class="code">[type=radio]</span>), pseudo-classes (<span class="code">:hover</span>)</li>
-          <li class="fragment">IDs (<span class="code">#title</span>)</li>
+          <li class="fragment">Types (<code class="code">h1</code>) and pseudo-elements (<code class="code">::before</code>)</li>
+          <li class="fragment">Classes (<code class="code">.red</code>), attributes (<code class="code">[type=radio]</code>), pseudo-classes (<code class="code">:hover</code>)</li>
+          <li class="fragment">IDs (<code class="code">#title</code>)</li>
         </ol>
         <div class="tip fragment">Keep specificity as low a necessary</div>
         <aside class="notes">short: explain what pseudo-elements and pseudo-classes are</aside>
@@ -82,7 +82,7 @@
 
       <section>
         <h3>Calculate Weight</h3>
-        <p>The weight can be represented in this format: <span class="code">id-class-tag</span>.</p>
+        <p>The weight can be represented in this format: <code class="code">id-class-tag</code>.</p>
         <pre class="fragment"><code class="hljs css" data-trim data-noescape>div.banner li                <span class="fragment">/* 0-1-2 */</span></code></pre>
         <pre class="fragment"><code class="hljs css" data-trim data-noescape>#upload > button             <span class="fragment">/* 1-0-1 */</span></code></pre>
         <pre class="fragment"><code class="hljs css" data-trim data-noescape>form [type="password"]       <span class="fragment">/* 0-1-1 */</span></code></pre>
@@ -130,10 +130,10 @@
         <p>When specified, these properties' values are applied as default for all child elements.</p>
         <p>Typical examples are <span class="hl">text related</span> properties like:</p>
         <ul>
-          <li><span class="code">color</span></li>
-          <li><span class="code">font-family</span>, <span class="code">font-size</span>, …</li>
-          <li><span class="code">line-height</span></li>
-          <li><span class="code">text-align</span></li>
+          <li><code class="code">color</code></li>
+          <li><code class="code">font-family</code>, <code class="code">font-size</code>, …</li>
+          <li><code class="code">line-height</code></li>
+          <li><code class="code">text-align</code></li>
         </ul>
       </section>
 
@@ -142,11 +142,11 @@
         <p>Specifying values for these properties will only apply them to the targeted elements.</p>
         <p>Typical examples are <span class="hl">layout related</span> properties like:</p>
         <ul>
-          <li><span class="code">margin</span>, <span class="code">padding</span></li>
-          <li><span class="code">height</span>, <span class="code">width</span></li>
-          <li><span class="code">border</span></li>
-          <li><span class="code">flex</span>, <span class="code">grid</span></li>
-          <li><span class="code">position</span></li>
+          <li><code class="code">margin</code>, <code class="code">padding</code></li>
+          <li><code class="code">height</code>, <code class="code">width</code></li>
+          <li><code class="code">border</code></li>
+          <li><code class="code">flex</code>, <code class="code">grid</code></li>
+          <li><code class="code">position</code></li>
         </ul>
       </section>
     </section>
@@ -279,19 +279,19 @@
 
       <section>
         <h3>Positioning</h3>
-        <p>The <span class="code">position</span> property determines where the element is rendered:</p>
+        <p>The <code class="code">position</code> property determines where the element is rendered:</p>
         <ul>
-          <li class="fragment"><span class="code">static</span>: default, rendered in page flow</li>
-          <li class="fragment"><span class="code">relative</span>: can be offset from its parent, original
+          <li class="fragment"><code class="code">static</code>: default, rendered in page flow</li>
+          <li class="fragment"><code class="code">relative</code>: can be offset from its parent, original
             space will remain occupied
           </li>
-          <li class="fragment"><span class="code">absolute</span>: removes element from the page flow, allows
-            positioning in relation to the closest parent not <span class="code">static</span></li>
-          <li class="fragment"><span class="code">fixed</span>: like <span class="code">absolute</span> but in
+          <li class="fragment"><code class="code">absolute</code>: removes element from the page flow, allows
+            positioning in relation to the closest parent not <code class="code">static</code></li>
+          <li class="fragment"><code class="code">fixed</code>: like <code class="code">absolute</code> but in
             relation to the window
           </li>
-          <li class="fragment"><span class="code">sticky</span>: hybrid of <span class="code">relative</span>
-            and <span class="code">fixed</span></li>
+          <li class="fragment"><code class="code">sticky</code>: hybrid of <code class="code">relative</code>
+            and <code class="code">fixed</code></li>
         </ul>
       </section>
     </section>
@@ -391,7 +391,7 @@
             <span class="arrow-right"></span> control box
           </li>
           <li class="fragment">Note: padding is included in the background colour/image and click region (e.g. for links or buttons)</li>
-          <li class="fragment">Margin can be set to <span class="code">auto</span> or negative numbers</li>
+          <li class="fragment">Margin can be set to <code class="code">auto</code> or negative numbers</li>
         </ul>
       </section>
 
