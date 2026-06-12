@@ -447,6 +447,26 @@
             </section>
 
             <section>
+                <h3>Texts for Screen Readers</h3>
+                <p>Use CSS to provide «hidden» text for screen readers, e.g.:</p>
+                <pre><code class="hljs css" data-trim data-noescape>
+                    .sr-only {
+                        position: absolute;
+                        width: 1px;
+                        height: 1px;
+                        padding: 0;
+                        margin: -1px;
+                        overflow: hidden;
+                        clip: rect(0, 0, 0, 0);
+                        white-space: nowrap;
+                        border-width: 0;
+                    }
+                </code></pre>
+                <small>source: Tailwind</small>
+                <div class="tip fragment">useful to describe elements like icon buttons</div>
+            </section>
+
+            <section>
                 <h3>Check touch targets</h3>
                 <p>Check that click / touch targets are at least 9mm high by 9mm wide</p>
                 <a href="https://www.w3.org/TR/mobile-accessibility-mapping/#touch-target-size-and-spacing"><p>WGAC Target Size Spec</p></a>
