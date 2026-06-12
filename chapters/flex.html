@@ -451,51 +451,6 @@
                 <div class="fragment tip">flex-shrink only applies if the children are larger than the container!</div>
             </section>
 
-            <section>
-                <p>What if we change the order in which individual elements appear?</p>
-                <div class="flex-example-parent-horizontal">
-                    <div>Item 1</div>
-                    <div>Item 2</div>
-                    <div>Item 3</div>
-                </div>
-                vs.
-                <div class="flex-example-parent-horizontal">
-                    <div>Item 1</div>
-                    <div style="order: -1">Item 2</div>
-                    <div>Item 3</div>
-                </div>
-                <aside class="notes">
-                    Here it would be interesting to talk about media queries and the importance of order in that context
-                    but that concept might not have been introduced yet at this point.
-                </aside>
-            </section>
-
-            <section>
-                <h3>order</h3>
-                <ul>
-                    <li>child elements can have an individual order</li>
-                    <li>default is 0</li>
-                </ul>
-                <div style="display: flex; row-gap: 1rem; flex-direction: column">
-                    <div class="flex-example-parent-horizontal">
-                        <div style="order: 1">order: 1</div>
-                        <div style="order: 5">order: 5</div>
-                        <div style="order: -1">order: -1</div>
-                        <div style="order: 3">order: 3</div>
-                        <div style="order: 2">order: 2</div>
-                    </div>
-                </div>
-                <pre><code class="hljs html" data-trim data-noescape>
-                    &lt;div&gt;
-                        &lt;div style=&quot;order: 1&quot;&gt;order: 1&lt;/div&gt;
-                        &lt;div style=&quot;order: 5&quot;&gt;order: 5&lt;/div&gt;
-                        &lt;div style=&quot;order: -1&quot;&gt;order: -1&lt;/div&gt;
-                        &lt;div style=&quot;order: 3&quot;&gt;order: 3&lt;/div&gt;
-                        &lt;div style=&quot;order: 2&quot;&gt;order: 2&lt;/div&gt;
-                    &lt;/div&gt;
-                </code></pre>
-                <div class="fragment tip">Use order with care, it can be unintuitive</div>
-            </section>
         </section>
 
         <section>
