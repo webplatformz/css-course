@@ -6,7 +6,7 @@
     <title>Various topics</title>
 
     <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/Zuehlke/zuehlke-reveal-package@12d464d3ae3c5bbe96af93ece05bd5ebeaabefbe/release/index.css">
+          href="https://cdn.jsdelivr.net/gh/Zuehlke/zuehlke-reveal-package@f42658c99dec0812d754d935263a70b93b81f54b/release/index.css">
     <link rel="stylesheet" href="various.css"/>
 </head>
 <body>
@@ -16,52 +16,6 @@
             <h1>CSS for Developers</h1>
             <h2>Various topics</h2>
         </section>
-
-        <section>
-            <section class="subtitle-slide">
-                <h2>Design Principles</h2>
-            </section>
-
-            <section>
-                <img src="../assets/design-principles/design_1.jpg">
-            </section>
-
-            <section>
-                <img src="../assets/design-principles/design_2.jpg">
-            </section>
-
-            <section>
-                <img width="50%" src="../assets/design-principles/design_meme.png">
-            </section>
-
-            <section>
-                <img src="../assets/design-principles/design_3.jpg">
-            </section>
-
-            <section>
-                <img src="../assets/design-principles/design_4.jpg">
-            </section>
-
-            <section>
-                <img src="../assets/design-principles/design_5.jpg">
-            </section>
-
-            <section>
-                <img src="../assets/design-principles/design_exercise.jpg">
-                <aside class="notes">
-                    <ul>
-                        <li>Come up with a good structure (~10mins)</li>
-                        <li>Everybody showcases their version (~15mins)</li>
-                        <li>Show potential solution</li>
-                    </ul>
-                </aside>
-            </section>
-
-            <section>
-                <img src="../assets/design-principles/design_result.jpg">
-            </section>
-        </section>
-
 
         <section>
             <section class="subtitle-slide">
@@ -493,6 +447,26 @@
             </section>
 
             <section>
+                <h3>Texts for Screen Readers</h3>
+                <p>Use CSS to provide «hidden» text for screen readers, e.g.:</p>
+                <pre><code class="hljs css" data-trim data-noescape>
+                    .sr-only {
+                        position: absolute;
+                        width: 1px;
+                        height: 1px;
+                        padding: 0;
+                        margin: -1px;
+                        overflow: hidden;
+                        clip: rect(0, 0, 0, 0);
+                        white-space: nowrap;
+                        border-width: 0;
+                    }
+                </code></pre>
+                <small>source: Tailwind</small>
+                <div class="tip fragment">useful to describe elements like icon buttons</div>
+            </section>
+
+            <section>
                 <h3>Check touch targets</h3>
                 <p>Check that click / touch targets are at least 9mm high by 9mm wide</p>
                 <a href="https://www.w3.org/TR/mobile-accessibility-mapping/#touch-target-size-and-spacing"><p>WGAC Target Size Spec</p></a>
@@ -531,12 +505,57 @@
             </section>
         </section>
 
+        <section>
+            <section class="subtitle-slide">
+                <h2>Design Principles</h2>
+            </section>
+
+            <section>
+                <img src="../assets/design-principles/design_1.jpg">
+            </section>
+
+            <section>
+                <img src="../assets/design-principles/design_2.jpg">
+            </section>
+
+            <section>
+                <img width="50%" src="../assets/design-principles/design_meme.png">
+            </section>
+
+            <section>
+                <img src="../assets/design-principles/design_3.jpg">
+            </section>
+
+            <section>
+                <img src="../assets/design-principles/design_4.jpg">
+            </section>
+
+            <section>
+                <img src="../assets/design-principles/design_5.jpg">
+            </section>
+
+            <section>
+                <img src="../assets/design-principles/design_exercise.jpg">
+                <aside class="notes">
+                    <ul>
+                        <li>Come up with a good structure (~10mins)</li>
+                        <li>Everybody showcases their version (~15mins)</li>
+                        <li>Show potential solution</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <section>
+                <img src="../assets/design-principles/design_result.jpg">
+            </section>
+        </section>
+
         <section class="break-slide">
             <h1>Questions?</h1>
         </section>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/gh/Zuehlke/zuehlke-reveal-package@12d464d3ae3c5bbe96af93ece05bd5ebeaabefbe/release/index.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Zuehlke/zuehlke-reveal-package@f42658c99dec0812d754d935263a70b93b81f54b/release/index.js"></script>
 <script>
     setupZuehlkeRevealPresentation();
 </script>
